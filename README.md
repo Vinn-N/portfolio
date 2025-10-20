@@ -24,3 +24,7 @@ This portfolio is built with HTML, CSS, and JavaScript. To view it locally:
 1. Clone the repository:  
    ```bash
    git clone https://github.com/your-username/portfolio-html.git
+
+  
+## How to Run:
+python3 -m http.server 8000   
