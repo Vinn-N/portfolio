@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 1 – Vinn Nguyen</title>
+
+  <link rel="icon" href="../assets/favicon/favicon.ico" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/utilities.css" />
+
+  <style>
+    html, body { height: auto !important; overflow-y: auto !important; }
+    main.container { margin-top: 80px; }
+
+    /* ===== TARGETED PROJECT LAYOUT (top) ===== */
+    .tgt { padding-block: 2rem 3rem; }
+    .tgt-title { text-align: center; font-weight: var(--weight-bold); margin-bottom: 1.25rem; }
+    
+    .tgt-grid {
+      display: grid;
+      grid-template-columns: 500px 1fr;
+      gap: clamp(1rem, 4vw, 2rem);
+      align-items: start;
+    }
+    .tgt-rail { display: grid; gap: 1rem; }
+    .tgt-card {
+      border-radius: 12px;
+      padding: 1rem 1rem 1.1rem;
+      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
+      box-shadow: var(--shadow);
+    }
+
+    .tgt-card h3 { font-size: 1.05rem; margin-bottom: .4rem; font-weight: var(--weight-semibold); }
+    .tgt-obj  { background: var(--tgt-obj,  #efe7b8); }
+    .tgt-out  { background: var(--tgt-out,  #dff0dd); }
+    .tgt-tech { background: var(--tgt-tech, #f3d3d3); }
+
+    .tgt-visual {
+      display: flex;
+      justify-content: center; /* centers the smaller image */
+      align-items: center;
+      background: transparent;  /* removes the dark box */
+      border: none;
+      box-shadow: none;
+    }
+
+    .tgt-visual img {
+      width: 70%;     /* smaller = less than 100%, adjust as you like (e.g., 40%, 70%) */
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+    /* ===== SPLIT SECTIONS BELOW ===== */
+    .split {
+      padding-block: 2.5rem;
+      border-top: 1px solid var(--tgt-border, rgba(0,0,0,.08));
+    }
+    .split .wrap {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr; /* larger text, smaller image */
+      gap: clamp(1rem, 4vw, 2rem);
+      align-items: start;
+    }
+    .split h2 {
+      margin: 0 0 .75rem;
+      font-size: 1.4rem;
+      letter-spacing: .01em;
+      font-weight: var(--weight-semibold);
+    }
+    .split p {
+      margin-bottom: .9rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .split .media {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
+      box-shadow: var(--shadow);
+      background: var(--card-background);
+      max-width: 100px; /* keeps picture smaller */
+      justify-self: end;
+    }
+    .split .media img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 960px) {
+      .tgt-grid { grid-template-columns: 1fr; }
+      .split .wrap { grid-template-columns: 1fr; }
+      .split .media { max-width: 100%; justify-self: center; }
+    }
+
+    html[data-theme="dark"] {
+      --tgt-border: rgba(255,255,255,.16);
+      --tgt-obj:  #7b794f33;
+      --tgt-out:  #6b8f6b33;
+      --tgt-tech: #9b6a6a33;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between;">
+      <a class="nav-link" href="../index.html">← Back to Portfolio</a>
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <div class="theme-switch">
+          <input type="checkbox" id="switch" />
+          <label class="toggle-icons" for="switch">
+            <img class="moon" src="../assets/moon.svg" alt="Dark" />
+            <img class="sun"  src="../assets/sun.svg"  alt="Light" />
+          </label>
+        </div>
+        <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container project-detail">
+    <!-- TOP TARGETED SECTION -->
+    <section class="tgt">
+      <h1 class="tgt-title">What is it?</h1>
+      <div class="tgt-grid">
+        <aside class="tgt-rail">
+          <section class="tgt-card tgt-obj">
+            <h3>Objectives</h3>
+            <ul>
+              <li>Design a compact T-base lathe for precise facing.ffffffffffffffff ffffffffffffffffffff</li>
+            </ul>
+          </section>
+
+          <section class="tgt-card tgt-out">
+            <h3>Outcomes &amp; Contributions</h3>
+            <ul>
+              <li>Achieved 13 µm max surface variation (200 µm cut).</li>
+              <li>Full design-to-test workflow documented.</li>
+              <li>Developed modular T-base design guide.</li>
+            </ul>
+          </section>
+
+          <section class="tgt-card tgt-tech">
+            <h3>Technical Details &amp; Skills</h3>
+            <ul>
+              <li>Lead screw motion & alignment optimization.</li>
+              <li>GD&amp;T, tolerance stack analysis.</li>
+              <li>CNC machining & metrology tools.</li>
+            </ul>
+          </section>
+        </aside>
+
+        <figure class="tgt-visual">
+          <img src="../assets/project/project-three.png" alt="T-Base Lathe Overview" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- BELOW SECTIONS -->
+    <section class="split" id="overview">
+      <div class="wrap">
+        <div class="text">
+          <h2>Overview</h2>
+          <p>
+            The T-base lathe is a precision machining project that reimagines the conventional lathe
+            by aligning two linear axes on a single base. This reduces geometric error, simplifies
+            calibration, and improves surface flatness for micro-scale facing operations.
+          </p>
+          <p>
+            Designed and built as part of MIT’s 2.77: FUNdaMENTALS of Precision Machine Design,
+            the project explores how precision engineering principles can be applied using standard
+            lab resources and student machining skills.
+          </p>
+        </div>
+        <figure class="media">
+          <img src="../assets/projects/overview.jpg" alt="Overview visual" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="split" id="work">
+      <div class="wrap">
+        <div class="text">
+          <h2>Work</h2>
+          <p>
+            Iterative prototyping refined the alignment and stiffness of the design. I modeled, machined,
+            and assembled the components, then validated surface flatness and tool motion accuracy
+            through profilometry and lead-screw calibration tests.
+          </p>
+          <ul>
+            <li>Modeled lead-screw motion and backlash compensation in CAD.</li>
+            <li>Machined aluminum components with tight tolerance control.</li>
+            <li>Implemented surface metrology for quantitative verification.</li>
+          </ul>
+        </div>
+        <figure class="media">
+          <img src="../assets/projects/work.jpg" alt="Work process visual" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="split" id="conclusion">
+      <div class="wrap">
+        <div class="text">
+          <h2>Conclusion</h2>
+          <p>
+            The final assembly demonstrated consistent motion precision and repeatable surface
+            quality. The project strengthened my understanding of kinematic design, GD&T, and
+            tolerance analysis—skills crucial for high-precision manufacturing and instrumentation.
+          </p>
+        </div>
+        <figure class="media">
+          <img src="../assets/projects/conclusion.jpg" alt="Final T-Base Lathe" />
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>&copy; <span id="datee"></span> Vinn Nguyen</p>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>
+    const y = document.getElementById('datee');
+    if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
