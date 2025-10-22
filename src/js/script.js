@@ -104,7 +104,7 @@ if (petalsWrapper) {
   }
 
   let lastPetalTime = 0;
-  const petalInterval = 100; // 2 seconds
+  const petalInterval = 1000; // 2 seconds
   
   function animatePetals(timestamp) {
     const isLightMode = document.documentElement.getAttribute('data-theme') !== 'dark';
@@ -127,3 +127,42 @@ if (dateElem) {
   dateElem.textContent = new Date().getFullYear();
 }
 
+// ---------- Theme toggle (persistent, respects system preference) ----------
+(function () {
+  const STORAGE_KEY = 'theme';
+  const root = document.documentElement;
+  const btn  = document.getElementById('theme-toggle');
+
+  // Determine initial theme: saved -> system -> default 'light'
+  const saved = localStorage.getItem(STORAGE_KEY);
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initial = saved || (systemPrefersDark ? 'dark' : 'light');
+
+  setTheme(initial);
+
+  // Keep aria-pressed in sync & swap icons
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem(STORAGE_KEY, theme);
+    if (btn) btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+  }
+
+  // Toggle on click
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    });
+  }
+
+  // Optional: live update if user changes OS theme
+  try {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    mq.addEventListener('change', (e) => {
+      // Only follow system if user hasn't explicitly chosen
+      if (!localStorage.getItem(STORAGE_KEY)) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  } catch (_) {}
+})();

@@ -1,3 +1,4 @@
+<!-- /about.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,35 +15,11 @@
     />
 
     <!-- Favicons -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="assets/favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/favicon/favicon-16x16.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="assets/favicon/android-chrome-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="assets/favicon/android-chrome-512x512.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/android-chrome-512x512.png" />
     <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
 
@@ -62,21 +39,20 @@
     <div class="petals-wrapper light-only"></div>
 
     <header id="hero">
-      <!-- Navbar -->
+      <!-- Navbar (identical to main) -->
       <nav class="navbar">
         <div class="container">
           <!-- Left Navigation -->
           <ul class="nav-left">
+            <li><a class="nav-link" href="about.html">About</a></li>
             <li><a class="nav-link" href="index.html#projects">Work</a></li>
-            <li><a class="nav-link" href="index.html#blog">Blog</a></li>
-            <li><a class="nav-link active" href="about.html">About</a></li>
             <li><a class="nav-link" href="index.html#resume">Resume</a></li>
           </ul>
 
           <!-- Center Logo -->
           <div class="nav-center">
             <h1 id="logo">
-              <a href="index.html">
+              <a href="#hero">
                 <img src="assets/logo.png" alt="Vinn's Logo" />
               </a>
             </h1>
@@ -86,14 +62,8 @@
           <div class="nav-right">
             <!-- Social Icons -->
             <div class="social-icons">
-              <a href="https://github.com/vinnnguyen" target="_blank" aria-label="GitHub">
-                <img src="assets/github-icon.svg" alt="GitHub" />
-              </a>
-              <a href="https://linkedin.com/in/vinnnguyen" target="_blank" aria-label="LinkedIn">
+              <a href="https://linkedin.com/in/vinnnguyen" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
                 <img src="assets/linkedin-icon.svg" alt="LinkedIn" />
-              </a>
-              <a href="https://instagram.com/vinnnguyen" target="_blank" aria-label="Instagram">
-                <img src="assets/instagram-icon.svg" alt="Instagram" />
               </a>
             </div>
             
@@ -118,12 +88,6 @@
 
       <!-- About Section -->
       <section class="header-container">
-        <h1>About <span class="rainbow-name">Vinn</span></h1>
-        <span class="name-underline" aria-hidden="true"></span>
-        
-        <div class="intro">
-          <p>I'm a Mechanical Engineering student at MIT with a passion for sustainable energy systems and thoughtful design. My work focuses on how engineering can accelerate the transition to clean energy solutions.</p>
-        </div>
         
         <div class="about-content">
           <h2>Background</h2>
@@ -139,25 +103,19 @@
           
           <h2>Contact</h2>
           <p>Feel free to reach out if you'd like to collaborate or discuss opportunities in sustainable engineering!</p>
-          <a href="mailto:vinn@mit.edu" class="btn btn-primary">Get in Touch</a>
         </div>
       </section>
     </header>
 
-    <!-- Footer / Contact -->
+    <!-- Footer / Contact (kept consistent with main) -->
     <footer id="footer">
       <div class="container">
         <a href="mailto:vinn@mit.edu"></a>
         <div class="social">
-          <a href="https://github.com/vinnnguyen" target="_blank"
-            ><img src="assets/github-icon.svg" alt="GitHub"
-          /></a>
-          <a href="https://linkedin.com/in/vinnnguyen" target="_blank"
-            ><img src="assets/linkedin-icon.svg" alt="LinkedIn"
-          /></a>
-          <a href="https://instagram.com/vinnnguyen" target="_blank"
-            ><img src="assets/instagram-icon.svg" alt="Instagram"
-          /></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"><img src="assets/twitter-icon.svg" alt="Twitter" /></a>
+          <a href="https://linkedin.com/in/vinnnguyen" target="_blank" rel="noopener noreferrer"><img src="assets/linkedin-icon.svg" alt="LinkedIn" /></a>
+          <a href="https://github.com/vinnnguyen" target="_blank" rel="noopener noreferrer"><img src="assets/github-icon.svg" alt="GitHub" /></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"><img src="assets/hashnode-icon.svg" alt="Hashnode" /></a>
         </div>
         <div class="attribution">
           <a
@@ -172,7 +130,7 @@
             />
           </a>
         </div>
-        <p>Copyright &copy; Vinn Nguyen <span id="datee"></span>, All rights reserved</p>
+        <p>Copyright &copy; Communitypro <span id="datee"></span>, All rights reserved</p>
       </div>
     </footer>
 
