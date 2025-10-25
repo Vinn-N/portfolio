@@ -86,6 +86,16 @@
       .media.media-stack .shot-top img { width: clamp(56%, 36vw, 80%); }
     }
     
+    /* Timeline Block */
+    .timeline-block {
+      background: var(--tgt-obj, #efe7b8);
+      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+    }
+    
     /* PDF Section */
     .pdf-section { text-align: center; margin: 2rem 0; }
     .pdf-viewer { width: 100%; height: 700px; border: 3px solid #000; border-radius: 8px; margin: 1rem 0; }
@@ -154,7 +164,9 @@
       <div class="wrap">
         <div class="text">
           <h2>Overview</h2>
-          <p><strong>Timeline:</strong> January 2024 – September 2024 | <strong>Lab:</strong> The Lienhard Research Group</p>
+          <div class="timeline-block">
+            <p><strong>Timeline:</strong> January 2024 – September 2024 | <strong>Lab:</strong> The Lienhard Research Group</p>
+          </div>
           <p>
             The Campo de Cartagena basin (SE Spain) faces stressed hydrology and eutrophication of the Mar Menor due to groundwater overuse and pollution. 
             Local brackish groundwater is high in monovalent ions harmful to crops (Na⁺, Cl⁻) but also rich in nutrient divalents (Mg²⁺, Ca²⁺, SO₄²⁻), making it low-quality for direct irrigation and underutilized for economic activities.

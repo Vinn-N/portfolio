@@ -131,6 +131,16 @@
       background: var(--card-background);
     }
 
+    /* Timeline Block */
+    .timeline-block {
+      background: var(--tgt-obj, #efe7b8);
+      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+    }
+
     /* PDF Section Styles */
     .pdf-section { margin-top: 2rem; text-align: center; }
     .pdf-viewer { width: 100%; height: 700px; border: 3px solid #000; border-radius: 8px; }
@@ -225,7 +235,9 @@
       <div class="wrap">
         <div class="text">
           <h2>Overview</h2>
-          <p><strong>Timeline:</strong> June 2024 – January 2025 | <strong>Lab:</strong> Accelerated Materials Laboratory for Sustainability</p>
+          <div class="timeline-block">
+            <p><strong>Timeline:</strong> June 2024 – January 2025 | <strong>Lab:</strong> Accelerated Materials Laboratory for Sustainability</p>
+          </div>
           <p>
             Perovskite solar cells represent a promising next-generation photovoltaic technology, offering high efficiency potential at low manufacturing costs. However, their performance and stability are highly sensitive to environmental conditions during fabrication, creating challenges for real-world deployment and manufacturing scalability.
           </p>

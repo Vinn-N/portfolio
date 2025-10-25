@@ -131,6 +131,16 @@
       background: var(--card-background);
     }
 
+    /* Timeline Block */
+    .timeline-block {
+      background: var(--tgt-obj, #efe7b8);
+      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+    }
+    
     /* PDF Section Styles */
     .pdf-section { margin-top: 2rem; text-align: center; }
     .pdf-viewer { width: 100%; height: 700px; border: 3px solid #000; border-radius: 8px; }
@@ -224,7 +234,9 @@
       <div class="wrap">
         <div class="text">
           <h2>Overview</h2>
-          <p><strong>Timeline:</strong> January 2024 – September 2024 | <strong>Lab:</strong> The Lienhard Research Group</p>
+          <div class="timeline-block">
+            <p><strong>Timeline:</strong> January 2024 – September 2024 | <strong>Lab:</strong> The Lienhard Research Group</p>
+          </div>
           <p>
             Aluminum refining produces cryolite-based electrolytes that gradually accumulate sodium, lithium, and potassium impurities, rendering them unusable and creating a persistent waste problem. Disposal of this spent cryolite contributes to fluoride and aluminum contamination in soil and water systems.
           </p>
