@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project 1 – Vinn Nguyen</title>
+  <title>Aluminum Recovery from Cryolite Electrolyte – Vinn Nguyen</title>
 
   <link rel="icon" href="../assets/favicon/favicon.ico" />
   <link
@@ -44,19 +44,27 @@
 
     .tgt-visual {
       display: flex;
-      justify-content: center; /* centers the smaller image */
+      justify-content: center;
       align-items: center;
-      background: transparent;  /* removes the dark box */
+      background: transparent;
       border: none;
       box-shadow: none;
     }
 
     .tgt-visual img {
-      width: 70%;     /* smaller = less than 100%, adjust as you like (e.g., 40%, 70%) */
+      width: 100%;
       height: auto;
       display: block;
       border-radius: 10px;
+      border: 3px solid #000;
     }
+    .tgt-visual figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+    
     /* ===== SPLIT SECTIONS BELOW ===== */
     .split {
       padding-block: 2.5rem;
@@ -64,7 +72,7 @@
     }
     .split .wrap {
       display: grid;
-      grid-template-columns: 1.4fr 0.6fr; /* larger text, smaller image */
+      grid-template-columns: 1.4fr 0.6fr;
       gap: clamp(1rem, 4vw, 2rem);
       align-items: start;
     }
@@ -82,23 +90,68 @@
     .split .media {
       border-radius: 12px;
       overflow: hidden;
-      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
+      border: 3px solid #000;
       box-shadow: var(--shadow);
       background: var(--card-background);
-      max-width: 100px; /* keeps picture smaller */
       justify-self: end;
     }
     .split .media img {
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 12px;
     }
+    .split .media figcaption {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: center;
+      background: var(--card-background);
+    }
+    
+    .media-stack {
+      display: grid;
+      gap: 1rem;
+    }
+    .shot {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid #000;
+      box-shadow: var(--shadow);
+    }
+    .shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .shot figcaption {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: center;
+      background: var(--card-background);
+    }
+
+    /* PDF Section Styles */
+    .pdf-section { margin-top: 2rem; text-align: center; }
+    .pdf-viewer { width: 100%; height: 700px; border: 3px solid #000; border-radius: 8px; }
+    .pdf-download {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .pdf-download:hover { opacity: 0.8; }
+    @media (max-width: 768px) { .pdf-viewer { height: 500px; } }
 
     @media (max-width: 960px) {
       .tgt-grid { grid-template-columns: 1fr; }
       .split .wrap { grid-template-columns: 1fr; }
-      .split .media { max-width: 100%; justify-self: center; }
+      .split .media { justify-self: center; }
     }
 
     html[data-theme="dark"] {
@@ -115,15 +168,12 @@
   <nav class="navbar">
     <div class="container" style="display:flex; align-items:center; justify-content:space-between;">
       <a class="nav-link" href="../index.html">← Back to Portfolio</a>
-      <div style="display:flex; align-items:center; gap:1rem;">
-        <div class="theme-switch">
-          <input type="checkbox" id="switch" />
-          <label class="toggle-icons" for="switch">
-            <img class="moon" src="../assets/moon.svg" alt="Dark" />
-            <img class="sun"  src="../assets/sun.svg"  alt="Light" />
-          </label>
-        </div>
-        <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+      <div class="theme-switch">
+        <input type="checkbox" id="switch" />
+        <label class="toggle-icons" for="switch">
+          <img class="moon" src="../assets/moon.svg" alt="Dark" />
+          <img class="sun"  src="../assets/sun.svg"  alt="Light" />
+        </label>
       </div>
     </div>
   </nav>
@@ -132,37 +182,39 @@
   <main class="container project-detail">
     <!-- TOP TARGETED SECTION -->
     <section class="tgt">
-      <h1 class="tgt-title">What is it?</h1>
+      <h1 class="tgt-title">Novel Nanofiltration Method for Selective Aluminum Separation from Waste Cryolite Electrolyte</h1>
       <div class="tgt-grid">
         <aside class="tgt-rail">
           <section class="tgt-card tgt-obj">
             <h3>Objectives</h3>
             <ul>
-              <li>Design a compact T-base lathe for precise facing.ffffffffffffffff ffffffffffffffffffff</li>
+              <li>• Develop a novel nanofiltration approach for selective separation of aluminum from waste cryolite electrolyte</li>
+              <li>• Optimize membrane performance for industrial aluminum recovery applications</li>
             </ul>
           </section>
 
           <section class="tgt-card tgt-out">
             <h3>Outcomes &amp; Contributions</h3>
             <ul>
-              <li>Achieved 13 µm max surface variation (200 µm cut).</li>
-              <li>Full design-to-test workflow documented.</li>
-              <li>Developed modular T-base design guide.</li>
+              <li>• Aided in publication of breakthrough nanofiltration method for aluminum recovery</li>
+              <li>• Demonstrated selective separation efficiency for industrial waste stream treatment</li>
+              <li>• Contributed to sustainable aluminum processing technology development</li>
             </ul>
           </section>
 
           <section class="tgt-card tgt-tech">
             <h3>Technical Details &amp; Skills</h3>
             <ul>
-              <li>Lead screw motion & alignment optimization.</li>
-              <li>GD&amp;T, tolerance stack analysis.</li>
-              <li>CNC machining & metrology tools.</li>
+              <li>• Membrane Technology: Nanofiltration system design and optimization</li>
+              <li>• Process Engineering: Selective separation and recovery processes</li>
+              <li>• Research Methods: Experimental design and technical publication</li>
             </ul>
           </section>
         </aside>
 
         <figure class="tgt-visual">
-          <img src="../assets/project/project-three.png" alt="T-Base Lathe Overview" />
+          <img src="../assets/project/project-two/NF-T.jpeg" alt="Nanofiltration system for aluminum recovery" />
+          <figcaption>Nanofiltration membrane system for selective aluminum separation</figcaption>
         </figure>
       </div>
     </section>
@@ -173,18 +225,25 @@
         <div class="text">
           <h2>Overview</h2>
           <p>
-            The T-base lathe is a precision machining project that reimagines the conventional lathe
-            by aligning two linear axes on a single base. This reduces geometric error, simplifies
-            calibration, and improves surface flatness for micro-scale facing operations.
+            Aluminum production generates significant waste streams containing valuable aluminum compounds mixed with cryolite electrolyte. Traditional separation methods are energy-intensive and often result in material losses, creating both environmental and economic challenges for the aluminum industry.
           </p>
           <p>
-            Designed and built as part of MIT’s 2.77: FUNdaMENTALS of Precision Machine Design,
-            the project explores how precision engineering principles can be applied using standard
-            lab resources and student machining skills.
+            This research developed a novel nanofiltration approach for selective aluminum separation from waste cryolite electrolyte streams. The method leverages membrane technology to achieve high selectivity while maintaining process efficiency, offering a sustainable pathway for aluminum recovery.
+          </p>
+          <p>
+            My role focused on analyzing experimental results, writing the research introduction, and creating all figures for the published paper. I synthesized complex data into clear visual representations and provided the foundational context that framed the research significance.
           </p>
         </div>
-        <figure class="media">
-          <img src="../assets/projects/overview.jpg" alt="Overview visual" />
+        <figure class="media media-stack">
+          <figure class="shot shot-top">
+            <img src="../assets/project/project-two/overview-1.png" alt="Cryolite electrolyte waste stream" />
+            <figcaption>Waste cryolite electrolyte composition and challenges</figcaption>
+          </figure>
+        
+          <figure class="shot shot-bottom">
+            <img src="../assets/project/project-two/overview-2.png" alt="Nanofiltration process schematic" />
+            <figcaption>Novel nanofiltration process design and flow diagram</figcaption>
+          </figure>
         </figure>
       </div>
     </section>
@@ -194,18 +253,27 @@
         <div class="text">
           <h2>Work</h2>
           <p>
-            Iterative prototyping refined the alignment and stiffness of the design. I modeled, machined,
-            and assembled the components, then validated surface flatness and tool motion accuracy
-            through profilometry and lead-screw calibration tests.
+            My primary contributions centered on data analysis, scientific writing, and visual communication for this nanofiltration research. I transformed raw experimental data into meaningful insights and created comprehensive visual documentation of the research findings.
           </p>
           <ul>
-            <li>Modeled lead-screw motion and backlash compensation in CAD.</li>
-            <li>Machined aluminum components with tight tolerance control.</li>
-            <li>Implemented surface metrology for quantitative verification.</li>
+            <li>• Analyzed experimental data from nanofiltration trials to identify key performance trends and optimization opportunities</li>
+            <li>• Wrote the research paper introduction, establishing the scientific context and significance of aluminum recovery from cryolite waste</li>
+            <li>• Created all figures and graphs for the publication, including process schematics, performance charts, and comparative analyses</li>
+            <li>• Developed visual representations of membrane selectivity data and separation efficiency results</li>
+            <li>• Synthesized complex technical data into clear, publication-ready graphics that effectively communicated research outcomes</li>
+            <li>• Collaborated with research team to ensure figures aligned with manuscript narrative and publication standards</li>
           </ul>
         </div>
-        <figure class="media">
-          <img src="../assets/projects/work.jpg" alt="Work process visual" />
+        <figure class="media media-stack">
+          <figure class="shot shot-top">
+            <img src="../assets/project/project-two/work-1.png" alt="Membrane characterization results" />
+            <figcaption>Nanofiltration membrane characterization and selectivity analysis</figcaption>
+          </figure>
+          
+          <figure class="shot shot-bottom">
+            <img src="../assets/project/project-two/work-2.png" alt="Process optimization data" />
+            <figcaption>Process parameter optimization and performance validation</figcaption>
+          </figure>
         </figure>
       </div>
     </section>
@@ -213,28 +281,51 @@
     <section class="split" id="conclusion">
       <div class="wrap">
         <div class="text">
-          <h2>Conclusion</h2>
+          <h2>Results & Impact</h2>
           <p>
-            The final assembly demonstrated consistent motion precision and repeatable surface
-            quality. The project strengthened my understanding of kinematic design, GD&T, and
-            tolerance analysis—skills crucial for high-precision manufacturing and instrumentation.
+            The research successfully demonstrated selective aluminum separation from waste cryolite electrolyte with high efficiency. My analysis revealed key performance trends and optimization pathways that were critical to understanding the membrane's selective behavior and industrial potential.
+          </p>
+          <p>
+            The paper was successfully published in a peer-reviewed journal, with my introduction providing essential context for the research significance and my figures clearly communicating the technical achievements. The visual documentation I created effectively conveyed complex separation mechanisms and performance data to the scientific community.
+          </p>
+          <p>
+            Through this project, I developed expertise in scientific data analysis, technical writing, and research visualization. The experience enhanced my ability to transform complex experimental results into clear, impactful scientific communication—skills essential for advancing sustainable process engineering research.
           </p>
         </div>
         <figure class="media">
-          <img src="../assets/projects/conclusion.jpg" alt="Final T-Base Lathe" />
+          <img src="../assets/project/project-two.png" alt="Project results and publication impact" />
+          <figcaption>Summary of aluminum recovery performance and publication outcomes</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <!-- PDF Publication Section -->
+    <section class="split" id="publication">
+      <div class="wrap" style="grid-template-columns: 1fr;">
+        <div class="text">
+          <h2>Published Research</h2>
+          <p>View the complete published research paper detailing the novel nanofiltration method and experimental results.</p>
+          
+          <div class="pdf-section">
+            <iframe class="pdf-viewer" src="../assets/project/project-two/NF-paper.pdf" type="application/pdf">
+              <p>Your browser doesn't support PDF viewing. <a href="../assets/project/project-two/NF-paper.pdf" download>Download the PDF</a> instead.</p>
+            </iframe>
+            <br>
+            <a href="../assets/project/project-two/NF-paper.pdf" download class="pdf-download">
+              📄 Download Published Paper (PDF)
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="container">
-    <p>&copy; <span id="datee"></span> Vinn Nguyen</p>
+  <footer id="footer">
+    <div class="container">
+      <p>&copy; 2024 Vinn Nguyen</p>
+    </div>
   </footer>
 
   <script src="../js/script.js"></script>
-  <script>
-    const y = document.getElementById('datee');
-    if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

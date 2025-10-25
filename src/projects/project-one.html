@@ -1,113 +1,98 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project 1 – Vinn Nguyen</title>
+  <title>Brackish Water Nutrient Recovery – Vinn Nguyen</title>
 
   <link rel="icon" href="../assets/favicon/favicon.ico" />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-    crossorigin="anonymous"
-  />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/utilities.css" />
 
   <style>
     html, body { height: auto !important; overflow-y: auto !important; }
     main.container { margin-top: 80px; }
-
-    /* ===== TARGETED PROJECT LAYOUT (top) ===== */
+  
+    /* ===== TOP SECTION ===== */
     .tgt { padding-block: 2rem 3rem; }
     .tgt-title { text-align: center; font-weight: var(--weight-bold); margin-bottom: 1.25rem; }
-    
     .tgt-grid {
-      display: grid;
-      grid-template-columns: 500px 1fr;
-      gap: clamp(1rem, 4vw, 2rem);
-      align-items: start;
+      display: grid; grid-template-columns: 500px 1fr;
+      gap: clamp(1rem, 4vw, 2rem); align-items: start;
     }
     .tgt-rail { display: grid; gap: 1rem; }
     .tgt-card {
-      border-radius: 12px;
-      padding: 1rem 1rem 1.1rem;
-      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
-      box-shadow: var(--shadow);
+      border-radius: 12px; padding: 1rem 1.1rem;
+      border: 1px solid var(--tgt-border, rgba(0,0,0,.08)); box-shadow: var(--shadow);
     }
-
     .tgt-card h3 { font-size: 1.05rem; margin-bottom: .4rem; font-weight: var(--weight-semibold); }
     .tgt-obj  { background: var(--tgt-obj,  #efe7b8); }
     .tgt-out  { background: var(--tgt-out,  #dff0dd); }
     .tgt-tech { background: var(--tgt-tech, #f3d3d3); }
-
-    .tgt-visual {
-      display: flex;
-      justify-content: center; /* centers the smaller image */
-      align-items: center;
-      background: transparent;  /* removes the dark box */
-      border: none;
-      box-shadow: none;
-    }
-
-    .tgt-visual img {
-      width: 70%;     /* smaller = less than 100%, adjust as you like (e.g., 40%, 70%) */
-      height: auto;
-      display: block;
-      border-radius: 10px;
-    }
-    /* ===== SPLIT SECTIONS BELOW ===== */
-    .split {
-      padding-block: 2.5rem;
-      border-top: 1px solid var(--tgt-border, rgba(0,0,0,.08));
-    }
+  
+    .tgt-visual { display: flex; flex-direction: column; justify-content: center; align-items: center; background: transparent; border: none; box-shadow: none; }
+    .tgt-visual img { width: clamp(50%, 56vw, 100%); height: auto; display: block; border-radius: 10px; border: 3px solid #000; }
+    .tgt-visual figcaption { margin-top: 8px; font-size: 0.92rem; line-height: 1.35; opacity: 0.85; text-align: center; }
+  
+    /* ===== SPLIT SECTIONS ===== */
+    .split { padding-block: 2.5rem; border-top: 1px solid var(--tgt-border, rgba(0,0,0,.08)); }
     .split .wrap {
-      display: grid;
-      grid-template-columns: 1.4fr 0.6fr; /* larger text, smaller image */
-      gap: clamp(1rem, 4vw, 2rem);
-      align-items: start;
+      display: grid; grid-template-columns: 1.4fr 0.6fr;
+      gap: clamp(1rem, 4vw, 2rem); align-items: start;
     }
-    .split h2 {
-      margin: 0 0 .75rem;
-      font-size: 1.4rem;
-      letter-spacing: .01em;
-      font-weight: var(--weight-semibold);
-    }
-    .split p {
-      margin-bottom: .9rem;
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
+    .split h2 { margin: 0 0 .75rem; font-size: 1.4rem; letter-spacing: .01em; font-weight: var(--weight-semibold); }
+    .split p  { margin-bottom: .9rem; font-size: 1.05rem; line-height: 1.7; }
+  
     .split .media {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
-      box-shadow: var(--shadow);
-      background: var(--card-background);
-      max-width: 100px; /* keeps picture smaller */
-      justify-self: end;
+      border: none !important; box-shadow: none !important; background: transparent !important;
+      max-width: clamp(320px, 38vw, 680px); justify-self: end;
+      border-radius: 12px; overflow: hidden;
     }
-    .split .media img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 12px;
-    }
-
-    @media (max-width: 960px) {
+    .split .media img,
+    .media-photo { width: 100%; height: auto; display: block; border-radius: 12px; border: 3px solid #000; }
+    .media-photo + .media-photo { margin-top: 12px; }
+  
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1200px) {
       .tgt-grid { grid-template-columns: 1fr; }
       .split .wrap { grid-template-columns: 1fr; }
       .split .media { max-width: 100%; justify-self: center; }
     }
-
-    html[data-theme="dark"] {
+    @media (min-width: 1201px) {
+      .split .wrap { grid-template-columns: 1.2fr 0.8fr; gap: clamp(1rem, 3vw, 2.25rem); }
+    }
+    @media (min-width: 1440px) {
+      .tgt-visual img { width: clamp(60%, 52vw, 100%); }
+    }
+  
+    /* ===== THEME VARS ===== */
+    html[data-theme="dark"]{
       --tgt-border: rgba(255,255,255,.16);
       --tgt-obj:  #7b794f33;
       --tgt-out:  #6b8f6b33;
       --tgt-tech: #9b6a6a33;
     }
-  </style>
+    .media.media-stack { display: grid; gap: 16px; }
+    .media.media-stack .shot { margin: 0; }
+    .media.media-stack img { display: block; width: 100%; height: auto; border-radius: 12px; border: 3px solid #000; }
+    .media.media-stack figcaption {
+      margin-top: 8px; font-size: 0.92rem; line-height: 1.35; opacity: 0.85; text-align: center;
+    }
+    .media.media-stack .shot-top img { width: clamp(52%, 40vw, 88%); margin: 0 auto; }
+    .media.media-stack .shot-bottom img { width: 100%; margin: 0 auto; }
+    .media.media-stack .shot-top { margin-bottom: 8px; }
+    @media (min-width: 1200px) {
+      .media.media-stack { gap: 20px; }
+      .media.media-stack .shot-top img { width: clamp(56%, 36vw, 80%); }
+    }
+    
+    /* PDF Section */
+    .pdf-section { text-align: center; margin: 2rem 0; }
+    .pdf-viewer { width: 100%; height: 700px; border: 3px solid #000; border-radius: 8px; margin: 1rem 0; }
+    .pdf-download { display: inline-block; padding: 0.75rem 1.5rem; background: var(--primary-color); color: white; text-decoration: none; border-radius: 5px; margin-top: 1rem; }
+    .pdf-download:hover { opacity: 0.8; }
+    @media (max-width: 768px) { .pdf-viewer { height: 500px; } }
+  </style>  
 </head>
 
 <body>
@@ -115,15 +100,12 @@
   <nav class="navbar">
     <div class="container" style="display:flex; align-items:center; justify-content:space-between;">
       <a class="nav-link" href="../index.html">← Back to Portfolio</a>
-      <div style="display:flex; align-items:center; gap:1rem;">
-        <div class="theme-switch">
-          <input type="checkbox" id="switch" />
-          <label class="toggle-icons" for="switch">
-            <img class="moon" src="../assets/moon.svg" alt="Dark" />
-            <img class="sun"  src="../assets/sun.svg"  alt="Light" />
-          </label>
-        </div>
-        <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+      <div class="theme-switch">
+        <input type="checkbox" id="switch" />
+        <label class="toggle-icons" for="switch">
+          <img class="moon" src="../assets/moon.svg" alt="Dark" />
+          <img class="sun"  src="../assets/sun.svg"  alt="Light" />
+        </label>
       </div>
     </div>
   </nav>
@@ -148,7 +130,6 @@
             <ul>
               <li>• Independently operated NF and MSED experiments to evaluate ion transport and membrane selectivity for nutrient recovery</li>
               <li>• Refined a multi-ion transport model to simulate experimental behavior and predict system performance and generated a final report</li>
-
             </ul>
           </section>
 
@@ -157,13 +138,13 @@
             <ul>
               <li>• Research Methods: Experimental design, wet lab experience, and lab documentation.</li>
               <li>• Modeling & Analysis: Multi-ion transport simulation and Python data analysis.</li>
-
             </ul>
           </section>
         </aside>
 
         <figure class="tgt-visual">
-          <img src="../assets/project/project-three.png" alt="T-Base Lathe Overview" />
+          <img src="../assets/project/project-one/vinn.JPG" alt="Researcher working with membrane systems" />
+          <figcaption>Laboratory setup for brackish water treatment experiments</figcaption>
         </figure>
       </div>
     </section>
@@ -176,16 +157,26 @@
           <p>
             The Campo de Cartagena basin (SE Spain) faces stressed hydrology and eutrophication of the Mar Menor due to groundwater overuse and pollution. 
             Local brackish groundwater is high in monovalent ions harmful to crops (Na⁺, Cl⁻) but also rich in nutrient divalents (Mg²⁺, Ca²⁺, SO₄²⁻), making it low-quality for direct irrigation and underutilized for economic activities.
-            Conventional reverse osmosis (RO) removes nearly all ions, forcing fertilizer re-addition downstream. 
+          </p>
+          <p>Conventional reverse osmosis (RO) removes nearly all ions, forcing fertilizer re-addition downstream. 
             We instead evaluate monovalent-selective electrodialysis (MSED) and nanofiltration (NF) to retain nutrients while rejecting Na⁺/Cl⁻, aiming to cut fertilizer demand and brine losses.
           </p>
           <p>
             My goal was simple: show that we can produce irrigation-ready water that retains Mg²⁺/Ca²⁺/SO₄²⁻, cuts Na⁺/Cl⁻, and reduces fertilizer inputs, then back it up with experiments and modeling.
           </p>
         </div>
-        <figure class="media">
-          <img src="../assets/projects/project-one/Overview.png" alt="Overview visual" />
+        <figure class="media media-stack">
+          <figure class="shot shot-top">
+            <img src="../assets/project/project-one/overview-2.png" alt="Bench setup close-up" />
+            <figcaption>Bench-scale setup (close-up of MSED/NF rig)</figcaption>
+          </figure>
+        
+          <figure class="shot shot-bottom">
+            <img src="../assets/project/project-one/Overview.png" alt="System schematic and flow" />
+            <figcaption>System schematic and operating window</figcaption>
+          </figure>
         </figure>
+        
       </div>
     </section>
 
@@ -194,18 +185,26 @@
         <div class="text">
           <h2>Work</h2>
           <p>
-            Iterative prototyping refined the alignment and stiffness of the design. I modeled, machined,
-            and assembled the components, then validated surface flatness and tool motion accuracy
-            through profilometry and lead-screw calibration tests.
+            I conducted a series of nanofiltration (NF) and monovalent-selective electrodialysis (MSED) experiments using synthetic and natural brackish groundwater from the Campo de Cartagena region. My work combined hands-on experimentation with computational modeling to understand ion transport mechanisms and optimize nutrient recovery.
           </p>
           <ul>
-            <li>Modeled lead-screw motion and backlash compensation in CAD.</li>
-            <li>Machined aluminum components with tight tolerance control.</li>
-            <li>Implemented surface metrology for quantitative verification.</li>
+            <li>• Designed and executed NF and MSED trials to assess ion selectivity and flux under variable feed salinities and voltage conditions</li>
+            <li>• Measured and analyzed ion concentrations using conductivity meters and ion chromatography to determine transport numbers and selectivity coefficients</li>
+            <li>• Calibrated a semi-empirical multi-ion transport model in Python to simulate membrane performance and validate against experimental data</li>
+            <li>• Conducted parametric studies on feed composition, current density, and stack configuration to quantify tradeoffs between nutrient retention and energy consumption</li>
+            <li>• Compiled experimental datasets into a reproducible analysis pipeline for cross-study comparison and visualization</li>
           </ul>
         </div>
-        <figure class="media">
-          <img src="../assets/projects/work.jpg" alt="Work process visual" />
+        <figure class="media media-stack">
+          <figure class="shot shot-top">
+            <img src="../assets/project/project-one/NF-2.png" alt="Additional experimental data" />
+            <figcaption>Membrane transport coefficients and optimization results</figcaption>
+          </figure>
+          
+          <figure class="shot shot-bottom">
+            <img src="../assets/project/project-one/NF.png" alt="Nanofiltration experimental results" />
+            <figcaption>Nanofiltration performance data and ion selectivity analysis</figcaption>
+          </figure>
         </figure>
       </div>
     </section>
@@ -213,28 +212,51 @@
     <section class="split" id="conclusion">
       <div class="wrap">
         <div class="text">
-          <h2>Conclusion</h2>
+          <h2>Results & Impact</h2>
           <p>
-            The final assembly demonstrated consistent motion precision and repeatable surface
-            quality. The project strengthened my understanding of kinematic design, GD&T, and
-            tolerance analysis—skills crucial for high-precision manufacturing and instrumentation.
+            The study successfully demonstrated that combining MSED with NF enables selective removal of harmful monovalent contaminants (Na⁺, Cl⁻) while preserving essential nutrient ions (Mg²⁺, Ca²⁺, SO₄²⁻). This approach produces irrigation-ready water that significantly reduces fertilizer demand and minimizes brine waste—addressing key sustainability challenges in water-stressed agricultural regions.
+          </p>
+          <p>
+            The refined transport model accurately reproduced experimental trends, providing a valuable predictive tool for optimizing system design and operating conditions. This computational framework enables future researchers and engineers to scale the technology for broader agricultural applications.
+          </p>
+          <p>
+            Through this project, I developed expertise in electrochemical separations, ion transport phenomena, and the integration of experimental work with computational modeling. These skills continue to inform my approach to sustainable process design and membrane-based resource recovery systems.
           </p>
         </div>
         <figure class="media">
-          <img src="../assets/projects/conclusion.jpg" alt="Final T-Base Lathe" />
+          <img src="../assets/project/project-one.png" alt="Project results and impact" />
+          <figcaption>Summary of nutrient recovery performance and environmental benefits</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <!-- PDF Report Section -->
+    <section class="split" id="report">
+      <div class="wrap" style="grid-template-columns: 1fr;">
+        <div class="text">
+          <h2>Full Research Report</h2>
+          <p>View the complete technical report with detailed methodology, results, and analysis.</p>
+          
+          <div class="pdf-section">
+            <iframe class="pdf-viewer" src="../assets/project/project-one/Report.pdf" type="application/pdf">
+              <p>Your browser doesn't support PDF viewing. <a href="../assets/project/project-one/report.pdf" download>Download the PDF</a> instead.</p>
+            </iframe>
+            <br>
+            <a href="../assets/project/project-one/report.pdf" download class="pdf-download">
+              📄 Download Full Report (PDF)
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="container">
-    <p>&copy; <span id="datee"></span> Vinn Nguyen</p>
+  <footer id="footer">
+    <div class="container">
+      <p>&copy; 2024 Vinn Nguyen</p>
+    </div>
   </footer>
 
   <script src="../js/script.js"></script>
-  <script>
-    const y = document.getElementById('datee');
-    if (y && !y.textContent.trim()) y.textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

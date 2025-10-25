@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perovskite Solar Cells Fabrication – Vinn Nguyen</title>
+
+  <link rel="icon" href="../assets/favicon/favicon.ico" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/utilities.css" />
+
+  <style>
+    html, body { height: auto !important; overflow-y: auto !important; }
+    main.container { margin-top: 80px; }
+
+    /* ===== TARGETED PROJECT LAYOUT (top) ===== */
+    .tgt { padding-block: 2rem 3rem; }
+    .tgt-title { text-align: center; font-weight: var(--weight-bold); margin-bottom: 1.25rem; }
+    
+    .tgt-grid {
+      display: grid;
+      grid-template-columns: 500px 1fr;
+      gap: clamp(1rem, 4vw, 2rem);
+      align-items: start;
+    }
+    .tgt-rail { display: grid; gap: 1rem; }
+    .tgt-card {
+      border-radius: 12px;
+      padding: 1rem 1rem 1.1rem;
+      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
+      box-shadow: var(--shadow);
+    }
+
+    .tgt-card h3 { font-size: 1.05rem; margin-bottom: .4rem; font-weight: var(--weight-semibold); }
+    .tgt-obj  { background: var(--tgt-obj,  #efe7b8); }
+    .tgt-out  { background: var(--tgt-out,  #dff0dd); }
+    .tgt-tech { background: var(--tgt-tech, #f3d3d3); }
+
+    .tgt-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    .tgt-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      border: 3px solid #000;
+    }
+    .tgt-visual figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+    
+    /* ===== SPLIT SECTIONS BELOW ===== */
+    .split {
+      padding-block: 2.5rem;
+      border-top: 1px solid var(--tgt-border, rgba(0,0,0,.08));
+    }
+    .split .wrap {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: clamp(1rem, 4vw, 2rem);
+      align-items: start;
+    }
+    .split h2 {
+      margin: 0 0 .75rem;
+      font-size: 1.4rem;
+      letter-spacing: .01em;
+      font-weight: var(--weight-semibold);
+    }
+    .split p {
+      margin-bottom: .9rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .split .media {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid #000;
+      box-shadow: var(--shadow);
+      background: var(--card-background);
+      justify-self: end;
+    }
+    .split .media img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .split .media figcaption {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: center;
+      background: var(--card-background);
+    }
+    
+    .media-stack {
+      display: grid;
+      gap: 1rem;
+    }
+    .shot {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid #000;
+      box-shadow: var(--shadow);
+    }
+    .shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .shot figcaption {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: center;
+      background: var(--card-background);
+    }
+
+    /* PDF Section Styles */
+    .pdf-section { margin-top: 2rem; text-align: center; }
+    .pdf-viewer { width: 100%; height: 700px; border: 3px solid #000; border-radius: 8px; }
+    .pdf-download {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .pdf-download:hover { opacity: 0.8; }
+    @media (max-width: 768px) { .pdf-viewer { height: 500px; } }
+
+    @media (max-width: 960px) {
+      .tgt-grid { grid-template-columns: 1fr; }
+      .split .wrap { grid-template-columns: 1fr; }
+      .split .media { justify-self: center; }
+    }
+
+    html[data-theme="dark"] {
+      --tgt-border: rgba(255,255,255,.16);
+      --tgt-obj:  #7b794f33;
+      --tgt-out:  #6b8f6b33;
+      --tgt-tech: #9b6a6a33;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between;">
+      <a class="nav-link" href="../index.html">← Back to Portfolio</a>
+      <div class="theme-switch">
+        <input type="checkbox" id="switch" />
+        <label class="toggle-icons" for="switch">
+          <img class="moon" src="../assets/moon.svg" alt="Dark" />
+          <img class="sun"  src="../assets/sun.svg"  alt="Light" />
+        </label>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container project-detail">
+    <!-- TOP TARGETED SECTION -->
+    <section class="tgt">
+      <h1 class="tgt-title">Fabrication of Perovskite Solar Cells Across Diverse Environmental Conditions</h1>
+      <div class="tgt-grid">
+        <aside class="tgt-rail">
+          <section class="tgt-card tgt-obj">
+            <h3>Objectives</h3>
+            <ul>
+              <li>• Design and fabricate perovskite solar cells using spin-coating deposition techniques</li>
+              <li>• Improve efficiency and stability under real-world environmental conditions</li>
+              <li>• Develop environmental monitoring system for fabrication process control</li>
+            </ul>
+          </section>
+
+          <section class="tgt-card tgt-out">
+            <h3>Outcomes &amp; Contributions</h3>
+            <ul>
+              <li>• Successfully fabricated and analyzed thin films and perovskite solar cells with enhanced stability</li>
+              <li>• Developed real-time environmental monitoring system using Arduino and Raspberry Pi</li>
+              <li>• Optimized fabrication processes for diverse humidity, temperature, and solvent vapor conditions</li>
+            </ul>
+          </section>
+
+          <section class="tgt-card tgt-tech">
+            <h3>Technical Details &amp; Skills</h3>
+            <ul>
+              <li>• Materials Science: Thin film deposition and perovskite solar cell fabrication</li>
+              <li>• Process Engineering: Spin-coating optimization and environmental control</li>
+              <li>• Electronics: Arduino and Raspberry Pi system development</li>
+            </ul>
+          </section>
+        </aside>
+
+        <figure class="tgt-visual">
+          <img src="../assets/project/project-three.png" alt="Perovskite solar cell fabrication setup" />
+          <figcaption>Perovskite solar cell fabrication and environmental monitoring system</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- BELOW SECTIONS -->
+    <section class="split" id="overview">
+      <div class="wrap">
+        <div class="text">
+          <h2>Overview</h2>
+          <p>
+            Perovskite solar cells represent a promising next-generation photovoltaic technology, offering high efficiency potential at low manufacturing costs. However, their performance and stability are highly sensitive to environmental conditions during fabrication, creating challenges for real-world deployment and manufacturing scalability.
+          </p>
+          <p>
+            This research focused on understanding and controlling the fabrication of perovskite solar cells across diverse environmental conditions. By developing precise environmental monitoring and control systems, we aimed to optimize the spin-coating deposition process and improve cell stability under varying humidity, temperature, and solvent vapor conditions.
+          </p>
+          <p>
+            My work centered on designing the fabrication processes, developing the environmental monitoring system, and analyzing the relationship between fabrication conditions and solar cell performance to enable more robust and scalable perovskite solar cell production.
+          </p>
+        </div>
+        <figure class="media media-stack">
+          <figure class="shot shot-top">
+            <img src="../assets/project/project-three/overview-1.png" alt="Perovskite solar cell structure" />
+            <figcaption>Perovskite solar cell architecture and fabrication challenges</figcaption>
+          </figure>
+        
+          <figure class="shot shot-bottom">
+            <img src="../assets/project/project-three/overview-2.png" alt="Environmental factors affecting fabrication" />
+            <figcaption>Environmental factors impacting perovskite fabrication quality</figcaption>
+          </figure>
+        </figure>
+      </div>
+    </section>
+
+    <section class="split" id="work">
+      <div class="wrap">
+        <div class="text">
+          <h2>Work</h2>
+          <p>
+            I designed and implemented a comprehensive approach to perovskite solar cell fabrication that integrated precise environmental control with systematic performance analysis. My work involved both materials processing and electronics development to create a robust fabrication platform.
+          </p>
+          <ul>
+            <li>• Designed and optimized spin-coating deposition protocols for perovskite thin films under controlled environmental conditions</li>
+            <li>• Fabricated complete perovskite solar cell devices and characterized their efficiency and stability performance</li>
+            <li>• Developed a real-time environmental monitoring system using Arduino and Raspberry Pi to track humidity, temperature, and solvent vapor levels</li>
+            <li>• Implemented automated data logging and control algorithms to maintain optimal fabrication conditions</li>
+            <li>• Analyzed the correlation between environmental parameters and solar cell performance metrics</li>
+            <li>• Optimized fabrication processes to achieve consistent performance across diverse environmental conditions</li>
+          </ul>
+        </div>
+        <figure class="media media-stack">
+          <figure class="shot shot-top">
+            <img src="../assets/project/project-three/work-1.png" alt="Spin-coating fabrication setup" />
+            <figcaption>Spin-coating deposition system with environmental control</figcaption>
+          </figure>
+          
+          <figure class="shot shot-bottom">
+            <img src="../assets/project/project-three/work-2.png" alt="Arduino monitoring system" />
+            <figcaption>Arduino and Raspberry Pi environmental monitoring system</figcaption>
+          </figure>
+        </figure>
+      </div>
+    </section>
+
+    <section class="split" id="conclusion">
+      <div class="wrap">
+        <div class="text">
+          <h2>Results & Impact</h2>
+          <p>
+            The research successfully demonstrated improved perovskite solar cell stability and performance through precise environmental control during fabrication. The developed monitoring system enabled real-time tracking and optimization of critical fabrication parameters, leading to more consistent and reproducible solar cell production.
+          </p>
+          <p>
+            The environmental monitoring system provided valuable insights into the relationship between fabrication conditions and device performance, contributing to the understanding of perovskite solar cell manufacturing requirements. This work advances the development of scalable production methods for next-generation photovoltaic technologies.
+          </p>
+          <p>
+            Through this project, I gained expertise in materials science, thin film processing, and embedded systems development. The experience enhanced my understanding of the intersection between materials engineering and process control, skills essential for advancing sustainable energy technologies.
+          </p>
+        </div>
+        <figure class="media">
+          <img src="../assets/project/project-three.png" alt="Project results and solar cell performance" />
+          <figcaption>Perovskite solar cell performance optimization results</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PDF Preprint Section -->
+    <section class="split" id="preprint">
+      <div class="wrap" style="grid-template-columns: 1fr;">
+        <div class="text">
+          <h2>Research Preprint</h2>
+          <p>View the complete research preprint detailing the perovskite solar cell fabrication methodology and environmental monitoring results.</p>
+          
+          <div class="pdf-section">
+            <iframe class="pdf-viewer" src="../assets/project/project-three/preprint.pdf" type="application/pdf">
+              <p>Your browser doesn't support PDF viewing. <a href="../assets/project/project-three/preprint.pdf" download>Download the PDF</a> instead.</p>
+            </iframe>
+            <br>
+            <a href="../assets/project/project-three/preprint.pdf" download class="pdf-download">
+              📄 Download Research Preprint (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <p>&copy; 2024 Vinn Nguyen</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

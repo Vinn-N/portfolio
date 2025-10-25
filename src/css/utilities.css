@@ -51,34 +51,7 @@ h2::selection {
   background: var(--secondary-color);
 }
 
-/* Dark mode toggle */
-#switch {
-  display: none;
-}
 
-.toggle-icons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-
-.toggle-icons > img {
-  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  width: 30px;
-}
-
-.moon {
-  transform: rotate(10deg);
-}
-
-#switch:checked + .toggle-icons .moon {
-  transform: rotate(250deg);
-}
-
-#switch:checked + .toggle-icons .sun {
-  transform: rotate(100deg);
-}
 
 /* Header Container */
 .header-container {
@@ -149,12 +122,12 @@ h2::selection {
 
 /* Project 2 */
 .card:nth-child(2) {
-  background: url(../assets/project/project-three.png) center center/cover;
+  background: url(../assets/project/project-two/NF-T.jpeg) center center/cover;
 }
 
 /* Project 3 */
 .card:nth-child(3) {
-  background: url(../assets/project/project-three.png) center center/cover;
+  background: url(../assets/project/project-three/perovksite.png) center center/cover;
 }
 
 /* Project 4 */

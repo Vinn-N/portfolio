@@ -4,20 +4,22 @@ const navLeft = document.querySelector(".nav-left");
 const navRight = document.querySelector(".nav-right");
 const navLinks = document.querySelectorAll(".nav-link");
 
-function mobileMenu() {
-  hamburger.classList.toggle("active");
-  navLeft.classList.toggle("active");
-  navRight.classList.toggle("active");
-}
+if (hamburger) {
+  function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navLeft.classList.toggle("active");
+    navRight.classList.toggle("active");
+  }
 
-function closeMenu() {
-  hamburger.classList.remove("active");
-  navLeft.classList.remove("active");
-  navRight.classList.remove("active");
-}
+  function closeMenu() {
+    hamburger.classList.remove("active");
+    navLeft.classList.remove("active");
+    navRight.classList.remove("active");
+  }
 
-hamburger.addEventListener("click", mobileMenu);
-navLinks.forEach(link => link.addEventListener("click", closeMenu));
+  hamburger.addEventListener("click", mobileMenu);
+  navLinks.forEach(link => link.addEventListener("click", closeMenu));
+}
 
 // 2. THEME TOGGLE + PERSISTENCE
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
