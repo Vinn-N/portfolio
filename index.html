@@ -55,6 +55,37 @@
     />
     <link rel="stylesheet" href="src/css/style.css" />
     <link rel="stylesheet" href="src/css/utilities.css" />
+    
+    <style>
+      .hero-layout {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 3rem;
+        align-items: center;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .hero-image .profile-image {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        border: 3px solid #000;
+      }
+      .hero-text {
+        text-align: left;
+      }
+      @media (max-width: 768px) {
+        .hero-layout {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 2rem;
+        }
+        .hero-image .profile-image {
+          max-width: 250px;
+          margin: 0 auto;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -71,8 +102,6 @@
             <li><a class="nav-link" href="#projects">Work</a></li>
             <li><a class="nav-link" href="#resume">Resume</a></li>
           </ul>
-
-
 
           <!-- Right Section: Social Icons + Theme Toggle -->
           <div class="nav-right">
@@ -103,28 +132,25 @@
 
       <!-- Hero Section -->
       <section class="header-container">
-        <img
-          class="profile-image"
-          src="src/assets/profile-image.png"
-          alt="Vinn Nguyen"
-        />
-        <h1>Hi, I’m <span class="rainbow-name">Vinn</span></h1>
-        <span class="name-underline" aria-hidden="true"></span>
-        
-        <div class="intro">
-          <p>I’m a Mechanical Engineering student at MIT interested in how thoughtful design and engineering can accelerate the transition to sustainable energy systems.</p>
+        <div class="hero-layout">
+          <div class="hero-image">
+            <img
+              class="profile-image"
+              src="src/assets/Vinnpfp.png"
+              alt="Vinn Nguyen"
+            />
+          </div>
+          <div class="hero-text">
+            <h1>Hi, I'm <span class="rainbow-name">Vinn</span></h1>
+            <span class="name-underline" aria-hidden="true"></span>
+            
+            <div class="intro">
+              <p>I'm a Mechanical Engineering student at MIT interested in how thoughtful design and engineering can accelerate the transition to sustainable energy systems.</p>
+            </div>
+          </div>
         </div>
-        
-        
       </section>
     </header>
-
-    
-    
-
-
-
- 
 
     <!-- Projects -->
     <section id="projects" class="project-container container">
