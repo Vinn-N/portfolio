@@ -46,11 +46,11 @@ if (starWrapper) {
   for (let i = 0; i < 700; i++) {
     const star = document.createElement('div');
     star.classList.add('star');
+    const size = Math.random() * 3 + 1; // 1-4px
     Object.assign(star.style, {
       top:      `${Math.random() * 100}vh`,
       left:     `${Math.random() * 100}vw`,
-      width:    `${Math.random() * 4 + 0.5}px`,
-      height:   `${Math.random() * 4 + 0.5}px`,
+      '--star-size': `${size}px`,
       animationDelay: `${Math.random() * 8}s`
     });
     starWrapper.appendChild(star);

@@ -290,9 +290,13 @@ body {
   z-index: -10; pointer-events: none; overflow: hidden;
 }
 .star {
-  position: absolute; width: 40px; height: 40px; background-color: white; opacity: 0.6;
+  position: absolute; background-color: white; opacity: 0.6;
   box-shadow: 0 0 6px white; animation: twinkle 2s infinite ease-in-out, float 6s infinite ease-in-out alternate;
   border-radius: 50%;
+}
+.star {
+  width: var(--star-size, 2px);
+  height: var(--star-size, 2px);
 }
 
 /* Petals */
