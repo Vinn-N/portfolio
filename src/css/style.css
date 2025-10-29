@@ -216,7 +216,7 @@ body {
 /* =========================
    Sections / About
 ========================= */
-.division { width: 100%; height: 2px; background-color: var(--card-background); margin: 7rem 0; border-radius: 2px; }
+.division { width: 100%; height: 4px; background-color: var(--card-background); margin: 7rem 0; border-radius: 2px; }
 .about-heading { text-align: center; margin-bottom: 1.25rem; }
 .about-content {
   max-width: 800px; margin: 2rem auto 0; text-align: left; padding: 0 1rem;
