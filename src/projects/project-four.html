@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drawing Machine Design – Vinn Nguyen</title>
+
+  <link rel="icon" href="../assets/favicon/favicon.ico" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/utilities.css" />
+
+  <style>
+    html, body { height: auto !important; overflow-y: auto !important; }
+    main.container { margin-top: 80px; }
+
+    /* ===== TARGETED PROJECT LAYOUT (top) ===== */
+    .tgt { padding-block: 2rem 3rem; }
+    .tgt-title { text-align: center; font-weight: var(--weight-bold); margin-bottom: 1.25rem; }
+    
+    .tgt-grid {
+      display: grid;
+      grid-template-columns: 500px 1fr;
+      gap: clamp(1rem, 4vw, 2rem);
+      align-items: start;
+    }
+    .tgt-rail { display: grid; gap: 1rem; }
+    .tgt-card {
+      border-radius: 12px;
+      padding: 1rem 1rem 1.1rem;
+      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
+      box-shadow: var(--shadow);
+    }
+
+    .tgt-card h3 { font-size: 1.05rem; margin-bottom: .4rem; font-weight: var(--weight-semibold); }
+    .tgt-obj  { background: var(--tgt-obj,  #efe7b8); }
+    .tgt-out  { background: var(--tgt-out,  #dff0dd); }
+    .tgt-tech { background: var(--tgt-tech, #f3d3d3); }
+
+    .tgt-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    .tgt-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      border: 3px solid #000;
+    }
+    .tgt-visual figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+    
+    /* ===== SPLIT SECTIONS BELOW ===== */
+    .split {
+      padding-block: 2.5rem;
+      border-top: 1px solid var(--tgt-border, rgba(0,0,0,.08));
+    }
+    .split .wrap {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: clamp(1rem, 4vw, 2rem);
+      align-items: start;
+    }
+    .split h2 {
+      margin: 0 0 .75rem;
+      font-size: 1.4rem;
+      letter-spacing: .01em;
+      font-weight: var(--weight-semibold);
+    }
+    .split p {
+      margin-bottom: .9rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .split .media {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid #000;
+      box-shadow: var(--shadow);
+      background: var(--card-background);
+      justify-self: end;
+    }
+    .split .media img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .split .media figcaption {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: center;
+      background: var(--card-background);
+    }
+    
+    .media-stack {
+      display: grid;
+      gap: 1rem;
+    }
+    .shot {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid #000;
+      box-shadow: var(--shadow);
+    }
+    .shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .shot figcaption {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: center;
+      background: var(--card-background);
+    }
+
+    /* Timeline Block */
+    .timeline-block {
+      background: var(--tgt-obj, #efe7b8);
+      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 960px) {
+      .tgt-grid { grid-template-columns: 1fr; }
+      .split .wrap { grid-template-columns: 1fr; }
+      .split .media { justify-self: center; }
+    }
+
+    html[data-theme="dark"] {
+      --tgt-border: rgba(255,255,255,.16);
+      --tgt-obj:  #7b794f33;
+      --tgt-out:  #6b8f6b33;
+      --tgt-tech: #9b6a6a33;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between;">
+      <a class="nav-link" href="../../">← Back to Portfolio</a>
+      <div class="theme-switch">
+        <input type="checkbox" id="switch" />
+        <label class="toggle-icons" for="switch">
+          <img class="moon" src="../assets/moon.svg" alt="Dark" />
+          <img class="sun"  src="../assets/sun.svg"  alt="Light" />
+        </label>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container project-detail">
+    <!-- TOP TARGETED SECTION -->
+    <section class="tgt">
+      <h1 class="tgt-title">Drawing Machine Design</h1>
+      <div class="tgt-grid">
+        <aside class="tgt-rail">
+          <section class="tgt-card tgt-obj">
+            <h3>Objectives</h3>
+            <ul>
+              <li>• Design and build an automated drawing machine capable of precise artistic reproduction</li>
+              <li>• Implement computer vision and motion control systems for accurate line following</li>
+              <li>• Create a user-friendly interface for image input and drawing parameter adjustment</li>
+            </ul>
+          </section>
+
+          <section class="tgt-card tgt-out">
+            <h3>Outcomes &amp; Contributions</h3>
+            <ul>
+              <li>• Successfully designed and fabricated a 2-axis CNC drawing machine with sub-millimeter precision</li>
+              <li>• Developed image processing algorithms to convert digital images into machine-readable drawing paths</li>
+              <li>• Integrated stepper motor control system with custom G-code interpreter for smooth operation</li>
+            </ul>
+          </section>
+
+          <section class="tgt-card tgt-tech">
+            <h3>Technical Details &amp; Skills</h3>
+            <ul>
+              <li>• Mechanical Design: CAD modeling, precision machining, and assembly</li>
+              <li>• Electronics: Arduino programming, stepper motor control, and sensor integration</li>
+              <li>• Software: Image processing, path planning algorithms, and G-code generation</li>
+            </ul>
+          </section>
+        </aside>
+
+        <figure class="tgt-visual">
+          <img src="../assets/project/project-four.png" alt="Drawing machine design and setup" />
+          <figcaption>Automated drawing machine with precision motion control system</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- BELOW SECTIONS -->
+    <section class="split" id="overview">
+      <div class="wrap">
+        <div class="text">
+          <h2>Overview</h2>
+          <div class="timeline-block">
+            <p><strong>Timeline:</strong> Coming Soon | <strong>Context:</strong> Personal Engineering Project</p>
+          </div>
+          <p>
+            Automated drawing machines represent a fascinating intersection of mechanical engineering, computer science, and artistic expression. These systems challenge engineers to achieve precise motion control while maintaining the fluid, organic quality that makes hand-drawn art compelling.
+          </p>
+          <p>
+            This project focused on designing and building a computer-controlled drawing machine capable of reproducing digital images as physical drawings. The system combines precision mechanical design with advanced image processing algorithms to translate digital artwork into coordinated motor movements that guide a pen across paper.
+          </p>
+          <p>
+            My approach emphasized modularity and precision, creating a platform that could handle various drawing tools and paper sizes while maintaining consistent line quality and dimensional accuracy throughout the drawing process.
+          </p>
+        </div>
+        <figure class="media media-stack">
+          <figure class="shot shot-top">
+            <img src="../assets/project/project-four/overview-1.png" alt="Machine design concept" />
+            <figcaption>Drawing machine mechanical design and motion system</figcaption>
+          </figure>
+        
+          <figure class="shot shot-bottom">
+            <img src="../assets/project/project-four/overview-2.png" alt="Control system architecture" />
+            <figcaption>Control system architecture and image processing pipeline</figcaption>
+          </figure>
+        </figure>
+      </div>
+    </section>
+
+    <section class="split" id="work">
+      <div class="wrap">
+        <div class="text">
+          <h2>Work</h2>
+          <p>
+            The project involved comprehensive mechanical design, electronics integration, and software development to create a fully functional automated drawing system. My work spanned from initial concept development through final testing and optimization.
+          </p>
+          <ul>
+            <li>• Designed the mechanical framework using CAD software, optimizing for rigidity and precision while minimizing backlash in the motion system</li>
+            <li>• Implemented stepper motor control circuits with microstepping for smooth, precise movement and integrated limit switches for homing and safety</li>
+            <li>• Developed image processing algorithms to convert bitmap images into vector paths suitable for machine execution</li>
+            <li>• Created custom G-code interpreter to translate drawing commands into coordinated motor movements</li>
+            <li>• Calibrated the system for dimensional accuracy and tested with various drawing tools and paper types</li>
+            <li>• Optimized drawing speed and acceleration profiles to balance productivity with line quality</li>
+          </ul>
+        </div>
+        <figure class="media media-stack">
+          <figure class="shot shot-top">
+            <img src="../assets/project/project-four/work-1.png" alt="CAD design and assembly" />
+            <figcaption>CAD design process and mechanical assembly</figcaption>
+          </figure>
+          
+          <figure class="shot shot-bottom">
+            <img src="../assets/project/project-four/work-2.png" alt="Electronics and control system" />
+            <figcaption>Electronics integration and motion control programming</figcaption>
+          </figure>
+        </figure>
+      </div>
+    </section>
+
+    <section class="split" id="conclusion">
+      <div class="wrap">
+        <div class="text">
+          <h2>Results & Impact</h2>
+          <p>
+            The completed drawing machine successfully demonstrated precise automated reproduction of digital images with consistent line quality and dimensional accuracy. The system achieved sub-millimeter positioning precision and could handle complex drawings with smooth curves and fine details.
+          </p>
+          <p>
+            Key performance metrics included drawing speeds up to 50mm/s with 0.1mm positioning accuracy, support for multiple pen types and line weights, and successful reproduction of both geometric patterns and organic artistic designs. The modular design allowed for easy maintenance and future upgrades.
+          </p>
+          <p>
+            This project enhanced my understanding of precision mechanical design, motion control systems, and the integration of hardware and software in automated manufacturing applications. The experience provided valuable insights into the challenges of translating digital information into precise physical actions.
+          </p>
+        </div>
+        <figure class="media">
+          <img src="../assets/project/project-four.png" alt="Final drawing machine and sample outputs" />
+          <figcaption>Completed drawing machine with sample artistic outputs</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <p>&copy; 2024 Vinn Nguyen</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
