@@ -64,25 +64,269 @@
         align-items: center;
         max-width: 1000px;
         margin: 0 auto;
+        padding: 2rem 0;
       }
+      
+      .hero-image {
+        position: relative;
+        animation: fadeInLeft 1s ease-out;
+      }
+      
       .hero-image .profile-image {
         width: 100%;
         height: auto;
-        border-radius: 15px;
-        border: 3px solid #000;
+        border-radius: 20px;
+        border: 4px solid var(--primary-color);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
+      
+      .hero-image .profile-image:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+      
       .hero-text {
         text-align: left;
+        animation: fadeInRight 1s ease-out 0.3s both;
       }
+      
+      .hero-text h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+      
+      .rainbow-name {
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 3s ease-in-out infinite;
+        display: inline-block;
+      }
+      
+      .name-underline {
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        margin: 0.5rem 0 1.5rem 0;
+        border-radius: 2px;
+        animation: expandWidth 1s ease-out 0.8s both;
+      }
+      
+      .intro {
+        animation: fadeInUp 1s ease-out 0.6s both;
+      }
+      
+      .intro p {
+        font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        line-height: 1.6;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        font-weight: 400;
+      }
+      
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        animation: fadeInUp 1s ease-out 0.9s both;
+      }
+      
+      .btn-primary {
+        background: linear-gradient(45deg, var(--primary-color), #4ecdc4);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+      
+      .btn-outline {
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        padding: 10px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        background: transparent;
+      }
+      
+      .btn-outline:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+      }
+      
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes expandWidth {
+        from {
+          width: 0;
+        }
+        to {
+          width: 60px;
+        }
+      }
+      
+      @keyframes gradientShift {
+        0%, 100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+      
+      .hero-background-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+      
+      .floating-shape {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      .shape-1 {
+        width: 100px;
+        height: 100px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      
+      .shape-2 {
+        width: 60px;
+        height: 60px;
+        top: 60%;
+        right: 15%;
+        animation-delay: 2s;
+      }
+      
+      .shape-3 {
+        width: 80px;
+        height: 80px;
+        top: 80%;
+        left: 20%;
+        animation-delay: 4s;
+      }
+      
+      .image-glow {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        background: linear-gradient(45deg, var(--primary-color), #4ecdc4);
+        border-radius: 25px;
+        opacity: 0.3;
+        z-index: -1;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-20px) rotate(120deg);
+        }
+        66% {
+          transform: translateY(10px) rotate(240deg);
+        }
+      }
+      
+      @keyframes pulse {
+        0%, 100% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.05);
+        }
+      }
+      
       @media (max-width: 768px) {
         .hero-layout {
           grid-template-columns: 1fr;
           text-align: center;
           gap: 2rem;
+          padding: 1rem 0;
         }
+        
         .hero-image .profile-image {
           max-width: 250px;
           margin: 0 auto;
+        }
+        
+        .hero-text {
+          text-align: center;
+        }
+        
+        .name-underline {
+          margin: 0.5rem auto 1.5rem auto;
+        }
+        
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .btn-primary, .btn-outline {
+          width: 200px;
+          text-align: center;
         }
       }
     </style>
@@ -132,8 +376,15 @@
 
       <!-- Hero Section -->
       <section class="header-container">
+        <div class="hero-background-elements">
+          <div class="floating-shape shape-1"></div>
+          <div class="floating-shape shape-2"></div>
+          <div class="floating-shape shape-3"></div>
+        </div>
+        
         <div class="hero-layout">
           <div class="hero-image">
+            <div class="image-glow"></div>
             <img
               class="profile-image"
               src="src/assets/VinnPFP.jpg"
@@ -146,6 +397,11 @@
             
             <div class="intro">
               <p>I'm a Mechanical Engineering student at MIT interested in how thoughtful design and engineering can accelerate the transition to sustainable energy systems.</p>
+              
+              <div class="cta-buttons">
+                <a href="#projects" class="btn-primary">View My Work</a>
+                <a href="src/about.html" class="btn-outline">About Me</a>
+              </div>
             </div>
           </div>
         </div>
