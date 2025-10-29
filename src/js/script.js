@@ -59,68 +59,78 @@ if (starWrapper) {
 
 // 4. PETAL EFFECT (small horizontal wiggle)
 const petalsWrapper = document.querySelector('.petals-wrapper');
-if (petalsWrapper) {
-  function createPetal() {
-    const petal = document.createElement('div');
-    petal.classList.add('svg-petal');
+const frontPetalsWrapper = document.querySelector('.front-petals-wrapper');
 
-    // size & duration
-    const size     = 16 + Math.random() * 24;           // px
-    const duration = 18000 + Math.random() * 10000;      // ms
+function createPetal(wrapper, className = 'svg-petal') {
+  const petal = document.createElement('div');
+  petal.classList.add(className);
 
-    petal.style.setProperty('--petal-size', `${size}px`);
-    petal.style.setProperty('--fall-duration', `${duration}ms`);
+  // size & duration
+  const size     = 16 + Math.random() * 24;           // px
+  const duration = 18000 + Math.random() * 10000;      // ms
 
-    // horizontal wiggle settings
-    const startX = Math.random() * 100;  // starting 0–100vw
-    const wiggle = 6;                    // max ±5vw
+  petal.style.setProperty('--petal-size', `${size}px`);
+  petal.style.setProperty('--fall-duration', `${duration}ms`);
 
-    const randOffset = () => (Math.random() * 2 * wiggle - wiggle);
+  // horizontal wiggle settings
+  const startX = Math.random() * 100;  // starting 0–100vw
+  const wiggle = 6;                    // max ±5vw
 
-    petal.style.setProperty('--x-start',  `${startX}vw`);
-    petal.style.setProperty('--x-mid1',   `${startX + randOffset()}vw`);
-    petal.style.setProperty('--x-mid2',   `${startX + randOffset()}vw`);
-    petal.style.setProperty('--x-mid3',   `${startX + randOffset()}vw`);
-    petal.style.setProperty('--x-end',    `${startX + randOffset()}vw`);
+  const randOffset = () => (Math.random() * 2 * wiggle - wiggle);
 
-    // spin variables
-    const baseSpin = Math.random() * 360;
-    petal.style.setProperty('--spin-start', `${baseSpin}deg`);
-    petal.style.setProperty('--spin-mid1',  `${baseSpin +  90 + Math.random() * 400}deg`);
-    petal.style.setProperty('--spin-mid2',  `${baseSpin + 180 + Math.random() * 400}deg`);
-    petal.style.setProperty('--spin-mid3',  `${baseSpin + 270 + Math.random() * 400}deg`);
-    petal.style.setProperty('--spin-end',   `${baseSpin + 360 + Math.random() * 460}deg`);
+  petal.style.setProperty('--x-start',  `${startX}vw`);
+  petal.style.setProperty('--x-mid1',   `${startX + randOffset()}vw`);
+  petal.style.setProperty('--x-mid2',   `${startX + randOffset()}vw`);
+  petal.style.setProperty('--x-mid3',   `${startX + randOffset()}vw`);
+  petal.style.setProperty('--x-end',    `${startX + randOffset()}vw`);
 
-    // SVG content
-    petal.innerHTML = `
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M32 2C26 20 10 22 10 34c0 12 12 22 22 28
-                 10-6 22-16 22-28 0-12-16-14-22-32z"
-              fill="${['#f9ccd3','#fbb1bd','#ffd6e0'][Math.floor(Math.random()*3)]}"/>
-      </svg>`;
+  // spin variables
+  const baseSpin = Math.random() * 360;
+  petal.style.setProperty('--spin-start', `${baseSpin}deg`);
+  petal.style.setProperty('--spin-mid1',  `${baseSpin +  90 + Math.random() * 400}deg`);
+  petal.style.setProperty('--spin-mid2',  `${baseSpin + 180 + Math.random() * 400}deg`);
+  petal.style.setProperty('--spin-mid3',  `${baseSpin + 270 + Math.random() * 400}deg`);
+  petal.style.setProperty('--spin-end',   `${baseSpin + 360 + Math.random() * 460}deg`);
 
+  // SVG content
+  petal.innerHTML = `
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 2C26 20 10 22 10 34c0 12 12 22 22 28
+               10-6 22-16 22-28 0-12-16-14-22-32z"
+            fill="${['#f9ccd3','#fbb1bd','#ffd6e0'][Math.floor(Math.random()*3)]}"/>
+    </svg>`;
 
+  wrapper.appendChild(petal);
+  petal.addEventListener('animationend', () => petal.remove());
+}
 
-    petalsWrapper.appendChild(petal);
-    petal.addEventListener('animationend', () => petal.remove());
-  }
-
+if (petalsWrapper || frontPetalsWrapper) {
   let lastPetalTime = 0;
-  const petalInterval = 1000; // 2 seconds
+  let lastFrontPetalTime = 0;
+  const petalInterval = 1000; // 1 second
+  const frontPetalInterval = 3000; // 3 seconds (less frequent)
   
   function animatePetals(timestamp) {
     const isLightMode = document.documentElement.getAttribute('data-theme') !== 'dark';
   
-    if (isLightMode && timestamp - lastPetalTime > petalInterval) {
-      createPetal();
-      lastPetalTime = timestamp;
+    if (isLightMode) {
+      // Background petals
+      if (petalsWrapper && timestamp - lastPetalTime > petalInterval) {
+        createPetal(petalsWrapper, 'svg-petal');
+        lastPetalTime = timestamp;
+      }
+      
+      // Front petals (less frequent, more subtle)
+      if (frontPetalsWrapper && timestamp - lastFrontPetalTime > frontPetalInterval) {
+        createPetal(frontPetalsWrapper, 'front-petal');
+        lastFrontPetalTime = timestamp;
+      }
     }
   
     requestAnimationFrame(animatePetals);
   }
   
   requestAnimationFrame(animatePetals);
-  
 }
 
 // 5. AUTO-UPDATE FOOTER DATE

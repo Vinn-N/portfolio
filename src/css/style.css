@@ -301,6 +301,17 @@ body {
   z-index: -10;
 }
 
+/* Front petals that fall in front of content */
+.front-petals-wrapper { 
+  position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; 
+}
+.front-petal {
+  position: absolute; width: var(--petal-size); height: var(--petal-size);
+  animation: fall linear forwards; animation-duration: var(--fall-duration); animation-fill-mode: forwards;
+  opacity: 0.3;
+  z-index: 5;
+}
+
 /* Mode-based visibility helpers */
 [data-theme='dark'] .light-only { visibility: hidden; }
 [data-theme='light'] .light-only { visibility: visible; }
