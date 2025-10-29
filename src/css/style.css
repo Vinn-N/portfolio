@@ -200,17 +200,11 @@ body {
 
 /* Rainbow name (calmer) */
 .rainbow-name {
-  position: relative; display: inline-block; font-weight: var(--weight-bold);
+  display: inline-block; font-weight: var(--weight-bold);
   background: linear-gradient(90deg,#ff4e50,#f9d423,#1fe4f5,#3fbafe,#b993d6);
   background-size: 250% 100%;
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   animation: smoothRainbow 14s linear infinite;
-  padding-bottom: 0.2rem;
-}
-.rainbow-name::after {
-  content: ""; position: absolute; left: 50%; transform: translateX(-50%);
-  bottom: -4px; height: 2px; width: 72px; border-radius: 999px;
-  background: linear-gradient(90deg,#ff4e50,#f9d423,#1fe4f5,#3fbafe,#b993d6); opacity: 0.6;
 }
 
 /* =========================
