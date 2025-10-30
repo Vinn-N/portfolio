@@ -116,6 +116,36 @@
     .coming-soon .project-content {
       text-align: center;
     }
+    
+    .sort-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2rem 0 0 0;
+      flex-wrap: wrap;
+    }
+    
+    .sort-btn {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid var(--primary-color);
+      background: transparent;
+      color: var(--primary-color);
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    
+    .sort-btn:hover,
+    .sort-btn.active {
+      background: var(--primary-color);
+      color: white;
+    }
+    
+    .project-tile.hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -159,12 +189,17 @@
   <section class="projects-hero">
     <h1>All Projects</h1>
     <p>Explore my work in sustainable energy systems, mechanical engineering, and clean technology innovation.</p>
+    <div class="sort-buttons">
+      <button class="sort-btn active" data-filter="all">All</button>
+      <button class="sort-btn" data-filter="research">Research</button>
+      <button class="sort-btn" data-filter="engineering">Engineering</button>
+    </div>
   </section>
 
   <!-- Projects Grid -->
   <section class="projects-grid">
     <!-- Project 1 -->
-    <a href="projects/project-one.html" class="project-tile">
+    <a href="projects/project-one.html" class="project-tile" data-category="research">
       <div class="project-image" style="background-image: url('assets/project/project-one.png');"></div>
       <div class="project-content">
         <h3 class="project-title">Brackish Water Nutrient Recovery</h3>
@@ -174,7 +209,7 @@
     </a>
 
     <!-- Project 2 -->
-    <a href="projects/project-two.html" class="project-tile">
+    <a href="projects/project-two.html" class="project-tile" data-category="research">
       <div class="project-image" style="background-image: url('assets/project/project-two.png');"></div>
       <div class="project-content">
         <h3 class="project-title">Aluminum Recovery from Cryolite</h3>
@@ -184,7 +219,7 @@
     </a>
 
     <!-- Project 3 -->
-    <a href="projects/project-three.html" class="project-tile">
+    <a href="projects/project-three.html" class="project-tile" data-category="research engineering">
       <div class="project-image" style="background-image: url('assets/project/project-three.png');"></div>
       <div class="project-content">
         <h3 class="project-title">Perovskite Solar Cells Fabrication</h3>
@@ -194,7 +229,7 @@
     </a>
 
     <!-- Project 4 -->
-    <a href="projects/project-four.html" class="project-tile">
+    <a href="projects/project-four.html" class="project-tile" data-category="engineering">
       <div class="project-image" style="background-image: url('assets/project/project-four.png');"></div>
       <div class="project-content">
         <h3 class="project-title">Drawing Machine Design</h3>
@@ -204,7 +239,7 @@
     </a>
 
     <!-- Project 5 -->
-    <article class="project-tile coming-soon">
+    <article class="project-tile coming-soon" data-category="coming-soon">
       <div class="project-content">
         <h3 class="project-title">More Projects Coming Soon</h3>
         <p class="project-type">Various</p>
@@ -218,7 +253,7 @@
     </article>
 
     <!-- Project 6 -->
-    <a href="projects/fun-projects.html" class="project-tile">
+    <a href="projects/fun-projects.html" class="project-tile" data-category="personal">
       <div class="project-content">
         <h3 class="project-title">Fun Projects</h3>
         <p class="project-type">Personal</p>
@@ -244,5 +279,32 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sortButtons = document.querySelectorAll('.sort-btn');
+      const projectTiles = document.querySelectorAll('.project-tile');
+      
+      sortButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+          
+          // Update active button
+          sortButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Filter projects
+          projectTiles.forEach(tile => {
+            const category = tile.getAttribute('data-category');
+            
+            if (filter === 'all' || (category && category.includes(filter))) {
+              tile.classList.remove('hidden');
+            } else {
+              tile.classList.add('hidden');
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
