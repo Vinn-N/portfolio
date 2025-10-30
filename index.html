@@ -272,8 +272,20 @@
         color: white;
       }
       
+      .card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: scale(1);
+        opacity: 1;
+      }
+      
       .card.hidden {
-        display: none;
+        transform: scale(0.8);
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .project {
+        transition: all 0.3s ease;
       }
       
       /* Dark mode white borders for project cards */
@@ -536,15 +548,17 @@
             sortButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             
-            // Filter projects
-            projectCards.forEach(card => {
+            // Filter projects with animation
+            projectCards.forEach((card, index) => {
               const category = card.getAttribute('data-category');
               
-              if (filter === 'all' || (category && category.includes(filter))) {
-                card.classList.remove('hidden');
-              } else {
-                card.classList.add('hidden');
-              }
+              setTimeout(() => {
+                if (filter === 'all' || (category && category.includes(filter))) {
+                  card.classList.remove('hidden');
+                } else {
+                  card.classList.add('hidden');
+                }
+              }, index * 50);
             });
           });
         });
