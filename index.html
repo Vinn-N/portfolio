@@ -273,18 +273,25 @@
       }
       
       .card {
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        transform: scale(1);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(0) scale(1);
         opacity: 1;
+        order: 0;
       }
       
       .card.hidden {
-        transform: scale(0.8);
+        transform: translateX(-100%) scale(0.8);
         opacity: 0;
-        pointer-events: none;
+        order: 999;
+        width: 0;
+        margin: 0;
+        overflow: hidden;
       }
       
       .project {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.1rem;
         transition: all 0.3s ease;
       }
       
