@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Vinn Nguyen</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <style>
+    .projects-hero {
+      padding: calc(80px + 3rem) 1rem 3rem;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .project-tile {
+      background: var(--card-background);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 3px solid #000;
+    }
+    
+    [data-theme="dark"] .project-tile {
+      border: 3px solid #fff;
+    }
+    
+    .project-tile:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+    
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+      background: var(--bg-primary);
+    }
+    
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: var(--weight-semibold);
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    
+    .project-type {
+      color: var(--primary-color);
+      font-weight: var(--weight-semibold);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .project-description {
+      color: var(--text-color);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+    
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary-color);
+      font-weight: var(--weight-semibold);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    
+    .project-link:hover {
+      opacity: 0.7;
+    }
+    
+    .coming-soon {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    
+    .coming-soon .project-content {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars-wrapper"></div>
+  <div class="petals-wrapper light-only"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <ul class="nav-left">
+        <li><a class="nav-link" href="../index.html">Home</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link active" href="projects.html">Projects</a></li>
+        <li><a class="nav-link" href="assets/Vinn_Nguyen_Resume.pdf" target="_blank">Resume</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/vinn-nguyen" target="_blank" aria-label="LinkedIn">
+            <img src="assets/linkedin-icon.svg" alt="LinkedIn" />
+          </a>
+        </div>
+        <div class="theme-switch">
+          <input type="checkbox" id="switch" />
+          <label class="toggle-icons" for="switch" aria-label="Toggle theme">
+            <img class="moon" src="assets/moon.svg" alt="" />
+            <img class="sun" src="assets/sun.svg" alt="" />
+          </label>
+        </div>
+      </div>
+
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Projects Hero -->
+  <section class="projects-hero">
+    <h1>All Projects</h1>
+    <p>Explore my work in sustainable energy systems, mechanical engineering, and clean technology innovation.</p>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="projects-grid">
+    <!-- Project 1 -->
+    <article class="project-tile">
+      <div class="project-image" style="background-image: url('assets/project/project-one.png');"></div>
+      <div class="project-content">
+        <h3 class="project-title">Brackish Water Nutrient Recovery</h3>
+        <p class="project-type">Research</p>
+        <p class="project-description">Developing sustainable methods for recovering valuable nutrients from brackish water sources to support agricultural applications.</p>
+        <a href="projects/project-one.html" class="project-link">
+          View Project →
+        </a>
+      </div>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="project-tile">
+      <div class="project-image" style="background-image: url('assets/project/project-two.png');"></div>
+      <div class="project-content">
+        <h3 class="project-title">Aluminum Recovery from Cryolite</h3>
+        <p class="project-type">Research</p>
+        <p class="project-description">Research into efficient aluminum extraction processes from cryolite waste materials for sustainable metal recovery.</p>
+        <a href="projects/project-two.html" class="project-link">
+          View Project →
+        </a>
+      </div>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="project-tile">
+      <div class="project-image" style="background-image: url('assets/project/project-three.png');"></div>
+      <div class="project-content">
+        <h3 class="project-title">Perovskite Solar Cells Fabrication</h3>
+        <p class="project-type">Research/Engineering</p>
+        <p class="project-description">Fabrication and optimization of perovskite solar cells for improved efficiency in renewable energy applications.</p>
+        <a href="projects/project-three.html" class="project-link">
+          View Project →
+        </a>
+      </div>
+    </article>
+
+    <!-- Project 4 -->
+    <article class="project-tile">
+      <div class="project-image" style="background-image: url('assets/project/project-four.png');"></div>
+      <div class="project-content">
+        <h3 class="project-title">Drawing Machine Design</h3>
+        <p class="project-type">Engineering</p>
+        <p class="project-description">Mechanical design and fabrication of an automated drawing machine with precision control systems.</p>
+        <a href="projects/project-four.html" class="project-link">
+          View Project →
+        </a>
+      </div>
+    </article>
+
+    <!-- Project 5 -->
+    <article class="project-tile">
+      <div class="project-content">
+        <h3 class="project-title">Electric Hydrogen Team CAD Design</h3>
+        <p class="project-type">Engineering</p>
+        <p class="project-description">CAD design work for electric hydrogen systems, focusing on component optimization and manufacturing efficiency.</p>
+        <span class="project-link">
+          Details Coming Soon →
+        </span>
+      </div>
+    </article>
+
+    <!-- Project 6 -->
+    <article class="project-tile coming-soon">
+      <div class="project-content">
+        <h3 class="project-title">Additional Projects</h3>
+        <p class="project-type">Various</p>
+        <p class="project-description">More exciting projects in sustainable energy and mechanical engineering are currently in development.</p>
+        <span class="project-link">
+          Coming Soon →
+        </span>
+      </div>
+    </article>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <a href="mailto:vinn@mit.edu"></a>
+      <div class="social">
+        <a href="#" target="_blank">
+          <img src="assets/linkedin-icon.svg" alt="LinkedIn" />
+        </a>
+        <a href="#" target="_blank">
+          <img src="assets/github-icon.svg" alt="GitHub" />
+        </a>
+      </div>
+      <p>Copyright &copy; Communitypro <span id="datee"></span>, All rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
