@@ -240,6 +240,35 @@
         }
       }
       
+      /* Sort buttons */
+      .sort-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin: 1rem 0 2rem 0;
+      }
+      
+      .sort-btn {
+        padding: 0.5rem 1rem;
+        border: 2px solid var(--primary-color);
+        background: transparent;
+        color: var(--primary-color);
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+      }
+      
+      .sort-btn:hover,
+      .sort-btn.active {
+        background: var(--primary-color);
+        color: white;
+      }
+      
+      .card.hidden {
+        display: none;
+      }
+      
       /* Ensure desktop nav shows on larger screens */
       @media (min-width: 1025px) {
         .nav-left, .nav-right {
@@ -248,6 +277,18 @@
         
         .hamburger {
           display: none !important;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .sort-buttons {
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+        
+        .sort-btn {
+          font-size: 0.9rem;
+          padding: 0.4rem 0.8rem;
         }
       }
     </style>
@@ -322,12 +363,16 @@
       <div class="division"></div>
       <div class="content-text">
         <h2>Projects</h2>
-        <p></p>
+        <div class="sort-buttons">
+          <button class="sort-btn active" data-filter="all">All</button>
+          <button class="sort-btn" data-filter="research">Research</button>
+          <button class="sort-btn" data-filter="engineering">Engineering</button>
+        </div>
       </div>
 
       <article class="project">
         <!-- Project 1 -->
-        <a href="src/projects/project-one.html" class="card" style="background-image: url('src/assets/project/project-one.png'); background-size: cover; background-position: center; border: 3px solid #000;">
+        <a href="src/projects/project-one.html" class="card" data-category="research" style="background-image: url('src/assets/project/project-one.png'); background-size: cover; background-position: center; border: 3px solid #000;">
           <div class="project-info">
             <div class="project-bio">
               <h3>Brackish Water Nutrient Recovery</h3>
@@ -337,7 +382,7 @@
         </a>
 
         <!-- Project 2 -->
-        <a href="src/projects/project-two.html" class="card" style="background-image: url('src/assets/project/project-two.png'); background-size: cover; background-position: center; border: 3px solid #000;">
+        <a href="src/projects/project-two.html" class="card" data-category="research" style="background-image: url('src/assets/project/project-two.png'); background-size: cover; background-position: center; border: 3px solid #000;">
           <div class="project-info">
             <div class="project-bio">
               <h3>Aluminum Recovery from Cryolite</h3>
@@ -347,7 +392,7 @@
         </a>
 
         <!-- Project 3 -->
-        <a href="src/projects/project-three.html" class="card" style="background-image: url('src/assets/project/project-three.png'); background-size: cover; background-position: center; border: 3px solid #000;">
+        <a href="src/projects/project-three.html" class="card" data-category="research engineering" style="background-image: url('src/assets/project/project-three.png'); background-size: cover; background-position: center; border: 3px solid #000;">
           <div class="project-info">
             <div class="project-bio">
               <h3>Perovskite Solar Cells Fabrication</h3>
@@ -357,7 +402,7 @@
         </a>
 
         <!-- Project 4 -->
-        <a href="src/projects/project-four.html" class="card" style="background-image: url('src/assets/project/project-four.png'); background-size: cover; background-position: center; border: 3px solid #000;">
+        <a href="src/projects/project-four.html" class="card" data-category="engineering" style="background-image: url('src/assets/project/project-four.png'); background-size: cover; background-position: center; border: 3px solid #000;">
           <div class="project-info">
             <div class="project-bio">
               <h3>Drawing Machine Design</h3>
@@ -367,7 +412,7 @@
         </a>
 
         <!-- Project 5 -->
-        <div class="card">
+        <div class="card" data-category="engineering">
           <div class="project-info">
             <div class="project-bio">
               <h3>Electric Hydrogen Team CAD Design</h3>
@@ -377,7 +422,7 @@
         </div>
 
         <!-- Project 6 -->
-        <div class="card">
+        <div class="card" data-category="coming-soon">
           <div class="project-info">
             <div class="project-bio">
               <h3>More Projects</h3>
@@ -473,6 +518,31 @@
           if (window.innerWidth > 1024) {
             closeMenu();
           }
+        });
+        
+        // Project sorting functionality
+        const sortButtons = document.querySelectorAll('.sort-btn');
+        const projectCards = document.querySelectorAll('.card');
+        
+        sortButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Update active button
+            sortButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter projects
+            projectCards.forEach(card => {
+              const category = card.getAttribute('data-category');
+              
+              if (filter === 'all' || (category && category.includes(filter))) {
+                card.classList.remove('hidden');
+              } else {
+                card.classList.add('hidden');
+              }
+            });
+          });
         });
       });
     </script>
