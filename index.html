@@ -273,14 +273,14 @@
       }
       
       .card {
-        transition: all 0.4s ease;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         opacity: 1;
         transform: scale(1);
       }
       
       .card.hidden {
         opacity: 0;
-        transform: scale(0.9);
+        transform: scale(0.8) translateX(-50px);
         pointer-events: none;
       }
       
@@ -289,7 +289,6 @@
         grid-template-columns: repeat(3, 1fr);
         grid-auto-rows: minmax(250px, auto);
         grid-gap: 1.1rem;
-        transition: all 0.3s ease;
       }
       
       /* Dark mode white borders for project cards */
@@ -450,10 +449,10 @@
         </div>
 
         <!-- Project 6 -->
-        <a href="src/projects/photography.html" class="card" data-category="personal">
+        <a href="src/projects/fun-projects.html" class="card" data-category="personal">
           <div class="project-info">
             <div class="project-bio">
-              <h3>Photography & Hobbies</h3>
+              <h3>Fun Projects</h3>
               <p>Personal</p>
             </div>
           </div>
