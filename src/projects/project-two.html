@@ -345,5 +345,31 @@
   </footer>
 
   <script src="../js/script.js"></script>
+  <script>
+    // Mobile menu toggle for project pages
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const navLeft = document.querySelector('.nav-left');
+      const navRight = document.querySelector('.nav-right');
+      
+      if (hamburger) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          if (navLeft) navLeft.classList.toggle('active');
+          if (navRight) navRight.classList.toggle('active');
+        });
+      }
+      
+      // Close mobile menu when clicking on a link
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          if (navLeft) navLeft.classList.remove('active');
+          if (navRight) navRight.classList.remove('active');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
