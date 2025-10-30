@@ -303,7 +303,7 @@ body {
 
 /* Front petals that fall in front of content */
 .front-petals-wrapper { 
-  position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; 
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; 
 }
 .front-petal {
   position: absolute; width: var(--petal-size); height: var(--petal-size);
