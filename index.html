@@ -78,6 +78,10 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
       
+      [data-theme="dark"] .hero-image .profile-image {
+        border: 3px solid #fff;
+      }
+      
       .hero-image .profile-image:hover {
         transform: translateY(-5px) scale(1.02);
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
@@ -253,7 +257,7 @@
         border: 2px solid var(--primary-color);
         background: transparent;
         color: var(--primary-color);
-        border-radius: 5px;
+        border-radius: 25px;
         cursor: pointer;
         transition: all 0.3s ease;
         font-weight: 600;
