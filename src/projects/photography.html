@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography & Hobbies - Vinn Nguyen</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <style>
+    .gallery-hero {
+      padding: calc(80px + 3rem) 1rem 2rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .photo-tile {
+      background: var(--bg-primary);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 3px solid #000;
+    }
+    
+    [data-theme="dark"] .photo-tile {
+      border: 3px solid #fff;
+    }
+    
+    .photo-tile:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    
+    .photo-image {
+      width: 100%;
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+      background-color: #f0f0f0;
+    }
+    
+    .photo-caption {
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .photo-title {
+      font-size: 1rem;
+      font-weight: var(--weight-semibold);
+      color: var(--text-color);
+      margin-bottom: 0.5rem;
+    }
+    
+    .photo-description {
+      font-size: 0.9rem;
+      color: var(--text-color);
+      opacity: 0.8;
+      line-height: 1.4;
+    }
+    
+    .placeholder-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #999;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars-wrapper"></div>
+  <div class="petals-wrapper light-only"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <ul class="nav-left">
+        <li><a class="nav-link" href="../../index.html">Home</a></li>
+        <li><a class="nav-link" href="../about.html">About</a></li>
+        <li><a class="nav-link" href="../projects.html">Projects</a></li>
+        <li><a class="nav-link" href="../assets/Vinn_Nguyen_Resume.pdf" target="_blank">Resume</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/vinn-nguyen" target="_blank" aria-label="LinkedIn">
+            <img src="../assets/linkedin-icon.svg" alt="LinkedIn" />
+          </a>
+        </div>
+        <div class="theme-switch">
+          <input type="checkbox" id="switch" />
+          <label class="toggle-icons" for="switch" aria-label="Toggle theme">
+            <img class="moon" src="../assets/moon.svg" alt="" />
+            <img class="sun" src="../assets/sun.svg" alt="" />
+          </label>
+        </div>
+      </div>
+
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Gallery Hero -->
+  <section class="gallery-hero">
+    <h1>Photography & Hobbies</h1>
+    <p>A glimpse into my creative side and personal interests beyond engineering.</p>
+  </section>
+
+  <!-- Photo Grid -->
+  <section class="photo-grid">
+    <!-- Photo 1 -->
+    <article class="photo-tile">
+      <div class="photo-image">
+        <div class="placeholder-text">Photo Coming Soon</div>
+      </div>
+      <div class="photo-caption">
+        <h3 class="photo-title">Nature Photography</h3>
+        <p class="photo-description">Capturing landscapes and natural beauty during travels.</p>
+      </div>
+    </article>
+
+    <!-- Photo 2 -->
+    <article class="photo-tile">
+      <div class="photo-image">
+        <div class="placeholder-text">Photo Coming Soon</div>
+      </div>
+      <div class="photo-caption">
+        <h3 class="photo-title">Urban Exploration</h3>
+        <p class="photo-description">Architecture and city life through my lens.</p>
+      </div>
+    </article>
+
+    <!-- Photo 3 -->
+    <article class="photo-tile">
+      <div class="photo-image">
+        <div class="placeholder-text">Photo Coming Soon</div>
+      </div>
+      <div class="photo-caption">
+        <h3 class="photo-title">Creative Projects</h3>
+        <p class="photo-description">Personal art and design experiments.</p>
+      </div>
+    </article>
+
+    <!-- Photo 4 -->
+    <article class="photo-tile">
+      <div class="photo-image">
+        <div class="placeholder-text">Photo Coming Soon</div>
+      </div>
+      <div class="photo-caption">
+        <h3 class="photo-title">Travel Moments</h3>
+        <p class="photo-description">Memorable experiences from around the world.</p>
+      </div>
+    </article>
+
+    <!-- Photo 5 -->
+    <article class="photo-tile">
+      <div class="photo-image">
+        <div class="placeholder-text">Photo Coming Soon</div>
+      </div>
+      <div class="photo-caption">
+        <h3 class="photo-title">Hobby Projects</h3>
+        <p class="photo-description">Fun side projects and creative endeavors.</p>
+      </div>
+    </article>
+
+    <!-- Photo 6 -->
+    <article class="photo-tile">
+      <div class="photo-image">
+        <div class="placeholder-text">Photo Coming Soon</div>
+      </div>
+      <div class="photo-caption">
+        <h3 class="photo-title">Behind the Scenes</h3>
+        <p class="photo-description">Candid moments and personal reflections.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <a href="mailto:vinn@mit.edu"></a>
+      <div class="social">
+        <a href="#" target="_blank">
+          <img src="../assets/linkedin-icon.svg" alt="LinkedIn" />
+        </a>
+        <a href="#" target="_blank">
+          <img src="../assets/github-icon.svg" alt="GitHub" />
+        </a>
+      </div>
+      <p>Copyright &copy; Communitypro <span id="datee"></span>, All rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
