@@ -273,26 +273,20 @@
       }
       
       .card {
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.4s ease;
         opacity: 1;
         transform: scale(1);
-        flex: 0 0 calc(33.333% - 0.75rem);
       }
       
       .card.hidden {
-        opacity: 0;
-        transform: scale(0.8);
-        pointer-events: none;
-        flex: 0 0 0;
-        width: 0;
-        margin: 0;
-        overflow: hidden;
+        display: none;
       }
       
       .project {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.1rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(250px, auto);
+        grid-gap: 1.1rem;
       }
       
       /* Dark mode white borders for project cards */
@@ -555,17 +549,28 @@
             sortButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             
-            // Filter projects with animation
-            projectCards.forEach((card, index) => {
+            // Filter and reorder projects
+            const visibleCards = [];
+            const hiddenCards = [];
+            
+            projectCards.forEach(card => {
               const category = card.getAttribute('data-category');
-              
-              setTimeout(() => {
-                if (filter === 'all' || (category && category.includes(filter))) {
-                  card.classList.remove('hidden');
-                } else {
-                  card.classList.add('hidden');
-                }
-              }, index * 50);
+              if (filter === 'all' || (category && category.includes(filter))) {
+                visibleCards.push(card);
+              } else {
+                hiddenCards.push(card);
+              }
+            });
+            
+            // Reorder DOM elements
+            const projectContainer = document.querySelector('.project');
+            visibleCards.forEach(card => {
+              card.classList.remove('hidden');
+              projectContainer.appendChild(card);
+            });
+            
+            hiddenCards.forEach(card => {
+              card.classList.add('hidden');
             });
           });
         });
