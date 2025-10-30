@@ -509,7 +509,10 @@
         
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-          if (!hamburger.contains(e.target) && !navLeft.contains(e.target) && !navRight.contains(e.target)) {
+          if (hamburger && navLeft && navRight && 
+              !hamburger.contains(e.target) && 
+              !navLeft.contains(e.target) && 
+              !navRight.contains(e.target)) {
             closeMenu();
           }
         });
