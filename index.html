@@ -249,14 +249,17 @@
       }
       
       .sort-btn {
-        padding: 0.5rem 1rem;
+        padding: 0.75rem 1.5rem;
         border: 2px solid var(--primary-color);
         background: transparent;
         color: var(--primary-color);
-        border-radius: 25px;
+        border-radius: 5px;
         cursor: pointer;
         transition: all 0.3s ease;
         font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        display: inline-block;
       }
       
       .sort-btn:hover,
@@ -267,6 +270,11 @@
       
       .card.hidden {
         display: none;
+      }
+      
+      /* Dark mode white borders for project cards */
+      [data-theme="dark"] .card {
+        border: 3px solid #fff !important;
       }
       
       /* Ensure desktop nav shows on larger screens */
