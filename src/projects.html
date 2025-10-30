@@ -30,6 +30,9 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 3px solid #000;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
     }
     
     [data-theme="dark"] .project-tile {
@@ -82,7 +85,7 @@
     .project-description {
       color: var(--text-color);
       line-height: 1.7;
-      margin-bottom: 2rem;
+      margin-bottom: 0;
       opacity: 0.85;
       font-size: 0.95rem;
     }
@@ -157,56 +160,44 @@
   <!-- Projects Grid -->
   <section class="projects-grid">
     <!-- Project 1 -->
-    <article class="project-tile">
+    <a href="projects/project-one.html" class="project-tile">
       <div class="project-image" style="background-image: url('assets/project/project-one.png');"></div>
       <div class="project-content">
         <h3 class="project-title">Brackish Water Nutrient Recovery</h3>
         <p class="project-type">Research</p>
         <p class="project-description">Developing sustainable methods for recovering valuable nutrients from brackish water sources to support agricultural applications.</p>
-        <a href="projects/project-one.html" class="project-link">
-          View Project →
-        </a>
       </div>
-    </article>
+    </a>
 
     <!-- Project 2 -->
-    <article class="project-tile">
+    <a href="projects/project-two.html" class="project-tile">
       <div class="project-image" style="background-image: url('assets/project/project-two.png');"></div>
       <div class="project-content">
         <h3 class="project-title">Aluminum Recovery from Cryolite</h3>
         <p class="project-type">Research</p>
         <p class="project-description">Research into efficient aluminum extraction processes from cryolite waste materials for sustainable metal recovery.</p>
-        <a href="projects/project-two.html" class="project-link">
-          View Project →
-        </a>
       </div>
-    </article>
+    </a>
 
     <!-- Project 3 -->
-    <article class="project-tile">
+    <a href="projects/project-three.html" class="project-tile">
       <div class="project-image" style="background-image: url('assets/project/project-three.png');"></div>
       <div class="project-content">
         <h3 class="project-title">Perovskite Solar Cells Fabrication</h3>
         <p class="project-type">Research/Engineering</p>
         <p class="project-description">Fabrication and optimization of perovskite solar cells for improved efficiency in renewable energy applications.</p>
-        <a href="projects/project-three.html" class="project-link">
-          View Project →
-        </a>
       </div>
-    </article>
+    </a>
 
     <!-- Project 4 -->
-    <article class="project-tile">
+    <a href="projects/project-four.html" class="project-tile">
       <div class="project-image" style="background-image: url('assets/project/project-four.png');"></div>
       <div class="project-content">
         <h3 class="project-title">Drawing Machine Design</h3>
         <p class="project-type">Engineering</p>
         <p class="project-description">Mechanical design and fabrication of an automated drawing machine with precision control systems.</p>
-        <a href="projects/project-four.html" class="project-link">
-          View Project →
-        </a>
       </div>
-    </article>
+    </a>
 
     <!-- Project 5 -->
     <article class="project-tile coming-soon">
@@ -221,16 +212,13 @@
     </article>
 
     <!-- Project 6 -->
-    <article class="project-tile">
+    <a href="projects/fun-projects.html" class="project-tile">
       <div class="project-content">
         <h3 class="project-title">Fun Projects</h3>
         <p class="project-type">Personal</p>
         <p class="project-description">Creative side projects and personal experiments outside of engineering work.</p>
-        <a href="projects/fun-projects.html" class="project-link">
-          View Projects →
-        </a>
       </div>
-    </article>
+    </a>
   </section>
 
   <!-- Footer -->
