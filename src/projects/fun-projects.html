@@ -206,5 +206,24 @@
   </footer>
 
   <script src="../js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+  <script>
+    // HEIC image support
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img[src$=".heic"], img[src$=".HEIC"]');
+      
+      images.forEach(async (img) => {
+        try {
+          const response = await fetch(img.src);
+          const blob = await response.blob();
+          const convertedBlob = await heic2any({ blob, toType: 'image/jpeg', quality: 0.8 });
+          const url = URL.createObjectURL(convertedBlob);
+          img.src = url;
+        } catch (error) {
+          console.warn('Failed to convert HEIC image:', img.src);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
