@@ -153,6 +153,74 @@
       --tgt-out:  #6b8f6b33;
       --tgt-tech: #9b6a6a33;
     }
+    
+    /* Image Carousel */
+    .image-carousel {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid #000;
+      box-shadow: var(--shadow);
+      background: var(--card-background);
+      justify-self: end;
+    }
+    
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+    
+    .carousel-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .carousel-image.active {
+      opacity: 1;
+    }
+    
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.3s ease;
+    }
+    
+    .carousel-btn:hover {
+      background: rgba(0, 0, 0, 0.9);
+    }
+    
+    .carousel-btn.prev {
+      left: 10px;
+    }
+    
+    .carousel-btn.next {
+      right: 10px;
+    }
+    
+    .carousel-caption {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: center;
+      background: var(--card-background);
+    }
   </style>
 </head>
 
@@ -240,17 +308,17 @@
             My approach emphasized modularity and precision, creating a platform that could handle various drawing tools and paper sizes while maintaining consistent line quality and dimensional accuracy throughout the drawing process.
           </p>
         </div>
-        <figure class="media media-stack">
-          <figure class="shot shot-top">
-            <img src="../assets/project/project-four/overview-1.png" alt="Machine design concept" />
-            <figcaption>Drawing machine mechanical design and motion system</figcaption>
-          </figure>
-        
-          <figure class="shot shot-bottom">
-            <img src="../assets/project/project-four/overview-2.png" alt="Control system architecture" />
-            <figcaption>Control system architecture and image processing pipeline</figcaption>
-          </figure>
-        </figure>
+        <div class="image-carousel">
+          <div class="carousel-container">
+            <img class="carousel-image active" src="../assets/project/project-four/overview-1.png" alt="Machine design concept" />
+            <img class="carousel-image" src="../assets/project/project-four/overview-2.png" alt="Control system architecture" />
+          </div>
+          <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
+          <button class="carousel-btn next" onclick="changeImage(1)">›</button>
+          <div class="carousel-caption">
+            <span class="caption-text">Drawing machine mechanical design and motion system</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -270,17 +338,17 @@
             <li>• Optimized drawing speed and acceleration profiles to balance productivity with line quality</li>
           </ul>
         </div>
-        <figure class="media media-stack">
-          <figure class="shot shot-top">
-            <img src="../assets/project/project-four/work-1.png" alt="CAD design and assembly" />
-            <figcaption>CAD design process and mechanical assembly</figcaption>
-          </figure>
-          
-          <figure class="shot shot-bottom">
-            <img src="../assets/project/project-four/work-2.png" alt="Electronics and control system" />
-            <figcaption>Electronics integration and motion control programming</figcaption>
-          </figure>
-        </figure>
+        <div class="image-carousel">
+          <div class="carousel-container">
+            <img class="carousel-image active" src="../assets/project/project-four/work-1.png" alt="CAD design and assembly" />
+            <img class="carousel-image" src="../assets/project/project-four/work-2.png" alt="Electronics and control system" />
+          </div>
+          <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
+          <button class="carousel-btn next" onclick="changeImage(1)">›</button>
+          <div class="carousel-caption">
+            <span class="caption-text">CAD design process and mechanical assembly</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -313,5 +381,36 @@
   </footer>
 
   <script src="../js/script.js"></script>
+  <script>
+    let currentImageIndex = 0;
+    const captions = [
+      "Drawing machine mechanical design and motion system",
+      "Control system architecture and image processing pipeline",
+      "CAD design process and mechanical assembly",
+      "Electronics integration and motion control programming"
+    ];
+    
+    function changeImage(direction) {
+      const carousel = event.target.closest('.image-carousel');
+      const images = carousel.querySelectorAll('.carousel-image');
+      const captionText = carousel.querySelector('.caption-text');
+      
+      // Remove active class from current image
+      images[currentImageIndex].classList.remove('active');
+      
+      // Calculate new index
+      currentImageIndex += direction;
+      if (currentImageIndex >= images.length) currentImageIndex = 0;
+      if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+      
+      // Add active class to new image
+      images[currentImageIndex].classList.add('active');
+      
+      // Update caption
+      if (captionText && captions[currentImageIndex]) {
+        captionText.textContent = captions[currentImageIndex];
+      }
+    }
+  </script>
 </body>
 </html>
