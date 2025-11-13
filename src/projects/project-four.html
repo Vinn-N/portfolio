@@ -310,8 +310,9 @@
         </div>
         <div class="image-carousel">
           <div class="carousel-container">
-            <img class="carousel-image active" src="../assets/project/project-four/overview-1.png" alt="Machine design concept" />
-            <img class="carousel-image" src="../assets/project/project-four/overview-2.png" alt="Control system architecture" />
+            <img class="carousel-image active" src="../assets/project/project-four/IMG_0516.HEIC" alt="Machine design concept" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0533.HEIC" alt="Control system architecture" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0537.HEIC" alt="Machine assembly" />
           </div>
           <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
           <button class="carousel-btn next" onclick="changeImage(1)">›</button>
@@ -340,8 +341,10 @@
         </div>
         <div class="image-carousel">
           <div class="carousel-container">
-            <img class="carousel-image active" src="../assets/project/project-four/work-1.png" alt="CAD design and assembly" />
-            <img class="carousel-image" src="../assets/project/project-four/work-2.png" alt="Electronics and control system" />
+            <img class="carousel-image active" src="../assets/project/project-four/IMG_0557.HEIC" alt="CAD design and assembly" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0561.HEIC" alt="Electronics and control system" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0565.HEIC" alt="Machine operation" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0574.HEIC" alt="Drawing process" />
           </div>
           <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
           <button class="carousel-btn next" onclick="changeImage(1)">›</button>
@@ -376,11 +379,30 @@
 
   <footer id="footer">
     <div class="container">
-      <p>&copy; 2024 Vinn Nguyen</p>
+      <p>&copy; 2025 Vinn Nguyen</p>
     </div>
   </footer>
 
   <script src="../js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+  <script>
+    // HEIC image support
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img[src$=".heic"], img[src$=".HEIC"]');
+      
+      images.forEach(async (img) => {
+        try {
+          const response = await fetch(img.src);
+          const blob = await response.blob();
+          const convertedBlob = await heic2any({ blob, toType: 'image/jpeg', quality: 0.8 });
+          const url = URL.createObjectURL(convertedBlob);
+          img.src = url;
+        } catch (error) {
+          console.warn('Failed to convert HEIC image:', img.src);
+        }
+      });
+    });
+  </script>
   <script>
     let currentImageIndex = 0;
     const captions = [
