@@ -315,14 +315,14 @@
         </div>
         <div class="image-carousel">
           <div class="carousel-container">
-            <img class="carousel-image active" src="../assets/project/project-four/IMG_0516.jpg" alt="Machine design concept" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0533.jpg" alt="Control system architecture" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0537.jpg" alt="Machine assembly" />
+            <img class="carousel-image active" src="../assets/project/project-four/IMG_0516.jpg" alt="Drawing machine frame and mechanical components" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0533.jpg" alt="Stepper motor and belt drive system" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0537.jpg" alt="Complete machine assembly with control electronics" />
           </div>
           <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
           <button class="carousel-btn next" onclick="changeImage(1)">›</button>
           <div class="carousel-caption">
-            <span class="caption-text">Drawing machine mechanical design and motion system</span>
+            <span class="caption-text">Drawing machine frame and mechanical components</span>
           </div>
         </div>
       </div>
@@ -346,15 +346,15 @@
         </div>
         <div class="image-carousel">
           <div class="carousel-container">
-            <img class="carousel-image active" src="../assets/project/project-four/IMG_0557.jpg" alt="CAD design and assembly" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0561.jpg" alt="Electronics and control system" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0565.jpg" alt="Machine operation" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0574.jpg" alt="Drawing process" />
+            <img class="carousel-image active" src="../assets/project/project-four/IMG_0557.jpg" alt="Precision drawing head and pen holder mechanism" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0561.jpg" alt="Arduino control board and motor drivers" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0565.jpg" alt="Machine in operation drawing geometric patterns" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0574.jpg" alt="Completed drawing output showing precision and accuracy" />
           </div>
           <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
           <button class="carousel-btn next" onclick="changeImage(1)">›</button>
           <div class="carousel-caption">
-            <span class="caption-text">CAD design process and mechanical assembly</span>
+            <span class="caption-text">Precision drawing head and pen holder mechanism</span>
           </div>
         </div>
       </div>
@@ -409,33 +409,33 @@
     });
   </script>
   <script>
-    let currentImageIndex = 0;
-    const captions = [
-      "Drawing machine mechanical design and motion system",
-      "Control system architecture and image processing pipeline",
-      "CAD design process and mechanical assembly",
-      "Electronics integration and motion control programming"
-    ];
+    const carouselStates = new Map();
     
     function changeImage(direction) {
       const carousel = event.target.closest('.image-carousel');
       const images = carousel.querySelectorAll('.carousel-image');
       const captionText = carousel.querySelector('.caption-text');
       
+      // Get or initialize carousel state
+      if (!carouselStates.has(carousel)) {
+        carouselStates.set(carousel, { currentIndex: 0 });
+      }
+      const state = carouselStates.get(carousel);
+      
       // Remove active class from current image
-      images[currentImageIndex].classList.remove('active');
+      images[state.currentIndex].classList.remove('active');
       
       // Calculate new index
-      currentImageIndex += direction;
-      if (currentImageIndex >= images.length) currentImageIndex = 0;
-      if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+      state.currentIndex += direction;
+      if (state.currentIndex >= images.length) state.currentIndex = 0;
+      if (state.currentIndex < 0) state.currentIndex = images.length - 1;
       
       // Add active class to new image
-      images[currentImageIndex].classList.add('active');
+      images[state.currentIndex].classList.add('active');
       
-      // Update caption
-      if (captionText && captions[currentImageIndex]) {
-        captionText.textContent = captions[currentImageIndex];
+      // Update caption from image alt text
+      if (captionText) {
+        captionText.textContent = images[state.currentIndex].alt;
       }
     }
   </script>
