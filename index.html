@@ -294,6 +294,13 @@
         border: 3px solid #fff !important;
       }
       
+      /* Ensure fun projects card shows image */
+      .card[data-category="personal"] {
+        min-height: 250px;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+      
       /* Ensure desktop nav shows on larger screens */
       @media (min-width: 1025px) {
         .nav-left, .nav-right {
