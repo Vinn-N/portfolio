@@ -169,7 +169,6 @@
       position: relative;
       width: 100%;
       height: auto;
-      min-height: 250px;
     }
     
     .carousel-image {
@@ -178,16 +177,13 @@
       left: 0;
       width: 100%;
       height: auto;
-      object-fit: contain;
       opacity: 0;
       transition: opacity 0.3s ease;
+      display: block;
     }
     
     .carousel-image.active {
       position: relative;
-    }
-    
-    .carousel-image.active {
       opacity: 1;
     }
     
