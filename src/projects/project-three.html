@@ -170,6 +170,75 @@
       --tgt-out:  #6b8f6b33;
       --tgt-tech: #9b6a6a33;
     }
+    
+    /* Image Carousel */
+    .image-carousel {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid #000;
+      box-shadow: var(--shadow);
+      background: var(--card-background);
+      justify-self: end;
+    }
+    
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+    
+    .carousel-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: block;
+    }
+    
+    .carousel-image.active {
+      position: relative;
+      opacity: 1;
+    }
+    
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.3s ease;
+    }
+    
+    .carousel-btn:hover {
+      background: rgba(0, 0, 0, 0.9);
+    }
+    
+    .carousel-btn.prev {
+      left: 10px;
+    }
+    
+    .carousel-btn.next {
+      right: 10px;
+    }
+    
+    .carousel-caption {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: center;
+      background: var(--card-background);
+    }
   </style>
 </head>
 
@@ -287,17 +356,22 @@
             <li>• Optimized fabrication processes to achieve consistent performance across diverse environmental conditions</li>
           </ul>
         </div>
-        <figure class="media media-stack">
-          <figure class="shot shot-top">
-            <img src="../assets/project/project-three/work-1.png" alt="Spin-coating fabrication setup" />
-            <figcaption>Spin-coating deposition system with environmental control</figcaption>
-          </figure>
-          
-          <figure class="shot shot-bottom">
-            <img src="../assets/project/project-three/work-2.png" alt="Arduino monitoring system" />
-            <figcaption>Arduino and Raspberry Pi environmental monitoring system</figcaption>
-          </figure>
-        </figure>
+        <div class="image-carousel">
+          <div class="carousel-container">
+            <img class="carousel-image active" src="../assets/project/project-three/41F0239B-1519-4D36-BFB2-9AD625BB57EC.JPG" alt="Perovskite fabrication setup" />
+            <img class="carousel-image" src="../assets/project/project-three/48AE587A-7C74-4D12-A8E3-921293FC1EDC.JPG" alt="Laboratory equipment and materials" />
+            <img class="carousel-image" src="../assets/project/project-three/6BCB93E5-D698-4EBB-8A76-FAACA56F1A08.JPG" alt="Spin-coating process in action" />
+            <img class="carousel-image" src="../assets/project/project-three/F63B7320-6C4E-43E5-A840-0729427F93B7.JPG" alt="Environmental monitoring system" />
+            <img class="carousel-image" src="../assets/project/project-three/IMG_2296.JPG" alt="Solar cell characterization" />
+            <img class="carousel-image" src="../assets/project/project-three/IMG_2350.HEIC" alt="Fabrication process detail" />
+            <img class="carousel-image" src="../assets/project/project-three/IMG_2376.HEIC" alt="Completed perovskite devices" />
+          </div>
+          <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
+          <button class="carousel-btn next" onclick="changeImage(1)">›</button>
+          <div class="carousel-caption">
+            <span class="caption-text">Perovskite fabrication setup</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -350,5 +424,55 @@
   </footer>
 
   <script src="../js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+  <script>
+    // HEIC image support
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img[src$=".heic"], img[src$=".HEIC"]');
+      
+      images.forEach(async (img) => {
+        try {
+          const response = await fetch(img.src);
+          const blob = await response.blob();
+          const convertedBlob = await heic2any({ blob, toType: 'image/jpeg', quality: 0.8 });
+          const url = URL.createObjectURL(convertedBlob);
+          img.src = url;
+        } catch (error) {
+          console.warn('Failed to convert HEIC image:', img.src);
+        }
+      });
+    });
+  </script>
+  <script>
+    const carouselStates = new Map();
+    
+    function changeImage(direction) {
+      const carousel = event.target.closest('.image-carousel');
+      const images = carousel.querySelectorAll('.carousel-image');
+      const captionText = carousel.querySelector('.caption-text');
+      
+      // Get or initialize carousel state
+      if (!carouselStates.has(carousel)) {
+        carouselStates.set(carousel, { currentIndex: 0 });
+      }
+      const state = carouselStates.get(carousel);
+      
+      // Remove active class from current image
+      images[state.currentIndex].classList.remove('active');
+      
+      // Calculate new index
+      state.currentIndex += direction;
+      if (state.currentIndex >= images.length) state.currentIndex = 0;
+      if (state.currentIndex < 0) state.currentIndex = images.length - 1;
+      
+      // Add active class to new image
+      images[state.currentIndex].classList.add('active');
+      
+      // Update caption from image alt text
+      if (captionText) {
+        captionText.textContent = images[state.currentIndex].alt;
+      }
+    }
+  </script>
 </body>
 </html>
