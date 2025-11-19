@@ -8,10 +8,48 @@
   <link rel="stylesheet" href="../css/utilities.css">
   <style>
     .gallery-hero {
-      padding: calc(80px + 3rem) 1rem 3rem;
+      padding: calc(80px + 3rem) 1rem 1rem;
       text-align: center;
       max-width: 1200px;
       margin: 0 auto;
+    }
+    
+    .project-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem auto;
+      max-width: 600px;
+      padding: 0 2rem;
+    }
+    
+    .tab-button {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid #000;
+      background: transparent;
+      color: var(--text-color);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: var(--weight-medium);
+    }
+    
+    [data-theme="dark"] .tab-button {
+      border: 2px solid #fff;
+    }
+    
+    .tab-button.active {
+      background: #000;
+      color: #fff;
+    }
+    
+    [data-theme="dark"] .tab-button.active {
+      background: #fff;
+      color: #000;
+    }
+    
+    .tab-button:hover {
+      transform: translateY(-2px);
     }
     
     .photo-grid {
@@ -22,6 +60,10 @@
       margin: 0 auto;
       padding: 0 2rem;
       justify-content: center;
+    }
+    
+    .photo-grid.hidden {
+      display: none;
     }
     
     .photo-tile {
@@ -128,68 +170,98 @@
     <p>Creative side projects and personal experiments outside of engineering work.</p>
   </section>
 
-  <!-- Photo Grid -->
-  <section class="photo-grid">
-    <!-- Photo 1 -->
+  <!-- Project Tabs -->
+  <div class="project-tabs">
+    <button class="tab-button active" data-tab="photography">Photography</button>
+    <button class="tab-button" data-tab="creative">Creative</button>
+    <button class="tab-button" data-tab="personal">Personal</button>
+  </div>
+
+  <!-- Photography Grid -->
+  <section class="photo-grid" id="photography-grid">
     <article class="photo-tile">
-      <img class="photo-image" src="../assets/project/fun/IMG_2810.png" alt="Creative Photography" />
+      <img class="photo-image" src="../assets/project/fun/IMG_2810.png" alt="Urban Photography" />
       <div class="photo-caption">
-        <h3 class="photo-title">Creative Photography</h3>
-        <p class="photo-description">Experimental shots and artistic compositions.</p>
+        <h3 class="photo-title">Urban Photography</h3>
+        <p class="photo-description">Capturing city life and architectural details.</p>
       </div>
     </article>
 
-    <!-- Photo 2 -->
     <article class="photo-tile">
-      <img class="photo-image" src="../assets/project/fun/IMG_2826.png" alt="Visual Experiments" />
+      <img class="photo-image" src="../assets/project/fun/IMG_9643.png" alt="Street Photography" />
       <div class="photo-caption">
-        <h3 class="photo-title">Visual Experiments</h3>
-        <p class="photo-description">Playing with light, shadow, and perspective.</p>
+        <h3 class="photo-title">Street Photography</h3>
+        <p class="photo-description">Candid moments and urban scenes.</p>
       </div>
     </article>
 
-    <!-- Photo 3 -->
     <article class="photo-tile">
-      <img class="photo-image" src="../assets/project/fun/IMG_9643.jpg" alt="Personal Moments" />
+      <img class="photo-image" src="../assets/project/fun/IMG_9648.png" alt="Portrait Work" />
+      <div class="photo-caption">
+        <h3 class="photo-title">Portrait Work</h3>
+        <p class="photo-description">Character studies and human expression.</p>
+      </div>
+    </article>
+
+    <article class="photo-tile">
+      <img class="photo-image" src="../assets/project/fun/IMG_3625.png" alt="Nature Photography" />
+      <div class="photo-caption">
+        <h3 class="photo-title">Nature Photography</h3>
+        <p class="photo-description">Natural landscapes and outdoor scenes.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- Creative Grid -->
+  <section class="photo-grid hidden" id="creative-grid">
+    <article class="photo-tile">
+      <img class="photo-image" src="../assets/project/fun/IMG_2826.png" alt="Abstract Art" />
+      <div class="photo-caption">
+        <h3 class="photo-title">Abstract Art</h3>
+        <p class="photo-description">Experimental compositions and visual art.</p>
+      </div>
+    </article>
+
+    <article class="photo-tile">
+      <img class="photo-image" src="../assets/project/fun/IMG_9889.png" alt="Creative Experiments" />
+      <div class="photo-caption">
+        <h3 class="photo-title">Creative Experiments</h3>
+        <p class="photo-description">Playing with light, shadow, and form.</p>
+      </div>
+    </article>
+
+    <article class="photo-tile">
+      <img class="photo-image" src="../assets/project/fun/IMG_9949.png" alt="Digital Art" />
+      <div class="photo-caption">
+        <h3 class="photo-title">Digital Art</h3>
+        <p class="photo-description">Digital manipulation and artistic effects.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- Personal Grid -->
+  <section class="photo-grid hidden" id="personal-grid">
+    <article class="photo-tile">
+      <img class="photo-image" src="../assets/project/fun/IMG_1092.png" alt="Personal Moments" />
       <div class="photo-caption">
         <h3 class="photo-title">Personal Moments</h3>
-        <p class="photo-description">Capturing life's interesting moments and details.</p>
+        <p class="photo-description">Life experiences and memorable occasions.</p>
       </div>
     </article>
 
-    <!-- Photo 4 -->
     <article class="photo-tile">
-      <img class="photo-image" src="../assets/project/fun/IMG_9648.jpg" alt="Everyday Beauty" />
+      <img class="photo-image" src="../assets/project/fun/IMG_3629.png" alt="Travel Photography" />
       <div class="photo-caption">
-        <h3 class="photo-title">Everyday Beauty</h3>
-        <p class="photo-description">Finding art in ordinary situations.</p>
+        <h3 class="photo-title">Travel Photography</h3>
+        <p class="photo-description">Adventures and places visited.</p>
       </div>
     </article>
 
-    <!-- Photo 5 -->
     <article class="photo-tile">
-      <img class="photo-image" src="../assets/project/fun/IMG_9889.jpg" alt="Creative Exploration" />
+      <img class="photo-image" src="../assets/project/fun/IMG_9908.png" alt="Everyday Life" />
       <div class="photo-caption">
-        <h3 class="photo-title">Creative Exploration</h3>
-        <p class="photo-description">Experimenting with different styles and techniques.</p>
-      </div>
-    </article>
-
-    <!-- Photo 6 -->
-    <article class="photo-tile">
-      <img class="photo-image" src="../assets/project/fun/IMG_9949.jpg" alt="Personal Projects" />
-      <div class="photo-caption">
-        <h3 class="photo-title">Personal Projects</h3>
-        <p class="photo-description">Fun creative work outside of engineering.</p>
-      </div>
-    </article>
-
-    <!-- Photo 7 -->
-    <article class="photo-tile">
-      <img class="photo-image" src="../assets/project/fun/IMG_1092.JPG" alt="New Creative Work" />
-      <div class="photo-caption">
-        <h3 class="photo-title">New Creative Work</h3>
-        <p class="photo-description">Latest creative exploration and artistic expression.</p>
+        <h3 class="photo-title">Everyday Life</h3>
+        <p class="photo-description">Daily moments and personal reflections.</p>
       </div>
     </article>
   </section>
@@ -211,22 +283,29 @@
   </footer>
 
   <script src="../js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
   <script>
-    // HEIC image support
+    // Tab functionality
     document.addEventListener('DOMContentLoaded', function() {
-      const images = document.querySelectorAll('img[src$=".heic"], img[src$=".HEIC"]');
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const photoGrids = document.querySelectorAll('.photo-grid');
       
-      images.forEach(async (img) => {
-        try {
-          const response = await fetch(img.src);
-          const blob = await response.blob();
-          const convertedBlob = await heic2any({ blob, toType: 'image/jpeg', quality: 0.8 });
-          const url = URL.createObjectURL(convertedBlob);
-          img.src = url;
-        } catch (error) {
-          console.warn('Failed to convert HEIC image:', img.src);
-        }
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const targetTab = button.dataset.tab;
+          
+          // Update active button
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          
+          // Show/hide grids
+          photoGrids.forEach(grid => {
+            if (grid.id === `${targetTab}-grid`) {
+              grid.classList.remove('hidden');
+            } else {
+              grid.classList.add('hidden');
+            }
+          });
+        });
       });
     });
   </script>
