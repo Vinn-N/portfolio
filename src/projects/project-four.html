@@ -296,9 +296,7 @@
       <div class="wrap">
         <div class="text">
           <h2>Overview</h2>
-          <div class="timeline-block">
-            <p><strong>Timeline:</strong> Coming Soon | <strong>Context:</strong> Personal Engineering Project</p>
-          </div>
+
           <p>
             Automated drawing machines represent a fascinating intersection of mechanical engineering, computer science, and artistic expression. These systems challenge engineers to achieve precise motion control while maintaining the fluid, organic quality that makes hand-drawn art compelling.
           </p>
@@ -349,9 +347,6 @@
             <img class="carousel-image" src="../assets/project/project-four/IMG_0576.HEIC" alt="Additional machine component detail" />
             <img class="carousel-image" src="../assets/project/project-four/IMG_0578.HEIC" alt="Drawing process in action" />
             <img class="carousel-image" src="../assets/project/project-four/IMG_0580.HEIC" alt="Machine setup and calibration" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0583.HEIC" alt="Final assembly and testing" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_1226.HEIC" alt="Machine detail view" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_3454.HEIC" alt="Project completion and results" />
           </div>
           <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
           <button class="carousel-btn next" onclick="changeImage(1)">›</button>
@@ -376,10 +371,19 @@
             This project enhanced my understanding of precision mechanical design, motion control systems, and the integration of hardware and software in automated manufacturing applications. The experience provided valuable insights into the challenges of translating digital information into precise physical actions.
           </p>
         </div>
-        <figure class="media">
-          <img src="../assets/project/project-four.png" alt="Final drawing machine and sample outputs" />
-          <figcaption>Completed drawing machine with sample artistic outputs</figcaption>
-        </figure>
+        <div class="image-carousel">
+          <div class="carousel-container">
+            <img class="carousel-image active" src="../assets/project/project-four.png" alt="Final drawing machine and sample outputs" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0583.HEIC" alt="Final assembly and testing" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_1226.HEIC" alt="Machine detail view" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_3454.HEIC" alt="Project completion and results" />
+          </div>
+          <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
+          <button class="carousel-btn next" onclick="changeImage(1)">›</button>
+          <div class="carousel-caption">
+            <span class="caption-text">Final drawing machine and sample outputs</span>
+          </div>
+        </div>
       </div>
     </section>
   </main>
