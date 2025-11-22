@@ -87,6 +87,11 @@
       font-size: 1.05rem;
       line-height: 1.7;
     }
+    .split ul {
+      margin-bottom: .9rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
     .split .media {
       border-radius: 12px;
       overflow: hidden;
@@ -129,16 +134,6 @@
       color: var(--text-secondary);
       text-align: center;
       background: var(--card-background);
-    }
-
-    /* Timeline Block */
-    .timeline-block {
-      background: var(--tgt-obj, #efe7b8);
-      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: var(--shadow);
     }
 
     @media (max-width: 960px) {
@@ -258,35 +253,31 @@
         <aside class="tgt-rail">
           <section class="tgt-card tgt-obj">
             <h3>Objectives</h3>
-            <ul>
-              <li>• Design and build an automated drawing machine capable of precise artistic reproduction</li>
-              <li>• Implement computer vision and motion control systems for accurate line following</li>
-              <li>• Create a user-friendly interface for image input and drawing parameter adjustment</li>
-            </ul>
+            <p>Design and build a motor-driven drawing machine that uses purely mechanical motion to draw a design on a t-shirt</p>
           </section>
 
           <section class="tgt-card tgt-out">
             <h3>Outcomes &amp; Contributions</h3>
             <ul>
-              <li>• Successfully designed and fabricated a 2-axis CNC drawing machine with sub-millimeter precision</li>
-              <li>• Developed image processing algorithms to convert digital images into machine-readable drawing paths</li>
-              <li>• Integrated stepper motor control system with custom G-code interpreter for smooth operation</li>
+              <li>• Successfully designed and fabricated a motorized, three-link drawing machine mounted on a wooden panel with three outward-slanting legs</li>
+              <li>• Built a chained axle–gear–sprocket mechanism that transforms one continuous motor rotation into layered circular motions at the pen tip</li>
+              <li>• Demonstrated a family of spirograph-like patterns</li>
             </ul>
           </section>
 
           <section class="tgt-card tgt-tech">
             <h3>Technical Details &amp; Skills</h3>
             <ul>
-              <li>• Mechanical Design: CAD modeling, precision machining, and assembly</li>
-              <li>• Electronics: Arduino programming, stepper motor control, and sensor integration</li>
-              <li>• Software: Image processing, path planning algorithms, and G-code generation</li>
+              <li>• Mechanical design: Layout of axles, gears, and sprockets → choosing offsets and link lengths to create interesting pen paths</li>
+              <li>• Fabrication: Cutting and drilling the wooden base and tripod legs, assembling shafts, hubs, and pen mount, and aligning rotating components</li>
+              <li>• Basic electronics: Using a single motor and simple power control to drive the system continuously</li>
             </ul>
           </section>
         </aside>
 
         <figure class="tgt-visual">
           <img src="../assets/project/project-four.png" alt="Drawing machine design and setup" />
-          <figcaption>Automated drawing machine with precision motion control system</figcaption>
+          <figcaption>Motorized three-link drawing machine with mechanical motion system</figcaption>
         </figure>
       </div>
     </section>
@@ -298,25 +289,23 @@
           <h2>Overview</h2>
 
           <p>
-            Automated drawing machines represent a fascinating intersection of mechanical engineering, computer science, and artistic expression. These systems challenge engineers to achieve precise motion control while maintaining the fluid, organic quality that makes hand-drawn art compelling.
+            This drawing machine is a small, harmonograph-style device that turns one motor's rotation into a beautiful looping flower artwork. A single motor spins a main axle. Rigidly attached to this axle is a second, offset axle driven through a gear and sprocket, so it both spins and orbits around the center. That motion is repeated again: the second axle drives a third, outer axle, and a pen is mounted at the end of this final link above a flattened out t-shirt.
           </p>
           <p>
-            This project focused on designing and building a computer-controlled drawing machine capable of reproducing digital images as physical drawings. The system combines precision mechanical design with advanced image processing algorithms to translate digital artwork into coordinated motor movements that guide a pen across paper.
-          </p>
-          <p>
-            My approach emphasized modularity and precision, creating a platform that could handle various drawing tools and paper sizes while maintaining consistent line quality and dimensional accuracy throughout the drawing process.
+            Because each stage both rotates and revolves, the pen tip doesn't trace a simple circle. Instead, it follows a path shaped by several coupled rotations with different radii and offsets, producing layered rosettes, flower-like curves, and drifting loops over time. The entire mechanism is mounted on a wooden panel supported by three legs that slant outward, creating a stable tripod base so the machine can run without wobbling as it draws.
           </p>
         </div>
         <div class="image-carousel">
           <div class="carousel-container">
-            <img class="carousel-image active" src="../assets/project/project-four/IMG_0516.jpg" alt="Drawing machine frame and mechanical components" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0533.jpg" alt="Stepper motor and belt drive system" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0537.jpg" alt="Complete machine assembly with control electronics" />
+            <img class="carousel-image active" src="../assets/project/project-four/IMG_0516.jpg" alt="Initial concept sketches" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0533.jpg" alt="Wooden base construction" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0537.jpg" alt="Axle and gear assembly" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0557.jpg" alt="Motor mounting" />
           </div>
           <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
           <button class="carousel-btn next" onclick="changeImage(1)">›</button>
           <div class="carousel-caption">
-            <span class="caption-text">Drawing machine frame and mechanical components</span>
+            <span class="caption-text">Initial concept sketches</span>
           </div>
         </div>
       </div>
@@ -326,63 +315,64 @@
       <div class="wrap">
         <div class="text">
           <h2>Work</h2>
+
           <p>
-            The project involved comprehensive mechanical design, electronics integration, and software development to create a fully functional automated drawing system. My work spanned from initial concept development through final testing and optimization.
+            The project focused on designing and building a simple but expressive mechanical drawing system from scratch. My work ranged from early sketches to the final product:
           </p>
           <ul>
-            <li>• Designed the mechanical framework using CAD software, optimizing for rigidity and precision while minimizing backlash in the motion system</li>
-            <li>• Implemented stepper motor control circuits with microstepping for smooth, precise movement and integrated limit switches for homing and safety</li>
-            <li>• Developed image processing algorithms to convert bitmap images into vector paths suitable for machine execution</li>
-            <li>• Created custom G-code interpreter to translate drawing commands into coordinated motor movements</li>
-            <li>• Calibrated the system for dimensional accuracy and tested with various drawing tools and paper types</li>
-            <li>• Optimized drawing speed and acceleration profiles to balance productivity with line quality</li>
+            <li>• Sketched concepts for how chained axles, gears, and sprockets could combine to move a pen in nontrivial paths</li>
+            <li>• Designed the layout of the main axle and two subsequent axles so each stage both spun and revolved around the previous one</li>
+            <li>• Built a wooden base and three outward-slanting legs to form a rigid, tripod-style structure</li>
+            <li>• Mounted the motor, axles, gears, and pen holder, paying attention to alignment so friction and binding would be minimized</li>
+            <li>• Ran drawing tests on poster paper, observing how the patterns evolved over time as the mechanism cycled</li>
           </ul>
         </div>
+
         <div class="image-carousel">
           <div class="carousel-container">
-            <img class="carousel-image active" src="../assets/project/project-four/IMG_0557.jpg" alt="Precision drawing head and pen holder mechanism" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0561.jpg" alt="Arduino control board and motor drivers" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0565.jpg" alt="Machine in operation drawing geometric patterns" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0574.jpg" alt="Completed drawing output showing precision and accuracy" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0576.HEIC" alt="Additional machine component detail" />
+            <img class="carousel-image active" src="../assets/project/project-four/IMG_0561.jpg" alt="Pen holder mechanism" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0565.jpg" alt="Complete assembly" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0574.jpg" alt="Drawing test setup" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0576.HEIC" alt="Machine detail view" />
             <img class="carousel-image" src="../assets/project/project-four/IMG_0578.HEIC" alt="Drawing process in action" />
             <img class="carousel-image" src="../assets/project/project-four/IMG_0580.HEIC" alt="Machine setup and calibration" />
+            <img class="carousel-image" src="../assets/project/project-four/IMG_0583.HEIC" alt="Final assembly and testing" />
           </div>
           <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
           <button class="carousel-btn next" onclick="changeImage(1)">›</button>
           <div class="carousel-caption">
-            <span class="caption-text">Precision drawing head and pen holder mechanism</span>
+            <span class="caption-text">Pen holder mechanism</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="split" id="conclusion">
+    <section class="split" id="results">
       <div class="wrap">
         <div class="text">
           <h2>Results & Impact</h2>
+
           <p>
-            The completed drawing machine successfully demonstrated precise automated reproduction of digital images with consistent line quality and dimensional accuracy. The system achieved sub-millimeter positioning precision and could handle complex drawings with smooth curves and fine details.
+            The completed device produced a variety of geometric and organic patterns using only one motor and a chain of mechanical linkages. The pen traced out smooth, continuous curves (rosettes, flower-like shapes, and nested loops) that slowly filled the page as the axles rotated and revolved.
           </p>
           <p>
-            Key performance metrics included drawing speeds up to 50mm/s with 0.1mm positioning accuracy, support for multiple pen types and line weights, and successful reproduction of both geometric patterns and organic artistic designs. The modular design allowed for easy maintenance and future upgrades.
-          </p>
-          <p>
-            This project enhanced my understanding of precision mechanical design, motion control systems, and the integration of hardware and software in automated manufacturing applications. The experience provided valuable insights into the challenges of translating digital information into precise physical actions.
+            Building this drawing machine strengthened my understanding of kinematics, tolerances, and structural rigidity. I saw firsthand how slight misalignments or flexibility in the frame can influence motion quality and line smoothness. Overall, the project gave me a deeper, hands-on feel for how simple mechanical systems can create surprisingly complex and aesthetically pleasing behavior.
           </p>
         </div>
-        <div class="image-carousel">
-          <div class="carousel-container">
-            <img class="carousel-image active" src="../assets/project/project-four.png" alt="Final drawing machine and sample outputs" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0583.HEIC" alt="Final assembly and testing" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_1226.HEIC" alt="Machine detail view" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_3454.HEIC" alt="Project completion and results" />
-          </div>
-          <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
-          <button class="carousel-btn next" onclick="changeImage(1)">›</button>
-          <div class="carousel-caption">
-            <span class="caption-text">Final drawing machine and sample outputs</span>
-          </div>
+
+        <div class="media-stack">
+          <figure class="shot">
+            <img src="../assets/project/project-four/image.png" alt="Final drawing patterns" />
+            <figcaption>Spirograph-like patterns created by the drawing machine</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="../assets/project/project-four/IMG_1226.HEIC" alt="Machine detail view" />
+            <figcaption>Final machine assembly showing mechanical linkages</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="../assets/project/project-four/IMG_3454.HEIC" alt="Project completion and results" />
+            <figcaption>Completed drawing machine in operation</figcaption>
+          </figure>
         </div>
       </div>
     </section>
