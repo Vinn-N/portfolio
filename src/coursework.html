@@ -69,16 +69,26 @@
       font-weight: var(--weight-semibold);
       border-bottom: 2px solid var(--border-color);
       font-size: 0.9rem;
+      color: var(--text-color);
     }
     
     .course-table td {
       padding: 1rem;
       border-bottom: 1px solid var(--border-color);
       vertical-align: top;
+      color: var(--text-color);
     }
     
     .course-table tr:hover {
       background: var(--bg-secondary);
+    }
+    
+    [data-theme="dark"] .course-table th {
+      color: #ffffff;
+    }
+    
+    [data-theme="dark"] .course-table td {
+      color: #ffffff;
     }
     
     .course-number {
@@ -115,6 +125,10 @@
       font-size: 0.85rem;
       color: var(--text-secondary);
       font-style: italic;
+    }
+    
+    [data-theme="dark"] .audit-info {
+      color: #cccccc;
     }
     
     .upcoming-section {
@@ -173,6 +187,10 @@
       font-size: 0.9rem;
       color: var(--text-secondary);
       margin-top: 0.5rem;
+    }
+    
+    [data-theme="dark"] .stat-label {
+      color: #cccccc;
     }
     
     @media (max-width: 768px) {
