@@ -193,6 +193,31 @@
       color: #cccccc;
     }
     
+    /* Force text visibility in dark mode */
+    [data-theme="dark"] * {
+      color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] .term-header {
+      color: white !important;
+    }
+    
+    [data-theme="dark"] .term-title {
+      color: white !important;
+    }
+    
+    [data-theme="dark"] .term-stats {
+      color: white !important;
+    }
+    
+    [data-theme="dark"] .course-number {
+      color: var(--primary-color) !important;
+    }
+    
+    [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] p {
+      color: #ffffff !important;
+    }
+    
     @media (max-width: 768px) {
       .course-table {
         font-size: 0.85rem;
