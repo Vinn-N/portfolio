@@ -133,6 +133,37 @@
       font-weight: var(--weight-semibold);
     }
     
+    .current-section {
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      border: none;
+    }
+    
+    .current-section .term-header {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+    
+    .current-section .course-table th {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-bottom-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .current-section .course-table td {
+      background: transparent;
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+    
+    .current-section .course-table tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .current-section .course-number {
+      color: white;
+    }
+    
     .upcoming-section {
       background: linear-gradient(135deg, var(--primary-color), #667eea);
       color: white;
@@ -555,48 +586,48 @@
     </div>
 
     <!-- Current Spring 2025 -->
-    <div class="term-section" style="background: linear-gradient(135deg, #28a745, #20c997); color: white; border: none;">
-      <div class="term-header" style="background: rgba(255, 255, 255, 0.1);">
+    <div class="term-section current-section">
+      <div class="term-header">
         <h2 class="term-title">Spring Term 2025 (Current)</h2>
         <div class="term-stats">
           <span>Units: 48</span>
-          <span>Year: 2</span>
+          <span>Year: 3</span>
           <span>In Progress</span>
         </div>
       </div>
       <table class="course-table">
         <thead>
           <tr>
-            <th style="background: rgba(255, 255, 255, 0.1); color: white; border-bottom-color: rgba(255, 255, 255, 0.2);">Course</th>
-            <th style="background: rgba(255, 255, 255, 0.1); color: white; border-bottom-color: rgba(255, 255, 255, 0.2);">Title</th>
-            <th style="background: rgba(255, 255, 255, 0.1); color: white; border-bottom-color: rgba(255, 255, 255, 0.2);">Units</th>
-            <th style="background: rgba(255, 255, 255, 0.1); color: white; border-bottom-color: rgba(255, 255, 255, 0.2);">Status</th>
+            <th>Course</th>
+            <th>Title</th>
+            <th>Units</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="background: transparent; border-bottom-color: rgba(255, 255, 255, 0.1); color: white;">
-            <td class="course-number" style="color: white;">2.006</td>
-            <td style="color: white;">Thermal-Fluids Engineering II</td>
-            <td class="units" style="color: white;">12</td>
-            <td><span class="grade" style="background: rgba(255, 255, 255, 0.2); color: white;">Registered</span></td>
+          <tr>
+            <td class="course-number">2.006</td>
+            <td>Thermal-Fluids Engineering II</td>
+            <td class="units">12</td>
+            <td><span class="grade grade-p">Registered</span></td>
           </tr>
-          <tr style="background: transparent; border-bottom-color: rgba(255, 255, 255, 0.1); color: white;">
-            <td class="course-number" style="color: white;">2.650</td>
-            <td style="color: white;">Intro to Sustainable Energy</td>
-            <td class="units" style="color: white;">12</td>
-            <td><span class="grade" style="background: rgba(255, 255, 255, 0.2); color: white;">Registered</span></td>
+          <tr>
+            <td class="course-number">2.650</td>
+            <td>Intro to Sustainable Energy</td>
+            <td class="units">12</td>
+            <td><span class="grade grade-p">Registered</span></td>
           </tr>
-          <tr style="background: transparent; border-bottom-color: rgba(255, 255, 255, 0.1); color: white;">
-            <td class="course-number" style="color: white;">2.760</td>
-            <td style="color: white;">Global Engineering: Green Mach</td>
-            <td class="units" style="color: white;">12</td>
-            <td><span class="grade" style="background: rgba(255, 255, 255, 0.2); color: white;">Registered</span></td>
+          <tr>
+            <td class="course-number">2.760</td>
+            <td>Global Engineering: Green Mach</td>
+            <td class="units">12</td>
+            <td><span class="grade grade-p">Registered</span></td>
           </tr>
-          <tr style="background: transparent; border-bottom-color: rgba(255, 255, 255, 0.1); color: white;">
-            <td class="course-number" style="color: white;">HAA.0423</td>
-            <td style="color: white;">Pre-Advanced Vietnamese</td>
-            <td class="units" style="color: white;">12</td>
-            <td><span class="grade" style="background: rgba(255, 255, 255, 0.2); color: white;">Registered</span></td>
+          <tr>
+            <td class="course-number">HAA.0423</td>
+            <td>Pre-Advanced Vietnamese</td>
+            <td class="units">12</td>
+            <td><span class="grade grade-p">Registered</span></td>
           </tr>
         </tbody>
       </table>
