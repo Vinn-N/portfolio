@@ -22,7 +22,7 @@
     
     .term-section {
       margin-bottom: 3rem;
-      background: var(--card-background);
+      background: #ffffff;
       border-radius: 16px;
       overflow: hidden;
       border: 3px solid #000;
@@ -31,6 +31,7 @@
     
     [data-theme="dark"] .term-section {
       border: 3px solid #fff;
+      background: #1a1a1a;
     }
     
     .term-header {
@@ -48,6 +49,7 @@
       font-size: 1.4rem;
       font-weight: var(--weight-bold);
       margin: 0;
+      color: white;
     }
     
     .term-stats {
@@ -55,6 +57,7 @@
       gap: 2rem;
       font-size: 0.9rem;
       opacity: 0.9;
+      color: white;
     }
     
     .course-table {
@@ -63,32 +66,41 @@
     }
     
     .course-table th {
-      background: var(--bg-secondary);
+      background: #f8f9fa;
       padding: 1rem;
       text-align: left;
       font-weight: var(--weight-semibold);
-      border-bottom: 2px solid var(--border-color);
+      border-bottom: 2px solid #dee2e6;
       font-size: 0.9rem;
-      color: var(--text-color);
+      color: #000000;
     }
     
     .course-table td {
       padding: 1rem;
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid #dee2e6;
       vertical-align: top;
-      color: var(--text-color);
+      color: #000000;
+      background: #ffffff;
     }
     
     .course-table tr:hover {
-      background: var(--bg-secondary);
+      background: #f8f9fa;
     }
     
     [data-theme="dark"] .course-table th {
+      background: #2d2d2d;
       color: #ffffff;
+      border-bottom-color: #444;
     }
     
     [data-theme="dark"] .course-table td {
+      background: #1a1a1a;
       color: #ffffff;
+      border-bottom-color: #444;
+    }
+    
+    [data-theme="dark"] .course-table tr:hover {
+      background: #2d2d2d;
     }
     
     .course-number {
@@ -121,16 +133,6 @@
       font-weight: var(--weight-semibold);
     }
     
-    .audit-info {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      font-style: italic;
-    }
-    
-    [data-theme="dark"] .audit-info {
-      color: #cccccc;
-    }
-    
     .upcoming-section {
       background: linear-gradient(135deg, var(--primary-color), #667eea);
       color: white;
@@ -148,6 +150,7 @@
     }
     
     .upcoming-section .course-table td {
+      background: transparent;
       border-bottom-color: rgba(255, 255, 255, 0.1);
       color: white;
     }
@@ -164,7 +167,7 @@
     }
     
     .stat-card {
-      background: var(--card-background);
+      background: #ffffff;
       border: 3px solid #000;
       border-radius: 12px;
       padding: 1.5rem;
@@ -174,6 +177,7 @@
     
     [data-theme="dark"] .stat-card {
       border-color: #fff;
+      background: #1a1a1a;
     }
     
     .stat-number {
@@ -185,7 +189,7 @@
     
     .stat-label {
       font-size: 0.9rem;
-      color: var(--text-secondary);
+      color: #666;
       margin-top: 0.5rem;
     }
     
@@ -193,16 +197,15 @@
       color: #cccccc;
     }
     
-    /* Light mode text colors */
+    /* Text colors */
     body {
       color: #000000;
     }
     
-    h1, h2, h3, p, td, th {
+    h1, h2, h3, p {
       color: #000000;
     }
     
-    /* Dark mode text colors */
     [data-theme="dark"] body {
       color: #ffffff;
     }
@@ -210,14 +213,8 @@
     [data-theme="dark"] h1, 
     [data-theme="dark"] h2, 
     [data-theme="dark"] h3, 
-    [data-theme="dark"] p, 
-    [data-theme="dark"] td, 
-    [data-theme="dark"] th {
-      color: #ffffff !important;
-    }
-    
-    [data-theme="dark"] .course-number {
-      color: #4ecdc4 !important;
+    [data-theme="dark"] p {
+      color: #ffffff;
     }
     
     @media (max-width: 768px) {
@@ -311,7 +308,6 @@
             <th>Title</th>
             <th>Units</th>
             <th>Grade</th>
-            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -320,49 +316,42 @@
             <td>Human Past: Intro Archaeology</td>
             <td class="units">12</td>
             <td><span class="grade grade-p">P</span></td>
-            <td class="audit-info">CI-H / HASS-E / HASS-S</td>
           </tr>
           <tr>
             <td class="course-number">8.01</td>
             <td>Physics I</td>
             <td class="units">12</td>
             <td><span class="grade grade-p">P</span></td>
-            <td class="audit-info">Physics I</td>
           </tr>
           <tr>
             <td class="course-number">18.01</td>
             <td>Calculus</td>
             <td class="units">12</td>
             <td><span class="grade grade-s">S</span></td>
-            <td class="audit-info">Calculus I</td>
           </tr>
           <tr>
             <td class="course-number">ES.1802</td>
             <td>Calculus</td>
             <td class="units">12</td>
             <td><span class="grade grade-p">P</span></td>
-            <td class="audit-info">Calculus II</td>
           </tr>
           <tr>
             <td class="course-number">ES.5111</td>
             <td>Principles of Chemical Science</td>
             <td class="units">12</td>
             <td><span class="grade grade-p">P</span></td>
-            <td class="audit-info">Chemistry</td>
           </tr>
           <tr>
             <td class="course-number">ES.A100</td>
             <td>An Introduction to Maker Skill</td>
             <td class="units">3</td>
             <td><span class="grade grade-p">P</span></td>
-            <td class="audit-info">Freshman Seminar</td>
           </tr>
           <tr>
             <td class="course-number">ES.S601</td>
             <td>Special Topics in Comp Science</td>
             <td class="units">6</td>
             <td><span class="grade grade-p">P</span></td>
-            <td class="audit-info"></td>
           </tr>
         </tbody>
       </table>
@@ -384,7 +373,6 @@
             <th>Title</th>
             <th>Units</th>
             <th>Grade</th>
-            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -393,7 +381,6 @@
             <td>Intro to CEE Research</td>
             <td class="units">6</td>
             <td><span class="grade grade-p">P</span></td>
-            <td class="audit-info"></td>
           </tr>
         </tbody>
       </table>
@@ -416,7 +403,6 @@
             <th>Title</th>
             <th>Units</th>
             <th>Grade</th>
-            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -425,49 +411,42 @@
             <td>Numerical Computation</td>
             <td class="units">12</td>
             <td><span class="grade grade-a">A</span></td>
-            <td class="audit-info">REST Elect</td>
           </tr>
           <tr>
             <td class="course-number">2.S02</td>
             <td>Mech Engr Special Subject</td>
             <td class="units">9</td>
             <td><span class="grade grade-a">A+</span></td>
-            <td class="audit-info"></td>
           </tr>
           <tr>
             <td class="course-number">6.1010</td>
             <td>Fundamentals of Programming</td>
             <td class="units">12</td>
             <td><span class="grade grade-lis">LIS</span></td>
-            <td class="audit-info">Institute Lab</td>
           </tr>
           <tr>
             <td class="course-number">8.02</td>
             <td>Physics II</td>
             <td class="units">12</td>
             <td><span class="grade grade-a">A</span></td>
-            <td class="audit-info">Physics II</td>
           </tr>
           <tr>
             <td class="course-number">16.C20</td>
             <td>Intro to Comput Sc & Engin</td>
             <td class="units">6</td>
             <td><span class="grade grade-lis">LIS</span></td>
-            <td class="audit-info">Half REST</td>
           </tr>
           <tr>
             <td class="course-number">ES.1803</td>
             <td>Differential Equations</td>
             <td class="units">12</td>
             <td><span class="grade grade-a">A</span></td>
-            <td class="audit-info">REST Elect</td>
           </tr>
           <tr>
             <td class="course-number">21H.186</td>
             <td>Nature & Environment in China</td>
             <td class="units">12</td>
             <td><span class="grade grade-a">A</span></td>
-            <td class="audit-info">HASS-E / HASS-H</td>
           </tr>
         </tbody>
       </table>
@@ -490,7 +469,6 @@
             <th>Title</th>
             <th>Units</th>
             <th>Grade</th>
-            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -499,28 +477,24 @@
             <td>Mechanics and Materials I</td>
             <td class="units">12</td>
             <td><span class="grade grade-b">B</span></td>
-            <td class="audit-info">REST Elect</td>
           </tr>
           <tr>
             <td class="course-number">2.003</td>
             <td>Dynamics and Control I</td>
             <td class="units">12</td>
             <td><span class="grade grade-b">B</span></td>
-            <td class="audit-info">REST Elect</td>
           </tr>
           <tr>
             <td class="course-number">21M.030</td>
             <td>Intro to Musics of the World</td>
             <td class="units">12</td>
             <td><span class="grade grade-a">A+</span></td>
-            <td class="audit-info">CI-H / HASS-A / HASS-E</td>
           </tr>
           <tr>
             <td class="course-number">HAA.1751</td>
             <td>Elementary Vietnamese</td>
             <td class="units">12</td>
             <td><span class="grade grade-a">A</span></td>
-            <td class="audit-info"></td>
           </tr>
         </tbody>
       </table>
@@ -543,7 +517,6 @@
             <th>Title</th>
             <th>Units</th>
             <th>Grade</th>
-            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -552,35 +525,30 @@
             <td>Thermal-Fluids Engineering I</td>
             <td class="units">12</td>
             <td><span class="grade grade-a">A</span></td>
-            <td class="audit-info"></td>
           </tr>
           <tr>
             <td class="course-number">6.C01</td>
             <td>Model Mach Learn: Algor to App</td>
             <td class="units">6</td>
             <td><span class="grade grade-a">A-</span></td>
-            <td class="audit-info"></td>
           </tr>
           <tr>
             <td class="course-number">7.014</td>
             <td>Introductory Biology</td>
             <td class="units">12</td>
             <td><span class="grade grade-p">P</span></td>
-            <td class="audit-info">Biology</td>
           </tr>
           <tr>
             <td class="course-number">10.C01</td>
             <td>Machine Lrng for Molec Engr</td>
             <td class="units">6</td>
             <td><span class="grade grade-a">A</span></td>
-            <td class="audit-info"></td>
           </tr>
           <tr>
             <td class="course-number">HAA.0187</td>
             <td>Intermediate Vietnamese</td>
             <td class="units">12</td>
             <td><span class="grade grade-a">A</span></td>
-            <td class="audit-info"></td>
           </tr>
         </tbody>
       </table>
@@ -602,7 +570,6 @@
             <th>Title</th>
             <th>Units</th>
             <th>Status</th>
-            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -611,28 +578,24 @@
             <td>Computational Fluid Dynamics for Multiphase Flows</td>
             <td class="units">12</td>
             <td><span class="grade grade-p">Planned</span></td>
-            <td class="audit-info">Advanced CFD</td>
           </tr>
           <tr>
             <td class="course-number">2.007</td>
             <td>Design and Manufacturing I</td>
             <td class="units">12</td>
             <td><span class="grade grade-p">Planned</span></td>
-            <td class="audit-info">Mechanical Design</td>
           </tr>
           <tr>
             <td class="course-number">TBD</td>
             <td>Additional Course 1</td>
             <td class="units">12</td>
             <td><span class="grade grade-p">TBD</span></td>
-            <td class="audit-info">To be determined</td>
           </tr>
           <tr>
             <td class="course-number">TBD</td>
             <td>Additional Course 2</td>
             <td class="units">12</td>
             <td><span class="grade grade-p">TBD</span></td>
-            <td class="audit-info">To be determined</td>
           </tr>
         </tbody>
       </table>
