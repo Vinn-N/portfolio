@@ -20,8 +20,14 @@
       padding: 0 2rem 4rem;
     }
     
-    .term-section {
+    .year-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
       margin-bottom: 3rem;
+    }
+    
+    .term-column {
       background: #ffffff;
       border-radius: 16px;
       overflow: hidden;
@@ -29,7 +35,7 @@
       box-shadow: var(--shadow);
     }
     
-    [data-theme="dark"] .term-section {
+    [data-theme="dark"] .term-column {
       border: 3px solid #fff;
       background: #1a1a1a;
     }
@@ -38,23 +44,16 @@
       background: var(--primary-color);
       color: white;
       padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
     }
     
     .term-title {
       font-size: 1.4rem;
       font-weight: var(--weight-bold);
-      margin: 0;
+      margin: 0 0 0.5rem 0;
       color: white;
     }
     
     .term-stats {
-      display: flex;
-      gap: 2rem;
       font-size: 0.9rem;
       opacity: 0.9;
       color: white;
@@ -128,66 +127,35 @@
     [data-theme="dark"] .grade-s { background: #004085; color: #cce5ff; }
     [data-theme="dark"] .grade-lis { background: #721c24; color: #f8d7da; }
     
-    .units {
-      text-align: center;
-      font-weight: var(--weight-semibold);
-    }
-    
-    .current-section {
+    .current-column {
       background: linear-gradient(135deg, #28a745, #20c997);
       color: white;
       border: none;
     }
     
-    .current-section .term-header {
+    .current-column .term-header {
       background: rgba(255, 255, 255, 0.1);
       color: white;
     }
     
-    .current-section .course-table th {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border-bottom-color: rgba(255, 255, 255, 0.2);
-    }
-    
-    .current-section .course-table td {
-      background: transparent;
-      border-bottom-color: rgba(255, 255, 255, 0.1);
-      color: white;
-    }
-    
-    .current-section .course-table tr:hover {
-      background: rgba(255, 255, 255, 0.05);
-    }
-    
-    .current-section .course-number {
-      color: white;
-    }
-    
-    .upcoming-section {
-      background: linear-gradient(135deg, var(--primary-color), #667eea);
-      color: white;
-      border: none;
-    }
-    
-    .upcoming-section .term-header {
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .upcoming-section .course-table th {
+    .current-column .course-table th {
       background: rgba(255, 255, 255, 0.1);
       color: white;
       border-bottom-color: rgba(255, 255, 255, 0.2);
     }
     
-    .upcoming-section .course-table td {
+    .current-column .course-table td {
       background: transparent;
       border-bottom-color: rgba(255, 255, 255, 0.1);
       color: white;
     }
     
-    .upcoming-section .course-table tr:hover {
+    .current-column .course-table tr:hover {
       background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .current-column .course-number {
+      color: white;
     }
     
     .summary-stats {
@@ -228,7 +196,6 @@
       color: #cccccc;
     }
     
-    /* Text colors */
     body {
       color: #000000;
     }
@@ -249,6 +216,10 @@
     }
     
     @media (max-width: 768px) {
+      .year-grid {
+        grid-template-columns: 1fr;
+      }
+      
       .course-table {
         font-size: 0.85rem;
       }
@@ -256,11 +227,6 @@
       .course-table th,
       .course-table td {
         padding: 0.75rem 0.5rem;
-      }
-      
-      .term-stats {
-        flex-direction: column;
-        gap: 0.5rem;
       }
     }
   </style>
@@ -318,366 +284,201 @@
         <div class="stat-label">Overall GPA</div>
       </div>
       <div class="stat-card">
-        <span class="stat-number">2nd</span>
+        <span class="stat-number">3rd</span>
         <div class="stat-label">Current Year</div>
       </div>
     </div>
 
-    <!-- Fall 2023 -->
-    <div class="term-section">
-      <div class="term-header">
-        <h2 class="term-title">Fall Term 2023-2024</h2>
-        <div class="term-stats">
-          <span>Units: 57</span>
-          <span>Year: 1</span>
+    <!-- 2023-2024 Academic Year -->
+    <div class="year-grid">
+      <!-- Fall 2023 -->
+      <div class="term-column">
+        <div class="term-header">
+          <h2 class="term-title">Fall 2023</h2>
+          <div class="term-stats">Year 1</div>
         </div>
+        <table class="course-table">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Title</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="course-number">3.986</td>
+              <td>Human Past: Intro Archaeology</td>
+              <td><span class="grade grade-p">P</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">8.01</td>
+              <td>Physics I</td>
+              <td><span class="grade grade-p">P</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">18.01</td>
+              <td>Calculus</td>
+              <td><span class="grade grade-s">S</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">ES.1802</td>
+              <td>Calculus</td>
+              <td><span class="grade grade-p">P</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">ES.5111</td>
+              <td>Principles of Chemical Science</td>
+              <td><span class="grade grade-p">P</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">ES.A100</td>
+              <td>An Introduction to Maker Skill</td>
+              <td><span class="grade grade-p">P</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">ES.S601</td>
+              <td>Special Topics in Comp Science</td>
+              <td><span class="grade grade-p">P</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <table class="course-table">
-        <thead>
-          <tr>
-            <th>Course</th>
-            <th>Title</th>
-            <th>Units</th>
-            <th>Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="course-number">3.986</td>
-            <td>Human Past: Intro Archaeology</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">P</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">8.01</td>
-            <td>Physics I</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">P</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">18.01</td>
-            <td>Calculus</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-s">S</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">ES.1802</td>
-            <td>Calculus</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">P</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">ES.5111</td>
-            <td>Principles of Chemical Science</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">P</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">ES.A100</td>
-            <td>An Introduction to Maker Skill</td>
-            <td class="units">3</td>
-            <td><span class="grade grade-p">P</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">ES.S601</td>
-            <td>Special Topics in Comp Science</td>
-            <td class="units">6</td>
-            <td><span class="grade grade-p">P</span></td>
-          </tr>
-        </tbody>
-      </table>
+
+      <!-- Spring 2024 -->
+      <div class="term-column">
+        <div class="term-header">
+          <h2 class="term-title">Spring 2024</h2>
+          <div class="term-stats">Year 1 • GPA: 5.0</div>
+        </div>
+        <table class="course-table">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Title</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="course-number">2.086</td>
+              <td>Numerical Computation</td>
+              <td><span class="grade grade-a">A</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">2.S02</td>
+              <td>Mech Engr Special Subject</td>
+              <td><span class="grade grade-a">A+</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">6.1010</td>
+              <td>Fundamentals of Programming</td>
+              <td><span class="grade grade-lis">LIS</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">8.02</td>
+              <td>Physics II</td>
+              <td><span class="grade grade-a">A</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">16.C20</td>
+              <td>Intro to Comput Sc & Engin</td>
+              <td><span class="grade grade-lis">LIS</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">ES.1803</td>
+              <td>Differential Equations</td>
+              <td><span class="grade grade-a">A</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">21H.186</td>
+              <td>Nature & Environment in China</td>
+              <td><span class="grade grade-a">A</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <!-- January 2024 -->
-    <div class="term-section">
-      <div class="term-header">
-        <h2 class="term-title">January Term 2023-2024</h2>
-        <div class="term-stats">
-          <span>Units: 6</span>
-          <span>Year: 1</span>
+    <!-- 2024-2025 Academic Year -->
+    <div class="year-grid">
+      <!-- Fall 2024 -->
+      <div class="term-column">
+        <div class="term-header">
+          <h2 class="term-title">Fall 2024</h2>
+          <div class="term-stats">Year 2 • GPA: 4.5</div>
         </div>
+        <table class="course-table">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Title</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="course-number">2.001</td>
+              <td>Mechanics and Materials I</td>
+              <td><span class="grade grade-b">B</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">2.003</td>
+              <td>Dynamics and Control I</td>
+              <td><span class="grade grade-b">B</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">21M.030</td>
+              <td>Intro to Musics of the World</td>
+              <td><span class="grade grade-a">A+</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">HAA.1751</td>
+              <td>Elementary Vietnamese</td>
+              <td><span class="grade grade-a">A</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <table class="course-table">
-        <thead>
-          <tr>
-            <th>Course</th>
-            <th>Title</th>
-            <th>Units</th>
-            <th>Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="course-number">1.097</td>
-            <td>Intro to CEE Research</td>
-            <td class="units">6</td>
-            <td><span class="grade grade-p">P</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
-    <!-- Spring 2024 -->
-    <div class="term-section">
-      <div class="term-header">
-        <h2 class="term-title">Spring Term 2023-2024</h2>
-        <div class="term-stats">
-          <span>Units: 57</span>
-          <span>GPA: 5.0</span>
-          <span>Year: 1</span>
+      <!-- Spring 2025 -->
+      <div class="term-column current-column">
+        <div class="term-header">
+          <h2 class="term-title">Spring 2025 (Current)</h2>
+          <div class="term-stats">Year 3 • In Progress</div>
         </div>
+        <table class="course-table">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Title</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="course-number">2.006</td>
+              <td>Thermal-Fluids Engineering II</td>
+              <td><span class="grade grade-p">Registered</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">2.650</td>
+              <td>Intro to Sustainable Energy</td>
+              <td><span class="grade grade-p">Registered</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">2.760</td>
+              <td>Global Engineering: Green Mach</td>
+              <td><span class="grade grade-p">Registered</span></td>
+            </tr>
+            <tr>
+              <td class="course-number">HAA.0423</td>
+              <td>Pre-Advanced Vietnamese</td>
+              <td><span class="grade grade-p">Registered</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <table class="course-table">
-        <thead>
-          <tr>
-            <th>Course</th>
-            <th>Title</th>
-            <th>Units</th>
-            <th>Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="course-number">2.086</td>
-            <td>Numerical Computation</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-a">A</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">2.S02</td>
-            <td>Mech Engr Special Subject</td>
-            <td class="units">9</td>
-            <td><span class="grade grade-a">A+</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">6.1010</td>
-            <td>Fundamentals of Programming</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-lis">LIS</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">8.02</td>
-            <td>Physics II</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-a">A</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">16.C20</td>
-            <td>Intro to Comput Sc & Engin</td>
-            <td class="units">6</td>
-            <td><span class="grade grade-lis">LIS</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">ES.1803</td>
-            <td>Differential Equations</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-a">A</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">21H.186</td>
-            <td>Nature & Environment in China</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-a">A</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Fall 2024 -->
-    <div class="term-section">
-      <div class="term-header">
-        <h2 class="term-title">Fall Term 2024-2025</h2>
-        <div class="term-stats">
-          <span>Units: 48</span>
-          <span>GPA: 4.5</span>
-          <span>Year: 2</span>
-        </div>
-      </div>
-      <table class="course-table">
-        <thead>
-          <tr>
-            <th>Course</th>
-            <th>Title</th>
-            <th>Units</th>
-            <th>Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="course-number">2.001</td>
-            <td>Mechanics and Materials I</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-b">B</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">2.003</td>
-            <td>Dynamics and Control I</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-b">B</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">21M.030</td>
-            <td>Intro to Musics of the World</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-a">A+</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">HAA.1751</td>
-            <td>Elementary Vietnamese</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-a">A</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Spring 2025 -->
-    <div class="term-section">
-      <div class="term-header">
-        <h2 class="term-title">Spring Term 2024-2025</h2>
-        <div class="term-stats">
-          <span>Units: 48</span>
-          <span>GPA: 5.0</span>
-          <span>Year: 2</span>
-        </div>
-      </div>
-      <table class="course-table">
-        <thead>
-          <tr>
-            <th>Course</th>
-            <th>Title</th>
-            <th>Units</th>
-            <th>Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="course-number">2.005</td>
-            <td>Thermal-Fluids Engineering I</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-a">A</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">6.C01</td>
-            <td>Model Mach Learn: Algor to App</td>
-            <td class="units">6</td>
-            <td><span class="grade grade-a">A-</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">7.014</td>
-            <td>Introductory Biology</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">P</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">10.C01</td>
-            <td>Machine Lrng for Molec Engr</td>
-            <td class="units">6</td>
-            <td><span class="grade grade-a">A</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">HAA.0187</td>
-            <td>Intermediate Vietnamese</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-a">A</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Current Spring 2025 -->
-    <div class="term-section current-section">
-      <div class="term-header">
-        <h2 class="term-title">Spring Term 2025 (Current)</h2>
-        <div class="term-stats">
-          <span>Units: 48</span>
-          <span>Year: 3</span>
-          <span>In Progress</span>
-        </div>
-      </div>
-      <table class="course-table">
-        <thead>
-          <tr>
-            <th>Course</th>
-            <th>Title</th>
-            <th>Units</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="course-number">2.006</td>
-            <td>Thermal-Fluids Engineering II</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">Registered</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">2.650</td>
-            <td>Intro to Sustainable Energy</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">Registered</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">2.760</td>
-            <td>Global Engineering: Green Mach</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">Registered</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">HAA.0423</td>
-            <td>Pre-Advanced Vietnamese</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">Registered</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Upcoming Fall 2025 -->
-    <div class="term-section upcoming-section">
-      <div class="term-header">
-        <h2 class="term-title">Fall Term 2025-2026 (Upcoming)</h2>
-        <div class="term-stats">
-          <span>Year: 3</span>
-          <span>Planned Courses</span>
-        </div>
-      </div>
-      <table class="course-table">
-        <thead>
-          <tr>
-            <th>Course</th>
-            <th>Title</th>
-            <th>Units</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="course-number">2.006</td>
-            <td>Computational Fluid Dynamics for Multiphase Flows</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">Planned</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">2.007</td>
-            <td>Design and Manufacturing I</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">Planned</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">TBD</td>
-            <td>Additional Course 1</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">TBD</span></td>
-          </tr>
-          <tr>
-            <td class="course-number">TBD</td>
-            <td>Additional Course 2</td>
-            <td class="units">12</td>
-            <td><span class="grade grade-p">TBD</span></td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 
@@ -698,5 +499,21 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const navLeft = document.querySelector('.nav-left');
+      const navRight = document.querySelector('.nav-right');
+      
+      if (hamburger) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          if (navLeft) navLeft.classList.toggle('active');
+          if (navRight) navRight.classList.toggle('active');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
