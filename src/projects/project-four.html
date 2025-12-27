@@ -387,6 +387,21 @@
   <script src="../js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
   <script>
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const navLeft = document.querySelector('.nav-left');
+      const navRight = document.querySelector('.nav-right');
+      
+      if (hamburger) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          if (navLeft) navLeft.classList.toggle('active');
+          if (navRight) navRight.classList.toggle('active');
+        });
+      }
+    });
+    
     // HEIC image support
     document.addEventListener('DOMContentLoaded', function() {
       const images = document.querySelectorAll('img[src$=".heic"], img[src$=".HEIC"]');

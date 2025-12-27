@@ -235,6 +235,22 @@
   </footer>
 
   <script src="../js/script.js"></script>
+  <script>
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const navLeft = document.querySelector('.nav-left');
+      const navRight = document.querySelector('.nav-right');
+      
+      if (hamburger) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          if (navLeft) navLeft.classList.toggle('active');
+          if (navRight) navRight.classList.toggle('active');
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
