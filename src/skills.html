@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta Tags -->
-    <title>About - Vinn's Portfolio</title>
-    <meta name="title" content="About - Vinn's Portfolio" />
+    <title>Relevant Skills - Vinn's Portfolio</title>
+    <meta name="title" content="Relevant Skills - Vinn's Portfolio" />
     <meta
       name="description"
-      content="Learn more about Vinn Nguyen, a Mechanical Engineering student at MIT interested in sustainable energy systems."
+      content="Technical skills and expertise of Vinn Nguyen, a Mechanical Engineering student at MIT."
     />
 
     <!-- Favicons -->
@@ -44,9 +44,10 @@
         <div class="container">
           <!-- Left Navigation -->
           <ul class="nav-left">
-            <li><a class="nav-link" href="about.html">About</a></li>
+            <li><a class="nav-link" href="skills.html">Relevant Skills</a></li>
             <li><a class="nav-link" href="../#projects">Projects</a></li>
-            <li><a class="nav-link" href="../#resume">Resume</a></li>
+            <li><a class="nav-link" href="coursework.html">Coursework</a></li>
+            <li><a class="nav-link" href="assets/Vinn_Nguyen_Resume.pdf" target="_blank">Resume</a></li>
           </ul>
 
 
@@ -79,18 +80,38 @@
         </div>
       </nav>
 
-      <!-- About Section -->
+      <!-- Skills Section -->
       <section class="header-container">
-        <h1>About Me</h1>
+        <h1>Relevant Skills</h1>
         
         <div class="about-content">
-          <p>I'm a Mechanical Engineering student at MIT passionate about creating sustainable solutions for our energy future. My work focuses on the intersection of engineering innovation and environmental responsibility.</p>
+          <h2>Technical Skills</h2>
+          <ul>
+            <li>Python (NumPy, Pandas, Matplotlib, SciPy)</li>
+            <li>MATLAB</li>
+            <li>CAD (SolidWorks, Fusion 360)</li>
+            <li>Finite Element Analysis (FEA)</li>
+            <li>Computational Fluid Dynamics (CFD)</li>
+          </ul>
           
-          <h2>What I Do</h2>
-          <p>I research and develop technologies in sustainable energy systems, with particular interest in mechanical design optimization and clean technology innovation. </p>
+          <h2>Engineering Competencies</h2>
+          <ul>
+            <li>Mechanical Design & Analysis</li>
+            <li>Thermal-Fluids Systems</li>
+            <li>Sustainable Energy Systems</li>
+            <li>Materials Science</li>
+            <li>Numerical Methods & Simulation</li>
+          </ul>
+          
+          <h2>Laboratory & Fabrication</h2>
+          <ul>
+            <li>Wet Lab Experience</li>
+            <li>Membrane Systems & Nanofiltration</li>
+            <li>Experimental Design & Data Analysis</li>
+            <li>Machining & Prototyping</li>
+          </ul>
           
           <h2>Let's Connect</h2>
-          <p></p>
           <p><a href="mailto:vinn@mit.edu" style="color: var(--primary-color); text-decoration: underline;">vinn@mit.edu</a></p>
         </div>
       </section>
@@ -109,5 +130,21 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+      // Mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLeft = document.querySelector('.nav-left');
+        const navRight = document.querySelector('.nav-right');
+        
+        if (hamburger) {
+          hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            if (navLeft) navLeft.classList.toggle('active');
+            if (navRight) navRight.classList.toggle('active');
+          });
+        }
+      });
+    </script>
   </body>
 </html>

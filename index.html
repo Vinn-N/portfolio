@@ -337,7 +337,7 @@
         <div class="container">
           <!-- Left Navigation -->
           <ul class="nav-left">
-            <li><a class="nav-link" href="src/about.html">About</a></li>
+            <li><a class="nav-link" href="src/skills.html">Relevant Skills</a></li>
             <li><a class="nav-link" href="#projects">Projects</a></li>
             <li><a class="nav-link" href="src/coursework.html">Coursework</a></li>
             <li><a class="nav-link" href="src/assets/Vinn_Nguyen_Resume.pdf" target="_blank">Resume</a></li>
@@ -496,36 +496,29 @@
 
     <script src="src/js/script.js"></script>
     <script>
-      // Enhanced mobile menu toggle
+      // Mobile menu toggle
       document.addEventListener('DOMContentLoaded', function() {
         const hamburger = document.querySelector('.hamburger');
         const navLeft = document.querySelector('.nav-left');
         const navRight = document.querySelector('.nav-right');
         
-        function toggleMenu() {
-          if (hamburger && navLeft && navRight) {
-            hamburger.classList.toggle('active');
-            navLeft.classList.toggle('active');
-            navRight.classList.toggle('active');
-          }
-        }
-        
-        function closeMenu() {
-          if (hamburger && navLeft && navRight) {
-            hamburger.classList.remove('active');
-            navLeft.classList.remove('active');
-            navRight.classList.remove('active');
-          }
-        }
-        
         if (hamburger) {
-          hamburger.addEventListener('click', toggleMenu);
+          hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            hamburger.classList.toggle('active');
+            if (navLeft) navLeft.classList.toggle('active');
+            if (navRight) navRight.classList.toggle('active');
+          });
         }
         
         // Close mobile menu when clicking on a link
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
-          link.addEventListener('click', closeMenu);
+          link.addEventListener('click', function() {
+            if (hamburger) hamburger.classList.remove('active');
+            if (navLeft) navLeft.classList.remove('active');
+            if (navRight) navRight.classList.remove('active');
+          });
         });
         
         // Close menu when clicking outside
@@ -534,14 +527,18 @@
               !hamburger.contains(e.target) && 
               !navLeft.contains(e.target) && 
               !navRight.contains(e.target)) {
-            closeMenu();
+            hamburger.classList.remove('active');
+            navLeft.classList.remove('active');
+            navRight.classList.remove('active');
           }
         });
         
         // Close menu on window resize to desktop size
         window.addEventListener('resize', function() {
           if (window.innerWidth > 1024) {
-            closeMenu();
+            if (hamburger) hamburger.classList.remove('active');
+            if (navLeft) navLeft.classList.remove('active');
+            if (navRight) navRight.classList.remove('active');
           }
         });
         
