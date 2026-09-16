@@ -74,12 +74,12 @@
         width: 100%;
         height: auto;
         border-radius: 15px;
-        border: 3px solid #000;
+        border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
       
       [data-theme="dark"] .hero-image .profile-image {
-        border: 3px solid #fff;
+        border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
       }
       
       .hero-image .profile-image:hover {
@@ -90,21 +90,6 @@
       .hero-text {
         text-align: left;
         animation: fadeInRight 1s ease-out 0.3s both;
-      }
-      
-      .rainbow-name {
-        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
-        background-size: 300% 300%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: gradientShift 3s ease-in-out infinite;
-        display: inline-block;
-        position: relative;
-      }
-      
-      .rainbow-name::after {
-        display: none !important;
       }
       
       .intro {
@@ -137,16 +122,6 @@
           transform: translateX(0);
         }
       }
-      
-      @keyframes gradientShift {
-        0%, 100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-      
       /* Mobile and tablet navbar fixes */
       @media (max-width: 1024px) {
         .navbar .container {
@@ -291,7 +266,7 @@
       
       /* Dark mode white borders for project cards */
       [data-theme="dark"] .card {
-        border: 3px solid #fff !important;
+        border: 1px solid rgba(255, 255, 255, 0.18) !important; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
       }
       
       /* Ensure fun projects card shows image */
@@ -405,7 +380,7 @@
 
       <article class="project">
         <!-- Project 1 -->
-        <a href="src/projects/project-one.html" class="card" data-category="research" style="background-image: url('src/assets/project/project-one.png'); background-size: cover; background-position: center; border: 3px solid #000;">
+        <a href="src/projects/project-one.html" class="card" data-category="research" style="background-image: url('src/assets/project/project-one.png'); background-size: cover; background-position: center; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);">
           <div class="project-info">
             <div class="project-bio">
               <h3>Brackish Water Nutrient Recovery</h3>
@@ -415,7 +390,7 @@
         </a>
 
         <!-- Project 2 -->
-        <a href="src/projects/project-two.html" class="card" data-category="research" style="background-image: url('src/assets/project/project-two.png'); background-size: cover; background-position: center; border: 3px solid #000;">
+        <a href="src/projects/project-two.html" class="card" data-category="research" style="background-image: url('src/assets/project/project-two.png'); background-size: cover; background-position: center; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);">
           <div class="project-info">
             <div class="project-bio">
               <h3>Aluminum Recovery from Cryolite</h3>
@@ -425,7 +400,7 @@
         </a>
 
         <!-- Project 3 -->
-        <a href="src/projects/project-three.html" class="card" data-category="research engineering" style="background-image: url('src/assets/project/project-three.png'); background-size: cover; background-position: center; border: 3px solid #000;">
+        <a href="src/projects/project-three.html" class="card" data-category="research engineering" style="background-image: url('src/assets/project/project-three.png'); background-size: cover; background-position: center; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);">
           <div class="project-info">
             <div class="project-bio">
               <h3>Perovskite Solar Cells Fabrication</h3>
@@ -435,7 +410,7 @@
         </a>
 
         <!-- Project 4 -->
-        <a href="src/projects/project-four.html" class="card" data-category="engineering" style="background-image: url('src/assets/project/project-four.png'); background-size: cover; background-position: center; border: 3px solid #000;">
+        <a href="src/projects/project-four.html" class="card" data-category="engineering" style="background-image: url('src/assets/project/project-four.png'); background-size: cover; background-position: center; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);">
           <div class="project-info">
             <div class="project-bio">
               <h3>Drawing Machine Design</h3>
@@ -455,7 +430,7 @@
         </div>
 
         <!-- Project 6 -->
-        <a href="src/projects/fun-projects.html" class="card" data-category="personal" style="background-image: url('src/assets/project/fun/IMG_9648.jpg'); background-size: cover; background-position: center; border: 3px solid #000;">
+        <a href="src/projects/fun-projects.html" class="card" data-category="personal" style="background-image: url('src/assets/project/fun/IMG_9648.jpg'); background-size: cover; background-position: center; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);">
           <div class="project-info">
             <div class="project-bio">
               <h3>Fun Projects</h3>

@@ -31,7 +31,7 @@
     .tgt-tech { background: var(--tgt-tech, #f3d3d3); }
   
     .tgt-visual { display: flex; flex-direction: column; justify-content: center; align-items: center; background: transparent; border: none; box-shadow: none; }
-    .tgt-visual img { width: clamp(50%, 56vw, 100%); height: auto; display: block; border-radius: 10px; border: 3px solid #000; }
+    .tgt-visual img { width: clamp(50%, 56vw, 100%); height: auto; display: block; border-radius: 10px; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); }
     .tgt-visual figcaption { margin-top: 8px; font-size: 0.92rem; line-height: 1.35; opacity: 0.85; text-align: center; }
   
     /* ===== SPLIT SECTIONS ===== */
@@ -49,7 +49,7 @@
       border-radius: 12px; overflow: hidden;
     }
     .split .media img,
-    .media-photo { width: 100%; height: auto; display: block; border-radius: 12px; border: 3px solid #000; }
+    .media-photo { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); }
     .media-photo + .media-photo { margin-top: 12px; }
   
     /* ===== RESPONSIVE ===== */
@@ -74,7 +74,7 @@
     }
     .media.media-stack { display: grid; gap: 16px; }
     .media.media-stack .shot { margin: 0; }
-    .media.media-stack img { display: block; width: 100%; height: auto; border-radius: 12px; border: 3px solid #000; }
+    .media.media-stack img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); }
     .media.media-stack figcaption {
       margin-top: 8px; font-size: 0.92rem; line-height: 1.35; opacity: 0.85; text-align: center;
     }
@@ -98,7 +98,7 @@
     
     /* PDF Section */
     .pdf-section { text-align: center; margin: 2rem 0; }
-    .pdf-viewer { width: 100%; height: 700px; border: 3px solid #000; border-radius: 8px; margin: 1rem 0; }
+    .pdf-viewer { width: 100%; height: 700px; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); border-radius: 8px; margin: 1rem 0; }
     .pdf-download { display: inline-block; padding: 0.75rem 1.5rem; background: var(--primary-color); color: white; text-decoration: none; border-radius: 5px; margin-top: 1rem; }
     .pdf-download:hover { opacity: 0.8; }
     @media (max-width: 768px) { .pdf-viewer { height: 500px; } }
