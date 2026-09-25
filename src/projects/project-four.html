@@ -4,451 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Drawing Machine Design – Vinn Nguyen</title>
-
+  <meta name="description" content="A motor-driven mechanical drawing machine that turns one rotation into layered spirograph-like patterns." />
   <link rel="icon" href="../assets/favicon/favicon.ico" />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-    crossorigin="anonymous"
-  />
+  <link rel="canonical" href="https://vinn-n.github.io/portfolio/src/projects/project-four.html" />
+  <meta name="theme-color" content="#1f1f1f" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vinn Nguyen" />
+  <meta property="og:title" content="Drawing Machine Design – Vinn Nguyen" />
+  <meta property="og:description" content="A motor-driven mechanical drawing machine that turns one rotation into layered spirograph-like patterns." />
+  <meta property="og:url" content="https://vinn-n.github.io/portfolio/src/projects/project-four.html" />
+  <meta property="og:image" content="https://vinn-n.github.io/portfolio/src/assets/project/project-four.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Drawing Machine Design","description":"A motor-driven mechanical drawing machine that turns one rotation into layered spirograph-like patterns.","image":"https://vinn-n.github.io/portfolio/src/assets/project/project-four.png","url":"https://vinn-n.github.io/portfolio/src/projects/project-four.html","author":{"@type":"Person","name":"Vinn Nguyen","url":"https://vinn-n.github.io/portfolio/"}}</script>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/utilities.css" />
-
-  <style>
-    html, body { height: auto !important; overflow-y: auto !important; }
-    main.container { margin-top: 80px; }
-
-    /* ===== TARGETED PROJECT LAYOUT (top) ===== */
-    .tgt { padding-block: 2rem 3rem; }
-    .tgt-title { text-align: center; font-weight: var(--weight-bold); margin-bottom: 1.25rem; }
-    
-    .tgt-grid {
-      display: grid;
-      grid-template-columns: 500px 1fr;
-      gap: clamp(1rem, 4vw, 2rem);
-      align-items: start;
-    }
-    .tgt-rail { display: grid; gap: 1rem; }
-    .tgt-card {
-      border-radius: 12px;
-      padding: 1rem 1rem 1.1rem;
-      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
-      box-shadow: var(--shadow);
-    }
-
-    .tgt-card h3 { font-size: 1.05rem; margin-bottom: .4rem; font-weight: var(--weight-semibold); }
-    .tgt-obj  { background: var(--tgt-obj,  #efe7b8); }
-    .tgt-out  { background: var(--tgt-out,  #dff0dd); }
-    .tgt-tech { background: var(--tgt-tech, #f3d3d3); }
-
-    .tgt-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-    }
-
-    .tgt-visual img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-      border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    }
-    .tgt-visual figcaption {
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      margin-top: 0.5rem;
-    }
-    
-    /* ===== SPLIT SECTIONS BELOW ===== */
-    .split {
-      padding-block: 2.5rem;
-      border-top: 1px solid var(--tgt-border, rgba(0,0,0,.08));
-    }
-    .split .wrap {
-      display: grid;
-      grid-template-columns: 1.4fr 0.6fr;
-      gap: clamp(1rem, 4vw, 2rem);
-      align-items: start;
-    }
-    .split h2 {
-      margin: 0 0 .75rem;
-      font-size: 1.4rem;
-      letter-spacing: .01em;
-      font-weight: var(--weight-semibold);
-    }
-    .split p {
-      margin-bottom: .9rem;
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-    .split ul {
-      margin-bottom: .9rem;
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-    .split .media {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      box-shadow: var(--shadow);
-      background: var(--card-background);
-      justify-self: end;
-    }
-    .split .media img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .split .media figcaption {
-      padding: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      text-align: center;
-      background: var(--card-background);
-    }
-    
-    .media-stack {
-      display: grid;
-      gap: 1rem;
-    }
-    .shot {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      box-shadow: var(--shadow);
-    }
-    .shot img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .shot figcaption {
-      padding: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      text-align: center;
-      background: var(--card-background);
-    }
-
-    @media (max-width: 960px) {
-      .tgt-grid { grid-template-columns: 1fr; }
-      .split .wrap { grid-template-columns: 1fr; }
-      .split .media { justify-self: center; }
-    }
-
-    html[data-theme="dark"] {
-      --tgt-border: rgba(255,255,255,.16);
-      --tgt-obj:  #7b794f33;
-      --tgt-out:  #6b8f6b33;
-      --tgt-tech: #9b6a6a33;
-    }
-    
-    /* Image Carousel */
-    .image-carousel {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      box-shadow: var(--shadow);
-      background: var(--card-background);
-      justify-self: end;
-    }
-    
-    .carousel-container {
-      position: relative;
-      width: 100%;
-      height: auto;
-    }
-    
-    .carousel-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      display: block;
-    }
-    
-    .carousel-image.active {
-      position: relative;
-      opacity: 1;
-    }
-    
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 10;
-      transition: background 0.3s ease;
-    }
-    
-    .carousel-btn:hover {
-      background: rgba(0, 0, 0, 0.9);
-    }
-    
-    .carousel-btn.prev {
-      left: 10px;
-    }
-    
-    .carousel-btn.next {
-      right: 10px;
-    }
-    
-    .carousel-caption {
-      padding: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      text-align: center;
-      background: var(--card-background);
-    }
-  </style>
+  <link rel="stylesheet" href="../css/project.css" />
+  <script src="../js/project.js" defer></script>
+  <script src="../js/analytics.js" defer></script>
 </head>
 
 <body>
-  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="container">
       <ul class="nav-left">
-        <li><a class="nav-link" href="../../">← Back to Portfolio</a></li>
+        <li><a class="nav-link" href="../../">&larr; Back to Portfolio</a></li>
       </ul>
       <div class="nav-right">
         <div class="theme-switch">
           <input type="checkbox" id="switch" />
           <label class="toggle-icons" for="switch">
             <img class="moon" src="../assets/moon.svg" alt="Dark" />
-            <img class="sun"  src="../assets/sun.svg"  alt="Light" />
+            <img class="sun" src="../assets/sun.svg" alt="Light" />
           </label>
         </div>
       </div>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
+      <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
     </div>
   </nav>
 
-  <!-- MAIN CONTENT -->
-  <main class="container project-detail">
-    <!-- TOP TARGETED SECTION -->
-    <section class="tgt">
-      <h1 class="tgt-title">Drawing Machine Design</h1>
-      <div class="tgt-grid">
-        <aside class="tgt-rail">
-          <section class="tgt-card tgt-obj">
-            <h3>Objectives</h3>
-            <p>Design and build a motor-driven drawing machine that uses purely mechanical motion to draw a design on a t-shirt</p>
-          </section>
+  <main class="pp">
+    <h1>Drawing Machine Design</h1>
+    <p class="pp-date">Mechanical design project</p>
 
-          <section class="tgt-card tgt-out">
-            <h3>Outcomes &amp; Contributions</h3>
-            <ul>
-              <li>• Successfully designed and fabricated a motorized, three-link drawing machine mounted on a wooden panel with three outward-slanting legs</li>
-              <li>• Built a chained axle–gear–sprocket mechanism that transforms one continuous motor rotation into layered circular motions at the pen tip</li>
-              <li>• Demonstrated a family of spirograph-like patterns</li>
-            </ul>
-          </section>
+    <div class="pp-top5" style="--cols:4"><img src="../assets/project/project-four.png" alt="Motorized three-link drawing machine" /><img src="../assets/project/project-four/image.png" alt="Patterns drawn by the machine" class="contain" loading="lazy" /><img src="../assets/project/project-four/IMG_0537.jpg" alt="Axle and gear assembly" loading="lazy" /><img src="../assets/project/project-four/IMG_0561.jpg" alt="Pen holder mechanism" loading="lazy" /><img src="../assets/project/project-four/IMG_0565.jpg" alt="The complete assembly" loading="lazy" /></div>
 
-          <section class="tgt-card tgt-tech">
-            <h3>Technical Details &amp; Skills</h3>
-            <ul>
-              <li>• Mechanical design: Layout of axles, gears, and sprockets → choosing offsets and link lengths to create interesting pen paths</li>
-              <li>• Fabrication: Cutting and drilling the wooden base and tripod legs, assembling shafts, hubs, and pen mount, and aligning rotating components</li>
-              <li>• Basic electronics: Using a single motor and simple power control to drive the system continuously</li>
-            </ul>
-          </section>
-        </aside>
+    <p style="margin-top:1.75rem"><b>Summary:</b> Designed and built a motor-driven drawing machine that uses purely mechanical motion to draw on a t-shirt. A chain of three linked axles, gears and sprockets converts one continuous motor rotation into layered rotating and orbiting motion at the pen tip, producing spirograph-like rosettes and looping flower patterns.</p>
 
-        <figure class="tgt-visual">
-          <img src="../assets/project/project-four.png" alt="Drawing machine design and setup" />
-          <figcaption>Motorized three-link drawing machine with mechanical motion system</figcaption>
-        </figure>
-      </div>
-    </section>
+    <p style="margin-bottom:0.3rem"><b>Skills</b></p>
+    <ul><li>Mechanical design: axle, gear and sprocket layout, offsets and link lengths</li><li>Fabrication: cutting, drilling, assembly and alignment of a wooden frame and shafts</li><li>Kinematics, tolerances and structural rigidity</li></ul>
 
-    <!-- BELOW SECTIONS -->
-    <section class="split" id="overview">
-      <div class="wrap">
-        <div class="text">
-          <h2>Overview</h2>
+    <hr />
 
-          <p>
-            This drawing machine is a small, harmonograph-style device that turns one motor's rotation into a beautiful looping flower artwork. A single motor spins a main axle. Rigidly attached to this axle is a second, offset axle driven through a gear and sprocket, so it both spins and orbits around the center. That motion is repeated again: the second axle drives a third, outer axle, and a pen is mounted at the end of this final link above a flattened out t-shirt.
-          </p>
-          <p>
-            Because each stage both rotates and revolves, the pen tip doesn't trace a simple circle. Instead, it follows a path shaped by several coupled rotations with different radii and offsets, producing layered rosettes, flower-like curves, and drifting loops over time. The entire mechanism is mounted on a wooden panel supported by three legs that slant outward, creating a stable tripod base so the machine can run without wobbling as it draws.
-          </p>
-        </div>
-        <div class="image-carousel">
-          <div class="carousel-container">
-            <img class="carousel-image active" src="../assets/project/project-four/IMG_0516.jpg" alt="Initial concept sketches" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0533.jpg" alt="Wooden base construction" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0537.jpg" alt="Axle and gear assembly" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0557.jpg" alt="Motor mounting" />
-          </div>
-          <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
-          <button class="carousel-btn next" onclick="changeImage(1)">›</button>
-          <div class="carousel-caption">
-            <span class="caption-text">Initial concept sketches</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="split" id="work">
-      <div class="wrap">
-        <div class="text">
-          <h2>Work</h2>
-
-          <p>
-            The project focused on designing and building a simple but expressive mechanical drawing system from scratch. My work ranged from early sketches to the final product:
-          </p>
-          <ul>
-            <li>• Sketched concepts for how chained axles, gears, and sprockets could combine to move a pen in nontrivial paths</li>
-            <li>• Designed the layout of the main axle and two subsequent axles so each stage both spun and revolved around the previous one</li>
-            <li>• Built a wooden base and three outward-slanting legs to form a rigid, tripod-style structure</li>
-            <li>• Mounted the motor, axles, gears, and pen holder, paying attention to alignment so friction and binding would be minimized</li>
-            <li>• Ran drawing tests on poster paper, observing how the patterns evolved over time as the mechanism cycled</li>
-          </ul>
-        </div>
-
-        <div class="image-carousel">
-          <div class="carousel-container">
-            <img class="carousel-image active" src="../assets/project/project-four/IMG_0561.jpg" alt="Pen holder mechanism" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0565.jpg" alt="Complete assembly" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0574.jpg" alt="Drawing test setup" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0576.HEIC" alt="Machine detail view" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0578.HEIC" alt="Drawing process in action" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0580.HEIC" alt="Machine setup and calibration" />
-            <img class="carousel-image" src="../assets/project/project-four/IMG_0583.HEIC" alt="Final assembly and testing" />
-          </div>
-          <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
-          <button class="carousel-btn next" onclick="changeImage(1)">›</button>
-          <div class="carousel-caption">
-            <span class="caption-text">Pen holder mechanism</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="split" id="results">
-      <div class="wrap">
-        <div class="text">
-          <h2>Results & Impact</h2>
-
-          <p>
-            The completed device produced a variety of geometric and organic patterns using only one motor and a chain of mechanical linkages. The pen traced out smooth, continuous curves (rosettes, flower-like shapes, and nested loops) that slowly filled the page as the axles rotated and revolved.
-          </p>
-          <p>
-            Building this drawing machine strengthened my understanding of kinematics, tolerances, and structural rigidity. I saw firsthand how slight misalignments or flexibility in the frame can influence motion quality and line smoothness. Overall, the project gave me a deeper, hands-on feel for how simple mechanical systems can create surprisingly complex and aesthetically pleasing behavior.
-          </p>
-        </div>
-
-        <div class="media-stack">
-          <figure class="shot">
-            <img src="../assets/project/project-four/image.png" alt="Final drawing patterns" />
-            <figcaption>Spirograph-like patterns created by the drawing machine</figcaption>
-          </figure>
-          <figure class="shot">
-            <img src="../assets/project/project-four/IMG_1226.HEIC" alt="Machine detail view" />
-            <figcaption>Final machine assembly showing mechanical linkages</figcaption>
-          </figure>
-          <figure class="shot">
-            <img src="../assets/project/project-four/IMG_3454.HEIC" alt="Project completion and results" />
-            <figcaption>Completed drawing machine in operation</figcaption>
-          </figure>
-        </div>
-      </div>
+    <section class="pp-sec">
+      <h2>Technical details</h2>
+      <p><b>How it works.</b> A single motor spins a main axle. Attached to it is a second, offset axle driven through a gear and sprocket, so it both spins and orbits the center. The second axle drives a third, outer axle in the same way, and a pen is mounted at the end of that final link above a flattened t-shirt. Because every stage both rotates and revolves, the pen traces coupled rotations with different radii and offsets, which creates the layered rosettes and drifting loops.</p><p><b>Design.</b> I sketched concepts for how chained axles, gears and sprockets could move a pen along non-trivial paths, then designed the layout of the three axles so each stage both spins and revolves around the previous one.</p><p><b>Build.</b> I built a wooden base with three outward-slanting legs to form a rigid tripod-style structure, then mounted the motor, axles, gears and pen holder, aligning the parts to minimize friction and binding.</p><figure class="pp-fig"><div class="pp-strip"><img src="../assets/project/project-four/IMG_0516.jpg" alt="Initial concept sketches" loading="lazy" /><img src="../assets/project/project-four/IMG_0533.jpg" alt="Wooden base construction" loading="lazy" /><img src="../assets/project/project-four/IMG_0557.jpg" alt="Motor mounting" loading="lazy" /></div><p class="pp-cap">Concept sketches, the wooden base and motor mounting.</p></figure><p><b>Testing.</b> I ran drawing tests and observed how the patterns evolved as the mechanism cycled.</p><figure class="pp-fig"><div class="pp-strip"><img src="../assets/project/project-four/IMG_0574.jpg" alt="Drawing test setup" loading="lazy" /><img src="../assets/project/project-four/IMG_0576.jpg" alt="Machine detail" loading="lazy" /><img src="../assets/project/project-four/IMG_0578.jpg" alt="Drawing in action" loading="lazy" /></div><p class="pp-cap">Drawing test setup, machine detail and the machine drawing.</p></figure><p><b>Results.</b> The finished machine produced a wide range of geometric and organic patterns from one motor and a chain of mechanical linkages. The pen traced smooth, continuous curves (rosettes, flower-like shapes and nested loops) that slowly filled the page. Building it strengthened my understanding of kinematics, tolerances and structural rigidity. I saw firsthand how slight misalignment or flex in the frame affects motion quality and line smoothness.</p><figure class="pp-fig"><div class="pp-pair"><img src="../assets/project/project-four/IMG_3454.jpg" alt="Completed drawing machine in operation" loading="lazy" /><img src="../assets/project/project-four/IMG_1226.jpg" alt="Final machine assembly" loading="lazy" /></div><p class="pp-cap">The completed machine in operation.</p></figure><details class="pp-more"><summary>More photos</summary><div class="pp-strip" style="margin-top:1rem"><img src="../assets/project/project-four/IMG_0580.jpg" alt="Setup and calibration" loading="lazy" /><img src="../assets/project/project-four/IMG_0583.jpg" alt="Final assembly and testing" loading="lazy" /></div></details>
+      
     </section>
   </main>
 
   <footer id="footer">
-    <div class="container">
-      <p>&copy; 2025 Vinn Nguyen</p>
-    </div>
+    <div class="container"><p>&copy; Vinn Nguyen</p></div>
   </footer>
 
   <script src="../js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
-  <script>
-    // Mobile menu functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const hamburger = document.querySelector('.hamburger');
-      const navLeft = document.querySelector('.nav-left');
-      const navRight = document.querySelector('.nav-right');
-      
-      if (hamburger) {
-        hamburger.addEventListener('click', function() {
-          hamburger.classList.toggle('active');
-          if (navLeft) navLeft.classList.toggle('active');
-          if (navRight) navRight.classList.toggle('active');
-        });
-      }
-    });
-    
-    // HEIC image support
-    document.addEventListener('DOMContentLoaded', function() {
-      const images = document.querySelectorAll('img[src$=".heic"], img[src$=".HEIC"]');
-      
-      images.forEach(async (img) => {
-        try {
-          const response = await fetch(img.src);
-          const blob = await response.blob();
-          const convertedBlob = await heic2any({ blob, toType: 'image/jpeg', quality: 0.8 });
-          const url = URL.createObjectURL(convertedBlob);
-          img.src = url;
-        } catch (error) {
-          console.warn('Failed to convert HEIC image:', img.src);
-        }
-      });
-    });
-  </script>
-  <script>
-    const carouselStates = new Map();
-    
-    function changeImage(direction) {
-      const carousel = event.target.closest('.image-carousel');
-      const images = carousel.querySelectorAll('.carousel-image');
-      const captionText = carousel.querySelector('.caption-text');
-      
-      // Get or initialize carousel state
-      if (!carouselStates.has(carousel)) {
-        carouselStates.set(carousel, { currentIndex: 0 });
-      }
-      const state = carouselStates.get(carousel);
-      
-      // Remove active class from current image
-      images[state.currentIndex].classList.remove('active');
-      
-      // Calculate new index
-      state.currentIndex += direction;
-      if (state.currentIndex >= images.length) state.currentIndex = 0;
-      if (state.currentIndex < 0) state.currentIndex = images.length - 1;
-      
-      // Add active class to new image
-      images[state.currentIndex].classList.add('active');
-      
-      // Update caption from image alt text
-      if (captionText) {
-        captionText.textContent = images[state.currentIndex].alt;
-      }
-    }
-  </script>
 </body>
 </html>

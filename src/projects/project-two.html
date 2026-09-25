@@ -3,354 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aluminum Recovery from Cryolite Electrolyte – Vinn Nguyen</title>
-
+  <title>Aluminum Recovery from Waste Cryolite – Vinn Nguyen</title>
+  <meta name="description" content="Co-authored research on Donnan-enhanced nanofiltration to recover aluminum from spent cryolite electrolyte." />
   <link rel="icon" href="../assets/favicon/favicon.ico" />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-    crossorigin="anonymous"
-  />
+  <link rel="canonical" href="https://vinn-n.github.io/portfolio/src/projects/project-two.html" />
+  <meta name="theme-color" content="#1f1f1f" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vinn Nguyen" />
+  <meta property="og:title" content="Aluminum Recovery from Waste Cryolite – Vinn Nguyen" />
+  <meta property="og:description" content="Co-authored research on Donnan-enhanced nanofiltration to recover aluminum from spent cryolite electrolyte." />
+  <meta property="og:url" content="https://vinn-n.github.io/portfolio/src/projects/project-two.html" />
+  <meta property="og:image" content="https://vinn-n.github.io/portfolio/src/assets/project/project-two.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Aluminum Recovery from Waste Cryolite","description":"Co-authored research on Donnan-enhanced nanofiltration to recover aluminum from spent cryolite electrolyte.","image":"https://vinn-n.github.io/portfolio/src/assets/project/project-two.png","url":"https://vinn-n.github.io/portfolio/src/projects/project-two.html","author":{"@type":"Person","name":"Vinn Nguyen","url":"https://vinn-n.github.io/portfolio/"}}</script>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/utilities.css" />
-
-  <style>
-    html, body { height: auto !important; overflow-y: auto !important; }
-    main.container { margin-top: 80px; }
-
-    /* ===== TARGETED PROJECT LAYOUT (top) ===== */
-    .tgt { padding-block: 2rem 3rem; }
-    .tgt-title { text-align: center; font-weight: var(--weight-bold); margin-bottom: 1.25rem; }
-    
-    .tgt-grid {
-      display: grid;
-      grid-template-columns: 500px 1fr;
-      gap: clamp(1rem, 4vw, 2rem);
-      align-items: start;
-    }
-    .tgt-rail { display: grid; gap: 1rem; }
-    .tgt-card {
-      border-radius: 12px;
-      padding: 1rem 1rem 1.1rem;
-      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
-      box-shadow: var(--shadow);
-    }
-
-    .tgt-card h3 { font-size: 1.05rem; margin-bottom: .4rem; font-weight: var(--weight-semibold); }
-    .tgt-obj  { background: var(--tgt-obj,  #efe7b8); }
-    .tgt-out  { background: var(--tgt-out,  #dff0dd); }
-    .tgt-tech { background: var(--tgt-tech, #f3d3d3); }
-
-    .tgt-visual {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-    }
-
-    .tgt-visual img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-      border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    }
-    .tgt-visual figcaption {
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      margin-top: 0.5rem;
-    }
-    
-    /* ===== SPLIT SECTIONS BELOW ===== */
-    .split {
-      padding-block: 2.5rem;
-      border-top: 1px solid var(--tgt-border, rgba(0,0,0,.08));
-    }
-    .split .wrap {
-      display: grid;
-      grid-template-columns: 1.4fr 0.6fr;
-      gap: clamp(1rem, 4vw, 2rem);
-      align-items: start;
-    }
-    .split h2 {
-      margin: 0 0 .75rem;
-      font-size: 1.4rem;
-      letter-spacing: .01em;
-      font-weight: var(--weight-semibold);
-    }
-    .split p {
-      margin-bottom: .9rem;
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-    .split .media {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      box-shadow: var(--shadow);
-      background: var(--card-background);
-      justify-self: end;
-    }
-    .split .media img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .split .media figcaption {
-      padding: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      text-align: center;
-      background: var(--card-background);
-    }
-    
-    .media-stack {
-      display: grid;
-      gap: 1rem;
-    }
-    .shot {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      box-shadow: var(--shadow);
-    }
-    .shot img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .shot figcaption {
-      padding: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      text-align: center;
-      background: var(--card-background);
-      margin-top: 8px;
-    }
-
-    /* Timeline Block */
-    .timeline-block {
-      background: var(--tgt-obj, #efe7b8);
-      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: var(--shadow);
-    }
-    
-    /* PDF Section Styles */
-    .pdf-section { margin-top: 2rem; text-align: center; }
-    .pdf-viewer { width: 100%; height: 700px; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); border-radius: 8px; }
-    .pdf-download {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--primary-color);
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: opacity 0.2s;
-    }
-    .pdf-download:hover { opacity: 0.8; }
-    @media (max-width: 768px) { .pdf-viewer { height: 500px; } }
-
-    @media (max-width: 960px) {
-      .tgt-grid { grid-template-columns: 1fr; }
-      .split .wrap { grid-template-columns: 1fr; }
-      .split .media { justify-self: center; }
-    }
-
-    html[data-theme="dark"] {
-      --tgt-border: rgba(255,255,255,.16);
-      --tgt-obj:  #7b794f33;
-      --tgt-out:  #6b8f6b33;
-      --tgt-tech: #9b6a6a33;
-    }
-  </style>
+  <link rel="stylesheet" href="../css/project.css" />
+  <script src="../js/project.js" defer></script>
+  <script src="../js/analytics.js" defer></script>
 </head>
 
 <body>
-  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="container">
       <ul class="nav-left">
-        <li><a class="nav-link" href="../../">← Back to Portfolio</a></li>
+        <li><a class="nav-link" href="../../">&larr; Back to Portfolio</a></li>
       </ul>
       <div class="nav-right">
         <div class="theme-switch">
           <input type="checkbox" id="switch" />
           <label class="toggle-icons" for="switch">
             <img class="moon" src="../assets/moon.svg" alt="Dark" />
-            <img class="sun"  src="../assets/sun.svg"  alt="Light" />
+            <img class="sun" src="../assets/sun.svg" alt="Light" />
           </label>
         </div>
       </div>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
+      <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
     </div>
   </nav>
 
-  <!-- MAIN CONTENT -->
-  <main class="container project-detail">
-    <!-- TOP TARGETED SECTION -->
-    <section class="tgt">
-      <h1 class="tgt-title">Enhancing Resource Circularity in Aluminum Production through Nanofiltration of Waste Cryolite</h1>
-      <div class="tgt-grid">
-        <aside class="tgt-rail">
-          <section class="tgt-card tgt-obj">
-            <h3>Objectives</h3>
-            <ul>
-              <li>• Develop and characterize a novel nanofiltration (NF) process for selective separation of aluminum from waste cryolite electrolyte</li>
-              <li>• Demonstrate Donnan-enhanced NF for efficient aluminum recovery and circular resource use in industrial electrolytes</li>
-            </ul>
-          </section>
+  <main class="pp">
+    <h1>Aluminum Recovery from Waste Cryolite</h1>
+    <p class="pp-date">January 2024 &ndash; September 2024 &middot; The Lienhard Research Group</p>
 
-          <section class="tgt-card tgt-out">
-            <h3>Outcomes &amp; Contributions</h3>
-            <ul>
-              <li>• Co-authored ACS Sustainable Chemistry &amp; Engineering (2025) paper presenting the first Donnan-enhanced NF method for aluminum recovery</li>
-              <li>• Demonstrated >99% aluminum rejection and a 55% increase in Na/Al selectivity via a polyelectrolyte-coated membrane</li>
-            </ul>
-          </section>
+    <div class="pp-top5" style="--cols:2"><img src="../assets/project/project-two/NF-T.jpeg" alt="Nanofiltration membrane system" /><img src="../assets/project/project-two/TV.JPG" alt="Experimental setup and testing apparatus" loading="lazy" /><img src="../assets/project/project-two/T-V2.JPG" alt="Membrane testing and analysis" loading="lazy" /></div>
 
-          <section class="tgt-card tgt-tech">
-            <h3>Technical Details &amp; Skills</h3>
-            <ul>
-              <li>• Experimental Methods: Cryolite electrolyte synthesis, ion rejection measurements, and membrane aging studies</li>
-              <li>• Scientific Writing: Scientific language, figure creation, data analysis</li>
-            </ul>
-          </section>
-        </aside>
+    <p style="margin-top:1.75rem"><b>Summary:</b> Co-authored a paper in <i>ACS Sustainable Chemistry &amp; Engineering</i> (2025) presenting the first Donnan-enhanced nanofiltration method for recovering aluminum from spent cryolite electrolyte. A polyelectrolyte-coated membrane retains aluminum (99.1% rejection) while sodium, potassium and lithium pass through, raising Na/Al selectivity by 55% so the electrolyte can be reused instead of discarded. I analyzed the ion rejection data, created the paper's figures and contributed to the manuscript.</p>
 
-        <figure class="tgt-visual">
-          <img src="../assets/project/project-two/NF-T.jpeg" alt="Nanofiltration system for aluminum recovery" />
-          <figcaption>Nanofiltration membrane system for selective aluminum separation</figcaption>
-        </figure>
-      </div>
-    </section>
+    <p style="margin-bottom:0.3rem"><b>Skills</b></p>
+    <ul><li>Analyzing ion rejection data across varying pH and flux conditions</li><li>Scientific writing and figure design for journal publication</li><li>Membrane science: cryolite electrolyte synthesis, membrane aging studies</li></ul>
 
-    <!-- BELOW SECTIONS -->
-    <section class="split" id="overview">
-      <div class="wrap">
-        <div class="text">
-          <h2>Overview</h2>
-          <div class="timeline-block">
-            <p><strong>Timeline:</strong> January 2024 – September 2024 | <strong>Lab:</strong> The Lienhard Research Group</p>
-          </div>
-          <p>
-            Aluminum refining produces cryolite-based electrolytes that gradually accumulate sodium, lithium, and potassium impurities, rendering them unusable and creating a persistent waste problem. Disposal of this spent cryolite contributes to fluoride and aluminum contamination in soil and water systems.
-          </p>
-          <p>
-            This research introduced a nanofiltration-based upcycling method that selectively removes monovalent impurities while retaining aluminum, enabling reuse of the purified electrolyte and significantly reducing environmental waste. A polyelectrolyte-coated NF membrane was developed to enhance charge-based selectivity, exploiting Donnan exclusion to favor sodium permeation and aluminum retention.
-          </p>
-        </div>
-        <figure class="media">
-          <img src="../assets/project/project-two/TV.JPG" alt="Experimental setup and testing apparatus" />
-          <figcaption>Experimental setup and testing apparatus</figcaption>
-        </figure>
-      </div>
-    </section>
+    <hr />
 
-    <section class="split" id="work">
-      <div class="wrap">
-        <div class="text">
-          <h2>Work</h2>
-          <p>
-            My role centered on data analysis, figure creation, and manuscript development, transforming experimental results into quantitative insights and publication-ready visuals that communicated the project's scientific and sustainability impact.
-          </p>
-          <ul>
-            <li>• Analyzed ion rejection experiments for coated vs. uncoated NF membranes under varying pH and flux conditions</li>
-            <li>• Created high-impact figures and schematics—including the cryolite filtration process, membrane cross-sections, and performance plots—for journal publication</li>
-            <li>• Synthesized visual summaries of process efficiency, membrane stability, and module-scale energy consumption for publication graphics</li>
-          </ul>
-        </div>
-        <figure class="media">
-          <img src="../assets/project/project-two/T-V2.JPG" alt="Membrane testing and analysis" />
-          <figcaption>Membrane testing and analysis</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="split" id="conclusion">
-      <div class="wrap">
-        <div class="text">
-          <h2>Results & Impact</h2>
-          <p>
-            The study demonstrated that Donnan-enhanced nanofiltration can recover aluminum with high purity (99.1% rejection) while allowing monovalent ions (Na⁺, K⁺, Li⁺) to pass freely, reducing waste toxicity and improving recyclability.
-          </p>
-          <p>
-            Key findings include: Na/Al separation factor increased up to 102.0 at low pH, indicating strong charge-based selectivity; aluminum concentration in the treated permeate dropped to 0.00194%, approaching safe effluent thresholds; retentate Na/Al ratio ≈ 2.6, meeting operational requirements for reintroduction into Hall–Héroult electrolytic cells.
-          </p>
-          <p>
-            This work supports a closed-loop aluminum production model, where waste electrolytes are recycled into active materials—bridging membrane science and sustainable process engineering. Module-scale modeling confirmed viability of NF treatment at industrial scale with manageable energy use.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PDF Publication Section -->
-    <section class="split" id="publication">
-      <div class="wrap" style="grid-template-columns: 1fr;">
-        <div class="text">
-          <h2>Published Research</h2>
-          <p>View the complete published research paper detailing the novel nanofiltration method and experimental results.</p>
-          
-          <div class="pdf-section">
-            <iframe class="pdf-viewer" src="../assets/project/project-two/NF-paper.pdf" type="application/pdf">
-              <p>Your browser doesn't support PDF viewing. <a href="../assets/project/project-two/NF-paper.pdf" download>Download the PDF</a> instead.</p>
-            </iframe>
-            <br>
-            <a href="../assets/project/project-two/NF-paper.pdf" download class="pdf-download">
-              📄 Download Published Paper (PDF)
-            </a>
-          </div>
-        </div>
-      </div>
+    <section class="pp-sec">
+      <h2>Technical details</h2>
+      <p><b>Background.</b> Aluminum refining uses a cryolite-based electrolyte that gradually accumulates sodium, lithium and potassium. Once contaminated it can no longer be used, and disposing of it contributes to fluoride and aluminum contamination of soil and water.</p><p><b>Approach.</b> A polyelectrolyte-coated nanofiltration (NF) membrane exploits Donnan exclusion (charge-based selectivity) to favor sodium permeation and aluminum retention. I analyzed ion rejection experiments for coated vs. uncoated membranes under varying pH and flux, and built the figures and schematics for the paper: the filtration process, membrane cross-sections, performance plots, and summaries of process efficiency, membrane stability and module-scale energy consumption.</p><p><b>Results.</b></p><ul><li>99.1% aluminum rejection, while monovalent ions (Na&#8314;, K&#8314;, Li&#8314;) passed freely</li><li>Na/Al separation factor of up to 102.0 at low pH, showing strong charge-based selectivity</li><li>Aluminum in the treated permeate fell to 0.00194%, approaching safe effluent thresholds</li><li>Retentate Na/Al ratio of about 2.6, meeting the requirement for returning electrolyte to Hall&ndash;H&eacute;roult cells</li><li>Module-scale modeling showed NF treatment is viable at industrial scale with manageable energy use</li></ul><p>This supports a closed-loop aluminum production model in which waste electrolyte is recycled into active material.</p>
+      <p style="margin-top:2rem"><a href="../assets/project/project-two/NF-paper.pdf" target="_blank" rel="noopener">Read the published paper (PDF)</a></p>
     </section>
   </main>
 
   <footer id="footer">
-    <div class="container">
-      <p>&copy; 2024 Vinn Nguyen</p>
-    </div>
+    <div class="container"><p>&copy; Vinn Nguyen</p></div>
   </footer>
 
   <script src="../js/script.js"></script>
-  <script>
-    // Mobile menu toggle for project pages
-    document.addEventListener('DOMContentLoaded', function() {
-      const hamburger = document.querySelector('.hamburger');
-      const navLeft = document.querySelector('.nav-left');
-      const navRight = document.querySelector('.nav-right');
-      
-      if (hamburger) {
-        hamburger.addEventListener('click', function() {
-          hamburger.classList.toggle('active');
-          if (navLeft) navLeft.classList.toggle('active');
-          if (navRight) navRight.classList.toggle('active');
-        });
-      }
-      
-      // Close mobile menu when clicking on a link
-      const navLinks = document.querySelectorAll('.nav-link');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          hamburger.classList.remove('active');
-          if (navLeft) navLeft.classList.remove('active');
-          if (navRight) navRight.classList.remove('active');
-        });
-      });
-    });
-  </script>
 </body>
 </html>

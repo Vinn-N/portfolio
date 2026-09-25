@@ -1,20 +1,21 @@
 /* /assets/styles.css */
 /* Required project styling: Flex, Grid, Cards, Sections */
-@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap);
 
 /* =========================
    CSS Variables
 ========================= */
 :root {
   /* Colors */
-  --primary-color: #004687;
-  --secondary-color: #004687;
-  --bg-primary: #FFF8EC;
+  --primary-color: #5E8157;
+  --secondary-color: #5E8157;
+  --bg-primary: #FAF9F6;
   --text-color: #222222;
   --text-color-two: #ffffff;
   --bg-secondary: #000000;
   --card-background: #1d1d1d;
   --bg-secondary-two: #111111;
+  --sage-green: #5E8157;
 
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 
@@ -32,12 +33,13 @@
 [data-theme="dark"] {
   --primary-color: #71BC78;
   --secondary-color: #71BC78;
-  --bg-primary: #000000;
+  --bg-primary: #1f1f1f;
   --text-color: #ffffff;
   --text-color-two: #222222;
   --bg-secondary: #ffffff;
   --card-background: #ffffff;
   --bg-secondary-two: #f4f4f4;
+  --sage-green: #9CAF88;
   --shadow: 0 2px 10px rgba(95, 95, 95, 0.2);
 }
 
@@ -51,7 +53,7 @@ a { text-decoration: none; color: var(--text-color); }
 body {
   background: var(--bg-primary);
   color: var(--text-color);
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.5;
 }
 
@@ -188,7 +190,7 @@ body {
 
 /* Header container */
 .header-container {
-  padding: calc(80px + 2.5rem) 1rem 2.5rem; /* space under fixed nav */
+  padding: calc(80px + 3.5rem) 2rem 1rem; /* space under fixed nav */
   text-align: center; max-width: var(--width-medium); margin: 0 auto;
 }
 .header-container h1 { font-weight: var(--weight-bold); letter-spacing: -0.015em; margin: 1rem 0 0.25rem; }
@@ -198,19 +200,16 @@ body {
 }
 .btn-group { display: inline-flex; gap: 0.75rem; flex-wrap: wrap; }
 
-/* Rainbow name (calmer) */
+/* Accent name color */
 .rainbow-name {
   display: inline-block; font-weight: var(--weight-bold);
-  background: linear-gradient(90deg,#ff4e50,#f9d423,#1fe4f5,#3fbafe,#b993d6);
-  background-size: 250% 100%;
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  animation: smoothRainbow 14s linear infinite;
+  color: var(--sage-green);
 }
 
 /* =========================
    Sections / About
 ========================= */
-.division { width: 100%; height: 4px; background-color: var(--card-background); margin: 3rem 0; border-radius: 2px; }
+.division { width: 100%; height: 4px; background-color: var(--card-background); margin: 1.5rem 0; border-radius: 2px; }
 .about-heading { text-align: center; margin-bottom: 1.25rem; }
 .about-content {
   max-width: 800px; margin: 2rem auto 0; text-align: left; padding: 0 1rem;
@@ -224,41 +223,35 @@ body {
 /* =========================
    Projects
 ========================= */
-#projects { display: flex; flex-direction: column; margin: 2rem auto 5rem; }
+#projects { display: flex; flex-direction: column; margin: 1rem auto 5rem; }
 #projects .btn { align-self: center; margin: 2rem 0; }
 .project {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(250px, auto); grid-gap: 1.1rem;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem 1.75rem;
 }
-.card .project-bio p { font-size: 0.83rem; color: #ffffff; }
-.card .project-bio h3 { font-size: 0.9rem; color: #ffffff; margin-bottom: 0.25rem; }
-.project-info { display: flex; justify-content: space-between; opacity: 0; position: relative; transition: 0.5s ease-in-out; }
-.project-bio { 
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: rgba(0, 0, 0, 0.85);
-  padding: 1rem;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
+
+.card, .card * { text-decoration: none !important; }
+.card { display: block; color: var(--text-color); }
+.card-image {
+  width: 100%; aspect-ratio: 5 / 4;
+  background-color: var(--card-background);
+  background-size: cover; background-position: center;
+  transition: transform 0.35s ease;
 }
-.card:hover .project-bio {
-  transform: translateY(0);
+.card:hover { position: relative; z-index: 2; }
+.card:hover .card-image { transform: scale(1.06); }
+.card-info { padding-top: 0.75rem; }
+.card-info h3 { font-size: 1.05rem; font-weight: var(--weight-semibold); line-height: 1.35; margin: 0; }
+
+.card-image.card-placeholder {
+  display: flex; align-items: center; justify-content: center;
+  background-color: rgba(128, 128, 128, 0.12); color: var(--text-color); font-size: 2rem;
 }
-.card {
-  position: relative;
+
+@media (max-width: 900px) {
+  .project { grid-template-columns: repeat(2, 1fr); }
 }
-.card:hover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1;
-}
-.card .project-bio {
-  position: relative;
-  z-index: 2;
+@media (max-width: 600px) {
+  .project { grid-template-columns: 1fr; }
 }
 
 /* =========================
@@ -334,10 +327,6 @@ body {
   80% { transform: translateY(0) scaleX(1.03) scaleY(0.97); }
   100% { transform: translateY(0) scaleX(1) scaleY(1); }
 }
-@keyframes smoothRainbow {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
 @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(100px, -100px); } }
 @keyframes fall {
@@ -353,7 +342,6 @@ body {
 ========================= */
 @media (prefers-reduced-motion: reduce) {
   .petals-wrapper, .stars-wrapper { display: none; } /* why: avoid motion sickness */
-  .rainbow-name { animation: none; }
 }
 
 /* =========================
@@ -457,7 +445,6 @@ body {
 }
 
 @media (max-width: 600px) {
-  .project { grid-template-columns: 1fr; }
   .header-container .btn { border-radius: 5px; width: 80%; }
 }
 

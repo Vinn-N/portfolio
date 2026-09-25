@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta Tags -->
-    <title>Vinn's Portfolio</title>
-    <meta name="title" content="Vinn's Portfolio" />
-    <meta
-      name="description"
-      content=""
-    />
+  <title>Vinn Nguyen | Mechanical Engineering at MIT</title>
+  <meta name="description" content="Portfolio of Vinn Nguyen, a Mechanical Engineering student at MIT interested in sustainability. Research and engineering projects in nanofiltration, perovskite solar cells and robot design." />
+  <link rel="canonical" href="https://vinn-n.github.io/portfolio/" />
+  <meta name="theme-color" content="#1f1f1f" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vinn Nguyen" />
+  <meta property="og:title" content="Vinn Nguyen | Mechanical Engineering at MIT" />
+  <meta property="og:description" content="Portfolio of Vinn Nguyen, a Mechanical Engineering student at MIT interested in sustainability. Research and engineering projects in nanofiltration, perovskite solar cells and robot design." />
+  <meta property="og:url" content="https://vinn-n.github.io/portfolio/" />
+  <meta property="og:image" content="https://vinn-n.github.io/portfolio/src/assets/VinnPFP-square.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Vinn Nguyen","jobTitle":"Mechanical Engineering student","url":"https://vinn-n.github.io/portfolio/","image":"https://vinn-n.github.io/portfolio/src/assets/VinnPFP-square.jpg","alumniOf":{"@type":"CollegeOrUniversity","name":"Massachusetts Institute of Technology"},"sameAs":["https://linkedin.com/in/vinn-nguyen"],"knowsAbout":["Mechanical engineering","Sustainable energy","Nanofiltration","Perovskite solar cells"]}</script>
 
     <!-- Favicons -->
     <link
@@ -47,514 +53,110 @@
     <link rel="manifest" href="src/assets/favicon/site.webmanifest" />
 
     <!-- Styles & Icons -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="src/css/style.css" />
     <link rel="stylesheet" href="src/css/utilities.css" />
-    
-    <style>
-      .hero-layout {
-        display: grid;
-        grid-template-columns: 300px 1fr;
-        gap: 3rem;
-        align-items: center;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-      
-      .hero-image {
-        animation: fadeInLeft 1s ease-out;
-      }
-      
-      .hero-image .profile-image {
-        width: 100%;
-        height: auto;
-        border-radius: 15px;
-        border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      
-      [data-theme="dark"] .hero-image .profile-image {
-        border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-      }
-      
-      .hero-image .profile-image:hover {
-        transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-      }
-      
-      .hero-text {
-        text-align: left;
-        animation: fadeInRight 1s ease-out 0.3s both;
-      }
-      
-      .intro {
-        margin-top: 2.5rem !important;
-      }
-      
-      .intro p {
-        font-size: 1.2rem !important;
-        line-height: 1.6 !important;
-      }
-      
-      @keyframes fadeInLeft {
-        from {
-          opacity: 0;
-          transform: translateX(-30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-      
-      @keyframes fadeInRight {
-        from {
-          opacity: 0;
-          transform: translateX(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-      /* Mobile and tablet navbar fixes */
-      @media (max-width: 1024px) {
-        .navbar .container {
-          grid-template-columns: 1fr auto !important;
-          padding: 0 1rem !important;
-          max-width: 100% !important;
-        }
-        
-        .nav-left, .nav-right {
-          display: none !important;
-        }
-        
-        .hamburger {
-          display: block !important;
-          cursor: pointer;
-          z-index: 20;
-        }
-        
-        .hamburger .bar {
-          display: block !important;
-          width: 25px !important;
-          height: 3px !important;
-          margin: 5px auto !important;
-          background-color: var(--text-color) !important;
-          border-radius: 2px !important;
-          transition: all 0.3s ease !important;
-        }
-        
-        .hamburger.active .bar:nth-child(1) {
-          transform: translateY(8px) rotate(45deg) !important;
-        }
-        
-        .hamburger.active .bar:nth-child(2) {
-          opacity: 0 !important;
-        }
-        
-        .hamburger.active .bar:nth-child(3) {
-          transform: translateY(-8px) rotate(-45deg) !important;
-        }
-        
-        .nav-left.active {
-          display: flex !important;
-          position: fixed !important;
-          top: 80px !important;
-          left: 0 !important;
-          right: 0 !important;
-          background: var(--bg-primary) !important;
-          flex-direction: column !important;
-          padding: 2rem !important;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
-          z-index: 15 !important;
-          gap: 0 !important;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-        }
-        
-        .nav-right.active {
-          display: flex !important;
-          position: fixed !important;
-          top: calc(80px + 200px) !important;
-          left: 0 !important;
-          right: 0 !important;
-          background: var(--bg-primary) !important;
-          flex-direction: row !important;
-          justify-content: center !important;
-          align-items: center !important;
-          padding: 1.5rem !important;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
-          z-index: 15 !important;
-          gap: 2rem !important;
-        }
-        
-        .nav-left.active .nav-link {
-          padding: 1rem 0 !important;
-          text-align: center !important;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-          width: 100% !important;
-          font-size: 1.1rem !important;
-        }
-        
-        .nav-left.active .nav-link:last-child {
-          border-bottom: none !important;
-        }
-      }
-      
-      @media (max-width: 768px) {
-        .hero-layout {
-          grid-template-columns: 1fr;
-          text-align: center;
-          gap: 2rem;
-        }
-        
-        .hero-image .profile-image {
-          max-width: 250px;
-          margin: 0 auto;
-        }
-      }
-      
-      /* Sort buttons */
-      .sort-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        margin: 1rem 0 2rem 0;
-      }
-      
-      .sort-btn {
-        padding: 0.75rem 1.5rem;
-        border: 2px solid var(--primary-color);
-        background: transparent;
-        color: var(--primary-color);
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-weight: 600;
-        font-size: 1rem;
-        text-decoration: none;
-        display: inline-block;
-      }
-      
-      .sort-btn:hover,
-      .sort-btn.active {
-        background: var(--primary-color);
-        color: white;
-      }
-      
-      .card {
-        transition: all 0.4s ease;
-        opacity: 1;
-        transform: scale(1);
-      }
-      
-      .card.hidden {
-        display: none;
-      }
-      
-      .project {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: minmax(250px, auto);
-        grid-gap: 1.1rem;
-      }
-      
-      /* Dark mode white borders for project cards */
-      [data-theme="dark"] .card {
-        border: 1px solid rgba(255, 255, 255, 0.18) !important; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
-      }
-      
-      /* Ensure fun projects card shows image */
-      .card[data-category="personal"] {
-        min-height: 250px;
-        background-size: cover !important;
-        background-position: center !important;
-      }
-      
-      /* Ensure desktop nav shows on larger screens */
-      @media (min-width: 1025px) {
-        .nav-left, .nav-right {
-          display: flex !important;
-        }
-        
-        .hamburger {
-          display: none !important;
-        }
-      }
-      
-      @media (max-width: 768px) {
-        .sort-buttons {
-          flex-wrap: wrap;
-          gap: 0.5rem;
-        }
-        
-        .sort-btn {
-          font-size: 0.9rem;
-          padding: 0.4rem 0.8rem;
-        }
-      }
-    </style>
-  </head>
+
+    <link rel="stylesheet" href="src/css/simple.css" />
+    <script src="src/js/analytics.js" defer></script>
+</head>
 
   <body>
-    <div class="stars-wrapper"></div>
-    <div class="petals-wrapper light-only"></div>
-    <div class="front-petals-wrapper light-only"></div>
+    <div class="theme-switch corner">
+      <input type="checkbox" id="switch" />
+      <label class="toggle-icons" for="switch" aria-label="Toggle theme">
+        <img class="moon" src="src/assets/moon.svg" alt="" />
+        <img class="sun" src="src/assets/sun.svg" alt="" />
+      </label>
+    </div>
 
-    <header id="hero">
-      <!-- Navbar -->
-      <nav class="navbar">
-        <div class="container">
-          <!-- Left Navigation -->
-          <ul class="nav-left">
-            <li><a class="nav-link" href="src/skills.html">Relevant Skills</a></li>
-            <li><a class="nav-link" href="#projects">Projects</a></li>
-            <li><a class="nav-link" href="src/coursework.html">Coursework</a></li>
-            <li><a class="nav-link" href="src/assets/Vinn_Nguyen_Resume.pdf" target="_blank">Resume</a></li>
-          </ul>
-
-          <!-- Right Section: Social Icons + Theme Toggle -->
-          <div class="nav-right">
-            <!-- Social Icons -->
-            <div class="social-icons">
-              <a href="https://linkedin.com/in/vinn-nguyen" target="_blank" aria-label="LinkedIn">
-                <img src="src/assets/linkedin-icon.svg" alt="LinkedIn" />
-              </a>
-            </div>
-            <!-- Theme Toggle -->
-            <div class="theme-switch">
-              <input type="checkbox" id="switch" />
-              <label class="toggle-icons" for="switch" aria-label="Toggle theme">
-                <img class="moon" src="src/assets/moon.svg" alt="" />
-                <img class="sun" src="src/assets/sun.svg" alt="" />
-              </label>
-            </div>
-          </div>
-
-          <!-- Hamburger menu -->
-          <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
+    <main class="home">
+      <header class="home-head">
+        <img class="photo" src="src/assets/VinnPFP-square.jpg" alt="Vinn Nguyen" />
+        <div>
+          <h1>Vinn Nguyen</h1>
+          <p>Mechanical Engineer @ MIT, interested in sustainability</p>
+          <p class="links">
+            <a href="mailto:vinn@mit.edu">vinn@mit.edu</a><span class="sep">|</span><a href="https://linkedin.com/in/vinn-nguyen" target="_blank" rel="noopener">LinkedIn</a><span class="sep">|</span><a href="src/assets/Vinn_Nguyen_Resume.pdf" target="_blank" rel="noopener">Resume</a><span class="sep">|</span><a href="src/coursework.html">Coursework</a><span class="sep">|</span><a href="src/skills.html">Skills</a>
+          </p>
         </div>
-      </nav>
+      </header>
 
-      <!-- Hero Section -->
-      <section class="header-container">
-        <div class="hero-layout">
-          <div class="hero-image">
-            <img
-              class="profile-image"
-              src="src/assets/VinnPFP.jpg"
-              alt="Vinn Nguyen"
-            />
-          </div>
-          <div class="hero-text">
-            <h1>Hi, I'm <span class="rainbow-name">Vinn</span></h1>
-            
-            <div class="intro">
-              <p>I'm a Mechanical Engineering student at MIT interested in how thoughtful design and engineering can accelerate the transition to sustainable energy systems.</p>
-            </div>
-          </div>
+      <hr />
+
+      <section>
+        <p>Skills:</p>
+        <ul>
+          <li><b>Software and controls:</b> Python, MATLAB, TwinCAT (PLC programming), machine learning</li>
+          <li><b>CAD and analysis:</b> SolidWorks, beginner CFD (OpenFOAM), techno-economic analysis</li>
+          <li><b>Electronics and instrumentation:</b> Arduino, Raspberry Pi, thermocouples, pressure transducers, data logging</li>
+          <li><b>Fabrication and prototyping:</b> FDM 3D printing, woodshop tools, laser cutting, heat exchanger fabrication</li>
+          <li><b>Research:</b> Experimental design, wet lab work, nanofiltration and electrodialysis, data analysis, scientific writing</li>
+        </ul>
+      </section>
+
+      <hr />
+
+      <div class="filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="research">Research</button>
+        <button class="filter" data-filter="engineering">Engineering</button>
+      </div>
+
+      <section class="grid">
+        <div class="card" data-category="engineering">
+          <a class="card-link" href="src/projects/project-five.html" aria-label="2.007 Robot Design"></a>
+          <div class="card-image" style="background-image: url('src/assets/project/project-five/IMG_9934.jpg');"></div>
+          <p class="card-info">2.007 Robot Design</p>
+        </div>
+
+        <div class="card" data-category="research">
+          <a class="card-link" href="src/projects/project-one.html" aria-label="Nutrient Recovery from Brackish Groundwater"></a>
+          <div class="card-image" style="background-image: url('src/assets/project/project-one.png');"></div>
+          <p class="card-info">Nutrient Recovery from Brackish Groundwater</p>
+        </div>
+
+        <div class="card" data-category="research">
+          <a class="card-link" href="src/projects/project-two.html" aria-label="Aluminum Recovery from Waste Cryolite"></a>
+          <div class="card-image" style="background-image: url('src/assets/project/project-two.png');"></div>
+          <p class="card-info">Aluminum Recovery from Waste Cryolite</p>
+        </div>
+
+        <div class="card" data-category="research engineering">
+          <a class="card-link" href="src/projects/project-three.html" aria-label="Perovskite Solar Cell Fabrication"></a>
+          <div class="card-image" style="background-image: url('src/assets/project/project-three.png');"></div>
+          <p class="card-info">Perovskite Solar Cell Fabrication</p>
+        </div>
+
+        <div class="card" data-category="engineering">
+          <a class="card-link" href="src/projects/project-four.html" aria-label="Drawing Machine"></a>
+          <div class="card-image" style="background-image: url('src/assets/project/project-four.png');"></div>
+          <p class="card-info">Drawing Machine</p>
+        </div>
+
+        <div class="card" data-category="personal">
+          <a class="card-link" href="src/projects/fun-projects.html" aria-label="Fun Projects"></a>
+          <div class="card-image" style="background-image: url('src/assets/project/fun/IMG_9648.jpg');"></div>
+          <p class="card-info">Fun Projects</p>
         </div>
       </section>
-    </header>
+    </main>
 
-    <!-- Projects -->
-    <section id="projects" class="project-container container">
-      <div class="division"></div>
-      <div class="content-text">
-        <h2>Projects</h2>
-        <div class="sort-buttons">
-          <button class="sort-btn active" data-filter="all">All</button>
-          <button class="sort-btn" data-filter="research">Research</button>
-          <button class="sort-btn" data-filter="engineering">Engineering</button>
-        </div>
-      </div>
-
-      <article class="project">
-        <!-- Project 1 -->
-        <a href="src/projects/project-one.html" class="card" data-category="research" style="background-image: url('src/assets/project/project-one.png'); background-size: cover; background-position: center; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Brackish Water Nutrient Recovery</h3>
-              <p>Research</p>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 2 -->
-        <a href="src/projects/project-two.html" class="card" data-category="research" style="background-image: url('src/assets/project/project-two.png'); background-size: cover; background-position: center; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Aluminum Recovery from Cryolite</h3>
-              <p>Research</p>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 3 -->
-        <a href="src/projects/project-three.html" class="card" data-category="research engineering" style="background-image: url('src/assets/project/project-three.png'); background-size: cover; background-position: center; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Perovskite Solar Cells Fabrication</h3>
-              <p>Research/Engineering</p>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 4 -->
-        <a href="src/projects/project-four.html" class="card" data-category="engineering" style="background-image: url('src/assets/project/project-four.png'); background-size: cover; background-position: center; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Drawing Machine Design</h3>
-              <p>Engineering</p>
-            </div>
-          </div>
-        </a>
-
-        <!-- Project 5 -->
-        <div class="card" data-category="coming-soon">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>More Projects Coming Soon</h3>
-              <p>Coming Soon</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 6 -->
-        <a href="src/projects/fun-projects.html" class="card" data-category="personal" style="background-image: url('src/assets/project/fun/IMG_9648.jpg'); background-size: cover; background-position: center; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Fun Projects</h3>
-              <p>Personal</p>
-            </div>
-          </div>
-        </a>
-      </article>
-
-      <a href="src/projects.html" class="btn btn-secondary"
-        >See More <i class="fas fa-arrow-right"></i
-      ></a>
-    </section>
-
-    <!-- Footer / Contact -->
     <footer id="footer">
-      <div class="container">
-        <a href="mailto:vinn@mit.edu"></a>
-        <div class="social">
-          <a href="#" target="_blank"
-            ><img src="src/assets/linkedin-icon.svg" alt="LinkedIn"
-          /></a>
-          <a href="#" target="_blank"
-            ><img src="src/assets/github-icon.svg" alt="GitHub"
-          /></a>
-        </div>
-        <div class="attribution">
-          <a
-            href="https://github.com/CommunityPro/portfolio-html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          </a>
-        </div>
-        <p>Copyright &copy; Communitypro <span id="datee"></span>, All rights reserved</p>
-      </div>
+      <div class="container"><p>&copy; Vinn Nguyen</p></div>
     </footer>
 
     <script src="src/js/script.js"></script>
     <script>
-      // Mobile menu toggle
-      document.addEventListener('DOMContentLoaded', function() {
-        const hamburger = document.querySelector('.hamburger');
-        const navLeft = document.querySelector('.nav-left');
-        const navRight = document.querySelector('.nav-right');
-        
-        if (hamburger) {
-          hamburger.addEventListener('click', function(e) {
-            e.stopPropagation();
-            hamburger.classList.toggle('active');
-            if (navLeft) navLeft.classList.toggle('active');
-            if (navRight) navRight.classList.toggle('active');
-          });
-        }
-        
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-          link.addEventListener('click', function() {
-            if (hamburger) hamburger.classList.remove('active');
-            if (navLeft) navLeft.classList.remove('active');
-            if (navRight) navRight.classList.remove('active');
-          });
+      const filters = document.querySelectorAll('.filter');
+      const cards = document.querySelectorAll('.grid .card');
+      filters.forEach((btn) => btn.addEventListener('click', () => {
+        const f = btn.dataset.filter;
+        filters.forEach((b) => b.classList.toggle('active', b === btn));
+        cards.forEach((c) => {
+          const cat = c.dataset.category || '';
+          c.hidden = !(f === 'all' || cat.includes(f));
         });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-          if (hamburger && navLeft && navRight && 
-              !hamburger.contains(e.target) && 
-              !navLeft.contains(e.target) && 
-              !navRight.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navLeft.classList.remove('active');
-            navRight.classList.remove('active');
-          }
-        });
-        
-        // Close menu on window resize to desktop size
-        window.addEventListener('resize', function() {
-          if (window.innerWidth > 1024) {
-            if (hamburger) hamburger.classList.remove('active');
-            if (navLeft) navLeft.classList.remove('active');
-            if (navRight) navRight.classList.remove('active');
-          }
-        });
-        
-        // Project sorting functionality
-        const sortButtons = document.querySelectorAll('.sort-btn');
-        const projectCards = document.querySelectorAll('.card');
-        
-        sortButtons.forEach(button => {
-          button.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            
-            // Update active button
-            sortButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Filter and reorder projects
-            const visibleCards = [];
-            const hiddenCards = [];
-            
-            projectCards.forEach(card => {
-              const category = card.getAttribute('data-category');
-              if (filter === 'all' || (category && category.includes(filter))) {
-                visibleCards.push(card);
-              } else {
-                hiddenCards.push(card);
-              }
-            });
-            
-            // Reorder DOM elements
-            const projectContainer = document.querySelector('.project');
-            visibleCards.forEach(card => {
-              card.classList.remove('hidden');
-              projectContainer.appendChild(card);
-            });
-            
-            hiddenCards.forEach(card => {
-              card.classList.add('hidden');
-            });
-          });
-        });
-      });
+      }));
     </script>
   </body>
 </html>

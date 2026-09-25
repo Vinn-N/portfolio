@@ -1,0 +1,58 @@
+/* Project detail pages: one narrow centered column, lots of white space. */
+
+html, body { height: auto !important; overflow-y: auto !important; }
+
+.pp { max-width: 720px; margin: 0 auto; padding: calc(80px + 3.5rem) 1.5rem 7rem; }
+
+.pp h1 { font-size: clamp(1.6rem, 3vw, 2rem); font-weight: var(--weight-semibold); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
+.pp-date { font-size: 0.88rem; font-weight: var(--weight-semibold); margin-bottom: 2rem; }
+
+.pp p { font-size: 0.93rem; line-height: 1.75; margin-bottom: 1.1rem; }
+.pp ul { margin: 0 0 1.25rem 1.25rem; padding: 0; list-style: disc; }
+.pp li { font-size: 0.93rem; line-height: 1.7; margin-bottom: 0.4rem; }
+.pp a { text-decoration: underline; text-underline-offset: 3px; }
+.pp a:hover { opacity: 0.6; }
+
+.pp h2 { font-size: 0.95rem; font-weight: var(--weight-semibold); margin: 0 0 0.9rem; }
+.pp-sec { margin-top: 4rem; }
+.pp hr { border: 0; border-top: 1px solid rgba(128, 128, 128, 0.45); margin: 3rem 0 0; }
+
+.pp-images { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.75rem 0 0.5rem; }
+.pp-images img { height: 200px; width: auto; max-width: 100%; object-fit: cover; display: block; }
+.pp-images.small img { height: 140px; }
+.pp-cap { font-size: 0.78rem !important; line-height: 1.5 !important; opacity: 0.65; margin-bottom: 0 !important; }
+.pp-top { margin-top: 0; }
+
+.pp-more { margin-top: 1.5rem; }
+.pp-more summary { cursor: pointer; font-size: 0.9rem; font-weight: var(--weight-semibold); }
+
+@media (max-width: 700px) {
+  .pp { padding-inline: 1.25rem; }
+  .pp-images img { height: 140px; }
+  .pp-images.small img { height: 100px; }
+}
+
+/* ---- Pictures placed inside the technical details ---- */
+.pp-fig { margin: 1.5rem 0 0; }
+.pp-fig img { width: 100%; height: auto; display: block; }
+.pp-fig.md { max-width: 480px; }
+.pp-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+.pp-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+.pp-pair img, .pp-strip img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.pp-fig .pp-cap { margin-top: 0.5rem; }
+.pp-fig + p, .pp-fig + ul { margin-top: 1.5rem; }
+
+/* ---- Top 5 gallery: one large picture plus thumbnails ---- */
+.pp-top5 { --cols: 4; display: grid; grid-template-columns: repeat(var(--cols), 1fr); gap: 0.5rem; }
+.pp-top5 img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.pp-top5 img:first-child { grid-column: 1 / -1; aspect-ratio: auto; max-height: 480px; }
+.pp img.contain { object-fit: contain; background: rgba(128, 128, 128, 0.14); }
+
+/* ---- Video ---- */
+.pp-video { width: 100%; max-height: 520px; display: block; background: #000; margin-top: 1.5rem; }
+.pp-video.tall { max-width: 300px; }
+
+/* ---- Click to enlarge ---- */
+.pp img { cursor: zoom-in; }
+.pp-lightbox { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(0, 0, 0, 0.88); cursor: zoom-out; }
+.pp-lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; cursor: zoom-out; }

@@ -1,134 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex" />
   <title>Projects - Vinn Nguyen</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/utilities.css">
   <style>
     .projects-hero {
-      padding: calc(80px + 3rem) 1rem 3rem;
+      padding: calc(80px + 2rem) 1rem 1rem;
       text-align: center;
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
     }
-    
+
+    .projects-hero h1 {
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.015em;
+      margin-bottom: 0.75rem;
+    }
+
+    .projects-hero p {
+      color: var(--text-color);
+      opacity: 0.8;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      max-width: 1300px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem 2rem;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 2rem 2rem 5rem;
     }
-    
-    @media (max-width: 1200px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
+
     @media (max-width: 800px) {
       .projects-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem 1rem 4rem;
       }
     }
-    
-    .project-tile {
-      background: var(--bg-primary);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      text-decoration: none !important;
-      display: block;
-      cursor: pointer;
-    }
-    
-    .project-tile:hover {
-      text-decoration: none !important;
-    }
-    
-    [data-theme="dark"] .project-tile {
-      border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-    }
-    
-    .project-tile:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-    
+
+    .project-tile, .project-tile * { text-decoration: none !important; }
+    .project-tile { display: block; color: var(--text-color); }
+
     .project-image {
       width: 100%;
-      height: 220px;
+      aspect-ratio: 5 / 4;
+      background-color: rgba(128, 128, 128, 0.12);
       background-size: cover;
       background-position: center;
+      transition: transform 0.35s ease;
     }
-    
-    .project-content {
-      padding: 2rem;
-      background: var(--bg-primary);
-      min-height: 180px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-top: 2px solid #000;
-    }
-    
-    [data-theme="dark"] .project-content {
-      border-top: 2px solid #fff;
-    }
-    
+
+    .project-tile:hover { position: relative; z-index: 2; }
+    .project-tile:hover .project-image { transform: scale(1.06); }
+
     .project-title {
-      font-size: 1.3rem;
+      font-size: 1.15rem;
       font-weight: var(--weight-semibold);
-      margin-bottom: 0.75rem;
+      line-height: 1.35;
+      margin: 0.75rem 0 0;
       color: var(--text-color);
-      line-height: 1.3;
     }
-    
-    .project-type {
-      color: var(--primary-color);
-      font-weight: var(--weight-semibold);
-      font-size: 0.95rem;
-      margin-bottom: 1.25rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    .project-description {
-      color: var(--text-color);
-      line-height: 1.7;
-      margin-bottom: 0;
-      opacity: 0.85;
-      font-size: 0.95rem;
-    }
-    
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--primary-color);
-      font-weight: var(--weight-semibold);
-      text-decoration: none;
-      transition: opacity 0.3s ease;
-    }
-    
-    .project-link:hover {
-      opacity: 0.7;
-    }
-    
-    .coming-soon {
-      opacity: 0.6;
-      pointer-events: none;
-    }
-    
-    .coming-soon .project-content {
-      text-align: center;
-    }
-    
+
+    .coming-soon { pointer-events: none; }
+    .coming-soon .project-image { display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+
     .sort-buttons {
       display: flex;
       gap: 1rem;
@@ -169,8 +112,9 @@
     <div class="container">
       <ul class="nav-left">
         <li><a class="nav-link" href="../index.html">Home</a></li>
-        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link" href="skills.html">Relevant Skills</a></li>
         <li><a class="nav-link active" href="projects.html">Projects</a></li>
+        <li><a class="nav-link" href="coursework.html">Coursework</a></li>
         <li><a class="nav-link" href="assets/Vinn_Nguyen_Resume.pdf" target="_blank">Resume</a></li>
       </ul>
 
@@ -210,68 +154,40 @@
 
   <!-- Projects Grid -->
   <section class="projects-grid">
-    <!-- Project 1 -->
+    <a href="projects/project-five.html" class="project-tile" data-category="engineering">
+      <div class="project-image" style="background-image: url('assets/project/project-five/IMG_9934.jpg');"></div>
+      <h3 class="project-title">2.007 Robot Design</h3>
+    </a>
+
     <a href="projects/project-one.html" class="project-tile" data-category="research">
       <div class="project-image" style="background-image: url('assets/project/project-one.png');"></div>
-      <div class="project-content">
-        <h3 class="project-title">Brackish Water Nutrient Recovery</h3>
-        <p class="project-type">Research</p>
-        <p class="project-description">Developing sustainable methods for recovering valuable nutrients from brackish water sources to support agricultural applications.</p>
-      </div>
+      <h3 class="project-title">Brackish Water Nutrient Recovery</h3>
     </a>
 
-    <!-- Project 2 -->
     <a href="projects/project-two.html" class="project-tile" data-category="research">
       <div class="project-image" style="background-image: url('assets/project/project-two.png');"></div>
-      <div class="project-content">
-        <h3 class="project-title">Aluminum Recovery from Cryolite</h3>
-        <p class="project-type">Research</p>
-        <p class="project-description">Research into efficient aluminum extraction processes from cryolite waste materials for sustainable metal recovery.</p>
-      </div>
+      <h3 class="project-title">Aluminum Recovery from Cryolite</h3>
     </a>
 
-    <!-- Project 3 -->
     <a href="projects/project-three.html" class="project-tile" data-category="research engineering">
       <div class="project-image" style="background-image: url('assets/project/project-three.png');"></div>
-      <div class="project-content">
-        <h3 class="project-title">Perovskite Solar Cells Fabrication</h3>
-        <p class="project-type">Research/Engineering</p>
-        <p class="project-description">Fabrication and optimization of perovskite solar cells for improved efficiency in renewable energy applications.</p>
-      </div>
+      <h3 class="project-title">Perovskite Solar Cells Fabrication</h3>
     </a>
 
-    <!-- Project 4 -->
     <a href="projects/project-four.html" class="project-tile" data-category="engineering">
       <div class="project-image" style="background-image: url('assets/project/project-four.png');"></div>
-      <div class="project-content">
-        <h3 class="project-title">Drawing Machine Design</h3>
-        <p class="project-type">Engineering</p>
-        <p class="project-description">Mechanical design and fabrication of an automated drawing machine with precision control systems.</p>
-      </div>
+      <h3 class="project-title">Drawing Machine Design</h3>
     </a>
 
-    <!-- Project 5 -->
-    <article class="project-tile coming-soon" data-category="coming-soon">
-      <div class="project-content">
-        <h3 class="project-title">More Projects Coming Soon</h3>
-        <p class="project-type">Various</p>
-        <p class="project-description">• 2.007 Robot (Engineering)<br>
-        • MATLAB/Simulink Model of Green Hydrogen Electrolyzer BOP (Research)<br>
-        • Additional projects in sustainable energy and mechanical engineering</p>
-        <span class="project-link">
-          Coming Soon →
-        </span>
-      </div>
-    </article>
-
-    <!-- Project 6 -->
     <a href="projects/fun-projects.html" class="project-tile" data-category="personal">
-      <div class="project-content">
-        <h3 class="project-title">Fun Projects</h3>
-        <p class="project-type">Personal</p>
-        <p class="project-description">Creative side projects and personal experiments outside of engineering work.</p>
-      </div>
+      <div class="project-image" style="background-image: url('assets/project/fun/IMG_9648.jpg');"></div>
+      <h3 class="project-title">Fun Projects</h3>
     </a>
+
+    <div class="project-tile coming-soon" data-category="coming-soon">
+      <div class="project-image"><i class="fas fa-plus"></i></div>
+      <h3 class="project-title">More Projects Coming Soon</h3>
+    </div>
   </section>
 
   <!-- Footer -->

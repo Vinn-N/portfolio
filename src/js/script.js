@@ -27,13 +27,13 @@ const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"
 function switchTheme(e) {
   const theme = e.target.checked ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
+  localStorage.setItem("vinn-theme", theme);
 }
 
 toggleSwitch.addEventListener("change", switchTheme, false);
 
 window.addEventListener("DOMContentLoaded", () => {
-  const stored = localStorage.getItem("theme");
+  const stored = localStorage.getItem("vinn-theme") || "dark";
   if (stored) {
     document.documentElement.setAttribute("data-theme", stored);
     toggleSwitch.checked = (stored === "dark");
@@ -141,14 +141,14 @@ if (dateElem) {
 
 // ---------- Theme toggle (persistent, respects system preference) ----------
 (function () {
-  const STORAGE_KEY = 'theme';
+  const STORAGE_KEY = 'vinn-theme';
   const root = document.documentElement;
   const btn  = document.getElementById('theme-toggle');
 
   // Determine initial theme: saved -> system -> default 'light'
   const saved = localStorage.getItem(STORAGE_KEY);
   const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initial = saved || (systemPrefersDark ? 'dark' : 'light');
+  const initial = saved || 'dark';
 
   setTheme(initial);
 
@@ -172,9 +172,7 @@ if (dateElem) {
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
     mq.addEventListener('change', (e) => {
       // Only follow system if user hasn't explicitly chosen
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
+      void e;
     });
   } catch (_) {}
 })();

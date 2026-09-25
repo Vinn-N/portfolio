@@ -3,497 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perovskite Solar Cells Fabrication – Vinn Nguyen</title>
-
+  <title>Perovskite Solar Cell Fabrication – Vinn Nguyen</title>
+  <meta name="description" content="Research on fabricating perovskite solar cells under controlled environmental conditions, with a custom Arduino and Raspberry Pi monitoring system." />
   <link rel="icon" href="../assets/favicon/favicon.ico" />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-    crossorigin="anonymous"
-  />
+  <link rel="canonical" href="https://vinn-n.github.io/portfolio/src/projects/project-three.html" />
+  <meta name="theme-color" content="#1f1f1f" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vinn Nguyen" />
+  <meta property="og:title" content="Perovskite Solar Cell Fabrication – Vinn Nguyen" />
+  <meta property="og:description" content="Research on fabricating perovskite solar cells under controlled environmental conditions, with a custom Arduino and Raspberry Pi monitoring system." />
+  <meta property="og:url" content="https://vinn-n.github.io/portfolio/src/projects/project-three.html" />
+  <meta property="og:image" content="https://vinn-n.github.io/portfolio/src/assets/project/project-three.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Perovskite Solar Cell Fabrication","description":"Research on fabricating perovskite solar cells under controlled environmental conditions, with a custom Arduino and Raspberry Pi monitoring system.","image":"https://vinn-n.github.io/portfolio/src/assets/project/project-three.png","url":"https://vinn-n.github.io/portfolio/src/projects/project-three.html","author":{"@type":"Person","name":"Vinn Nguyen","url":"https://vinn-n.github.io/portfolio/"}}</script>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/utilities.css" />
-
-  <style>
-    html, body { height: auto !important; overflow-y: auto !important; }
-    main.container { margin-top: 80px; }
-
-    /* ===== TARGETED PROJECT LAYOUT (top) ===== */
-    .tgt { padding-block: 2rem 3rem; }
-    .tgt-title { text-align: center; font-weight: var(--weight-bold); margin-bottom: 1.25rem; }
-    
-    .tgt-grid {
-      display: grid;
-      grid-template-columns: 500px 1fr;
-      gap: clamp(1rem, 4vw, 2rem);
-      align-items: start;
-    }
-    .tgt-rail { display: grid; gap: 1rem; }
-    .tgt-card {
-      border-radius: 12px;
-      padding: 1rem 1rem 1.1rem;
-      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
-      box-shadow: var(--shadow);
-    }
-
-    .tgt-card h3 { font-size: 1.05rem; margin-bottom: .4rem; font-weight: var(--weight-semibold); }
-    .tgt-obj  { background: var(--tgt-obj,  #efe7b8); }
-    .tgt-out  { background: var(--tgt-out,  #dff0dd); }
-    .tgt-tech { background: var(--tgt-tech, #f3d3d3); }
-
-    .tgt-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-    }
-
-    .tgt-visual img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-      border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    }
-    .tgt-visual figcaption {
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      margin-top: 0.5rem;
-    }
-    
-    /* ===== SPLIT SECTIONS BELOW ===== */
-    .split {
-      padding-block: 2.5rem;
-      border-top: 1px solid var(--tgt-border, rgba(0,0,0,.08));
-    }
-    .split .wrap {
-      display: grid;
-      grid-template-columns: 1.4fr 0.6fr;
-      gap: clamp(1rem, 4vw, 2rem);
-      align-items: start;
-    }
-    .split h2 {
-      margin: 0 0 .75rem;
-      font-size: 1.4rem;
-      letter-spacing: .01em;
-      font-weight: var(--weight-semibold);
-    }
-    .split p {
-      margin-bottom: .9rem;
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-    .split .media {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      box-shadow: var(--shadow);
-      background: var(--card-background);
-      justify-self: end;
-    }
-    .split .media img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .split .media figcaption {
-      padding: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      text-align: center;
-      background: var(--card-background);
-    }
-    
-    .media-stack {
-      display: grid;
-      gap: 1rem;
-    }
-    .shot {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      box-shadow: var(--shadow);
-    }
-    .shot img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .shot figcaption {
-      padding: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      text-align: center;
-      background: var(--card-background);
-    }
-
-    /* Timeline Block */
-    .timeline-block {
-      background: var(--tgt-obj, #efe7b8);
-      border: 1px solid var(--tgt-border, rgba(0,0,0,.08));
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: var(--shadow);
-    }
-
-    /* PDF Section Styles */
-    .pdf-section { margin-top: 2rem; text-align: center; }
-    .pdf-viewer { width: 100%; height: 700px; border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); border-radius: 8px; }
-    .pdf-download {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--primary-color);
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: opacity 0.2s;
-    }
-    .pdf-download:hover { opacity: 0.8; }
-    @media (max-width: 768px) { .pdf-viewer { height: 500px; } }
-
-    @media (max-width: 960px) {
-      .tgt-grid { grid-template-columns: 1fr; }
-      .split .wrap { grid-template-columns: 1fr; }
-      .split .media { justify-self: center; }
-    }
-
-    html[data-theme="dark"] {
-      --tgt-border: rgba(255,255,255,.16);
-      --tgt-obj:  #7b794f33;
-      --tgt-out:  #6b8f6b33;
-      --tgt-tech: #9b6a6a33;
-    }
-    
-    /* Image Carousel */
-    .image-carousel {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      box-shadow: var(--shadow);
-      background: var(--card-background);
-      justify-self: end;
-    }
-    
-    .carousel-container {
-      position: relative;
-      width: 100%;
-      height: auto;
-    }
-    
-    .carousel-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      display: block;
-    }
-    
-    .carousel-image.active {
-      position: relative;
-      opacity: 1;
-    }
-    
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 10;
-      transition: background 0.3s ease;
-    }
-    
-    .carousel-btn:hover {
-      background: rgba(0, 0, 0, 0.9);
-    }
-    
-    .carousel-btn.prev {
-      left: 10px;
-    }
-    
-    .carousel-btn.next {
-      right: 10px;
-    }
-    
-    .carousel-caption {
-      padding: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      text-align: center;
-      background: var(--card-background);
-    }
-  </style>
+  <link rel="stylesheet" href="../css/project.css" />
+  <script src="../js/project.js" defer></script>
+  <script src="../js/analytics.js" defer></script>
 </head>
 
 <body>
-  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="container">
       <ul class="nav-left">
-        <li><a class="nav-link" href="../../">← Back to Portfolio</a></li>
+        <li><a class="nav-link" href="../../">&larr; Back to Portfolio</a></li>
       </ul>
       <div class="nav-right">
         <div class="theme-switch">
           <input type="checkbox" id="switch" />
           <label class="toggle-icons" for="switch">
             <img class="moon" src="../assets/moon.svg" alt="Dark" />
-            <img class="sun"  src="../assets/sun.svg"  alt="Light" />
+            <img class="sun" src="../assets/sun.svg" alt="Light" />
           </label>
         </div>
       </div>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
+      <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
     </div>
   </nav>
 
-  <!-- MAIN CONTENT -->
-  <main class="container project-detail">
-    <!-- TOP TARGETED SECTION -->
-    <section class="tgt">
-      <h1 class="tgt-title">Fabrication of Perovskite Solar Cells Across Diverse Environmental Conditions</h1>
-      <div class="tgt-grid">
-        <aside class="tgt-rail">
-          <section class="tgt-card tgt-obj">
-            <h3>Objectives</h3>
-            <ul>
-              <li>• Design and fabricate perovskite solar cells using spin-coating deposition techniques</li>
-              <li>• Improve efficiency and stability under real-world environmental conditions</li>
-              <li>• Develop environmental monitoring system for fabrication process control</li>
-            </ul>
-          </section>
+  <main class="pp">
+    <h1>Perovskite Solar Cell Fabrication</h1>
+    <p class="pp-date">June 2024 &ndash; January 2025 &middot; Accelerated Materials Laboratory for Sustainability</p>
 
-          <section class="tgt-card tgt-out">
-            <h3>Outcomes &amp; Contributions</h3>
-            <ul>
-              <li>• Successfully fabricated and analyzed thin films and perovskite solar cells with enhanced stability</li>
-              <li>• Developed real-time environmental monitoring system using Arduino and Raspberry Pi</li>
-              <li>• Optimized fabrication processes for diverse humidity, temperature, and solvent vapor conditions</li>
-            </ul>
-          </section>
+    <div class="pp-top5" style="--cols:4"><img src="../assets/project/project-three.png" alt="Perovskite solar cell fabrication setup" /><img src="../assets/project/project-three/F63B7320-6C4E-43E5-A840-0729427F93B7.JPG" alt="Environmental monitoring system with sensors" loading="lazy" /><img src="../assets/project/project-three/6BCB93E5-D698-4EBB-8A76-FAACA56F1A08.JPG" alt="The spin-coating process" loading="lazy" /><img src="../assets/project/project-three/41F0239B-1519-4D36-BFB2-9AD625BB57EC.JPG" alt="Laboratory fabrication equipment" loading="lazy" /><img src="../assets/project/project-three/IMG_2296.JPG" alt="Solar cell performance characterization" loading="lazy" /></div>
 
-          <section class="tgt-card tgt-tech">
-            <h3>Technical Details &amp; Skills</h3>
-            <ul>
-              <li>• Materials Science: Thin film deposition and perovskite solar cell fabrication</li>
-              <li>• Process Engineering: Spin-coating optimization and environmental control</li>
-              <li>• Electronics: Arduino and Raspberry Pi system development</li>
-            </ul>
-          </section>
-        </aside>
+    <p style="margin-top:1.75rem"><b>Summary:</b> Fabricated perovskite solar cells across varying humidity, temperature and solvent vapor conditions, which strongly affect cell performance and stability. I designed the spin-coating protocols, fabricated complete devices, and built a real-time Arduino and Raspberry Pi monitoring system with automated data logging and control to hold fabrication conditions steady. Controlling the environment improved cell stability and gave more consistent, reproducible devices.</p>
 
-        <div class="image-carousel">
-          <div class="carousel-container">
-            <img class="carousel-image active" src="../assets/project/project-three.png" alt="Perovskite solar cell fabrication setup" />
-            <img class="carousel-image" src="../assets/project/project-three/41F0239B-1519-4D36-BFB2-9AD625BB57EC.JPG" alt="Laboratory fabrication equipment" />
-            <img class="carousel-image" src="../assets/project/project-three/48AE587A-7C74-4D12-A8E3-921293FC1EDC.JPG" alt="Materials and chemical setup" />
-            <img class="carousel-image" src="../assets/project/project-three/6BCB93E5-D698-4EBB-8A76-FAACA56F1A08.JPG" alt="Spin-coating process demonstration" />
-          </div>
-          <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
-          <button class="carousel-btn next" onclick="changeImage(1)">›</button>
-          <div class="carousel-caption">
-            <span class="caption-text">Perovskite solar cell fabrication setup</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <p style="margin-bottom:0.3rem"><b>Skills</b></p>
+    <ul><li>Thin-film deposition and spin-coating optimization</li><li>Embedded systems: Arduino, Raspberry Pi, automated data logging</li><li>Process control and performance analysis</li></ul>
 
-    <!-- BELOW SECTIONS -->
-    <section class="split" id="overview">
-      <div class="wrap">
-        <div class="text">
-          <h2>Overview</h2>
-          <div class="timeline-block">
-            <p><strong>Timeline:</strong> June 2024 – January 2025 | <strong>Lab:</strong> Accelerated Materials Laboratory for Sustainability</p>
-          </div>
-          <p>
-            Perovskite solar cells represent a promising next-generation photovoltaic technology, offering high efficiency potential at low manufacturing costs. However, their performance and stability are highly sensitive to environmental conditions during fabrication, creating challenges for real-world deployment and manufacturing scalability.
-          </p>
-          <p>
-            This research focused on understanding and controlling the fabrication of perovskite solar cells across diverse environmental conditions. By developing precise environmental monitoring and control systems, we aimed to optimize the spin-coating deposition process and improve cell stability under varying humidity, temperature, and solvent vapor conditions.
-          </p>
-          <p>
-            My work centered on designing the fabrication processes, developing the environmental monitoring system, and analyzing the relationship between fabrication conditions and solar cell performance to enable more robust and scalable perovskite solar cell production.
-          </p>
-        </div>
-        <figure class="media media-stack">
-          <figure class="shot shot-top">
-            <img src="../assets/project/project-three/overview-1.png" alt="Perovskite solar cell structure" />
-            <figcaption>Perovskite solar cell architecture and fabrication challenges</figcaption>
-          </figure>
-        
-          <figure class="shot shot-bottom">
-            <img src="../assets/project/project-three/overview-2.png" alt="Environmental factors affecting fabrication" />
-            <figcaption>Environmental factors impacting perovskite fabrication quality</figcaption>
-          </figure>
-        </figure>
-      </div>
-    </section>
+    <hr />
 
-    <section class="split" id="work">
-      <div class="wrap">
-        <div class="text">
-          <h2>Work</h2>
-          <p>
-            I designed and implemented a comprehensive approach to perovskite solar cell fabrication that integrated precise environmental control with systematic performance analysis. My work involved both materials processing and electronics development to create a robust fabrication platform.
-          </p>
-          <ul>
-            <li>• Designed and optimized spin-coating deposition protocols for perovskite thin films under controlled environmental conditions</li>
-            <li>• Fabricated complete perovskite solar cell devices and characterized their efficiency and stability performance</li>
-            <li>• Developed a real-time environmental monitoring system using Arduino and Raspberry Pi to track humidity, temperature, and solvent vapor levels</li>
-            <li>• Implemented automated data logging and control algorithms to maintain optimal fabrication conditions</li>
-            <li>• Analyzed the correlation between environmental parameters and solar cell performance metrics</li>
-            <li>• Optimized fabrication processes to achieve consistent performance across diverse environmental conditions</li>
-          </ul>
-        </div>
-        <div class="image-carousel">
-          <div class="carousel-container">
-            <img class="carousel-image active" src="../assets/project/project-three/F63B7320-6C4E-43E5-A840-0729427F93B7.JPG" alt="Environmental monitoring system with sensors" />
-            <img class="carousel-image" src="../assets/project/project-three/IMG_2296.JPG" alt="Solar cell performance characterization" />
-            <img class="carousel-image" src="../assets/project/project-three/IMG_2350.HEIC" alt="Detailed fabrication process steps" />
-            <img class="carousel-image" src="../assets/project/project-three/IMG_2376.HEIC" alt="Completed perovskite solar cell devices" />
-          </div>
-          <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
-          <button class="carousel-btn next" onclick="changeImage(1)">›</button>
-          <div class="carousel-caption">
-            <span class="caption-text">Environmental monitoring system with sensors</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="split" id="conclusion">
-      <div class="wrap">
-        <div class="text">
-          <h2>Results & Impact</h2>
-          <p>
-            The research successfully demonstrated improved perovskite solar cell stability and performance through precise environmental control during fabrication. The developed monitoring system enabled real-time tracking and optimization of critical fabrication parameters, leading to more consistent and reproducible solar cell production.
-          </p>
-          <p>
-            The environmental monitoring system provided valuable insights into the relationship between fabrication conditions and device performance, contributing to the understanding of perovskite solar cell manufacturing requirements. This work advances the development of scalable production methods for next-generation photovoltaic technologies.
-          </p>
-          <p>
-            Through this project, I gained expertise in materials science, thin film processing, and embedded systems development. The experience enhanced my understanding of the intersection between materials engineering and process control, skills essential for advancing sustainable energy technologies.
-          </p>
-        </div>
-        <figure class="media">
-          <img src="../assets/project/project-three.png" alt="Project results and solar cell performance" />
-          <figcaption>Perovskite solar cell performance optimization results</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- PDF Preprint Section -->
-    <section class="split" id="preprint">
-      <div class="wrap" style="grid-template-columns: 1fr;">
-        <div class="text">
-          <h2>Research Preprint</h2>
-          <p>View the complete research preprint detailing the perovskite solar cell fabrication methodology and environmental monitoring results.</p>
-          
-          <div class="pdf-section">
-            <iframe class="pdf-viewer" src="../assets/project/project-three/preprint.pdf" type="application/pdf">
-              <p>Your browser doesn't support PDF viewing. <a href="../assets/project/project-three/preprint.pdf" download>Download the PDF</a> instead.</p>
-            </iframe>
-            <br>
-            <a href="../assets/project/project-three/preprint.pdf" download class="pdf-download">
-              📄 Download Research Preprint (PDF)
-            </a>
-          </div>
-        </div>
-      </div>
+    <section class="pp-sec">
+      <h2>Technical details</h2>
+      <p><b>Background.</b> Perovskites are a promising next-generation photovoltaic material, offering high efficiency at low cost, but their sensitivity to conditions during fabrication makes them hard to manufacture consistently at scale. The question was how precisely controlling and monitoring the fabrication environment (humidity, temperature and solvent vapor) could improve cell stability and make production more robust.</p><p><b>Fabrication.</b> I designed and optimized spin-coating deposition protocols for perovskite thin films under controlled environmental conditions, then fabricated complete devices and characterized their efficiency and stability.</p><p><b>Monitoring system.</b> I developed an Arduino and Raspberry Pi system that tracks humidity, temperature and solvent vapor in real time, logs the data automatically, and runs control algorithms that keep conditions in range while the films are deposited.</p><p><b>Characterization.</b> I analyzed how the recorded environmental parameters correlate with solar cell performance.</p><figure class="pp-fig"><div class="pp-strip"><img src="../assets/project/project-three/48AE587A-7C74-4D12-A8E3-921293FC1EDC.JPG" alt="Materials and chemical setup" loading="lazy" /><img src="../assets/project/project-three/IMG_2350.jpg" alt="Fabrication process steps" loading="lazy" /><img src="../assets/project/project-three/IMG_2376.jpg" alt="Completed devices" loading="lazy" /></div><p class="pp-cap">Materials setup, fabrication steps and completed devices.</p></figure><p><b>Results.</b> Controlling the fabrication environment improved the stability and performance of the solar cells. The monitoring system gave more consistent and reproducible devices and revealed how fabrication conditions relate to device performance, which informs what scalable manufacturing will require. The project built my skills in materials science, thin-film processing and embedded systems.</p>
+      <p style="margin-top:2rem"><a href="../assets/project/project-three/preprint.pdf" target="_blank" rel="noopener">Read the research preprint (PDF)</a></p>
     </section>
   </main>
 
   <footer id="footer">
-    <div class="container">
-      <p>&copy; 2024 Vinn Nguyen</p>
-    </div>
+    <div class="container"><p>&copy; Vinn Nguyen</p></div>
   </footer>
 
   <script src="../js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
-  <script>
-    // Mobile menu functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const hamburger = document.querySelector('.hamburger');
-      const navLeft = document.querySelector('.nav-left');
-      const navRight = document.querySelector('.nav-right');
-      
-      if (hamburger) {
-        hamburger.addEventListener('click', function() {
-          hamburger.classList.toggle('active');
-          if (navLeft) navLeft.classList.toggle('active');
-          if (navRight) navRight.classList.toggle('active');
-        });
-      }
-    });
-    
-    // HEIC image support
-    document.addEventListener('DOMContentLoaded', function() {
-      const images = document.querySelectorAll('img[src$=".heic"], img[src$=".HEIC"]');
-      
-      images.forEach(async (img) => {
-        try {
-          const response = await fetch(img.src);
-          const blob = await response.blob();
-          const convertedBlob = await heic2any({ blob, toType: 'image/jpeg', quality: 0.8 });
-          const url = URL.createObjectURL(convertedBlob);
-          img.src = url;
-        } catch (error) {
-          console.warn('Failed to convert HEIC image:', img.src);
-        }
-      });
-    });
-  </script>
-  <script>
-    const carouselStates = new Map();
-    
-    function changeImage(direction) {
-      const carousel = event.target.closest('.image-carousel');
-      const images = carousel.querySelectorAll('.carousel-image');
-      const captionText = carousel.querySelector('.caption-text');
-      
-      // Get or initialize carousel state
-      if (!carouselStates.has(carousel)) {
-        carouselStates.set(carousel, { currentIndex: 0 });
-      }
-      const state = carouselStates.get(carousel);
-      
-      // Remove active class from current image
-      images[state.currentIndex].classList.remove('active');
-      
-      // Calculate new index
-      state.currentIndex += direction;
-      if (state.currentIndex >= images.length) state.currentIndex = 0;
-      if (state.currentIndex < 0) state.currentIndex = images.length - 1;
-      
-      // Add active class to new image
-      images[state.currentIndex].classList.add('active');
-      
-      // Update caption from image alt text
-      if (captionText) {
-        captionText.textContent = images[state.currentIndex].alt;
-      }
-    }
-  </script>
 </body>
 </html>

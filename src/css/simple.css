@@ -1,0 +1,90 @@
+/* Shared minimal layout for the landing and coursework pages. */
+
+body { background: var(--bg-primary); }
+
+.theme-switch.corner { position: absolute; top: 1.5rem; right: 2rem; z-index: 5; }
+
+.home {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 5rem 2rem 4rem;
+}
+
+.home-head {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.home h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  color: var(--sage-green);
+}
+
+.home p { font-size: 0.95rem; line-height: 1.6; margin: 0; }
+.home .links { margin-top: 0.15rem; }
+.home a { color: var(--sage-green); text-decoration: none; }
+.home .links a { text-decoration: underline; text-underline-offset: 3px; }
+.home a:hover { opacity: 0.7; }
+.home .sep { opacity: 0.4; margin: 0 0.45rem; }
+
+.home .photo {
+  width: 104px; height: 104px; flex-shrink: 0; display: block;
+  object-fit: cover; object-position: center; border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--bg-primary), 0 0 0 4px var(--sage-green);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.home .photo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 3px var(--bg-primary), 0 0 0 6px var(--sage-green);
+}
+
+.home hr { border: 0; border-top: 1px solid rgba(128, 128, 128, 0.45); margin: 2.5rem 0; }
+
+.home ul { margin: 0.5rem 0 0 1.25rem; padding: 0; list-style: disc; }
+.home li { font-size: 0.93rem; line-height: 1.65; margin-bottom: 0.2rem; }
+
+.home .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.75rem; }
+.home .card { position: relative; }
+.home .card[hidden] { display: none; }
+.home .card-link { position: absolute; inset: 0; z-index: 3; }
+.home .card-info { color: var(--text-color); }
+.home .card-info { font-size: 0.9rem; line-height: 1.5; padding-top: 0.75rem; margin: 0; }
+
+#footer { background: transparent; }
+#footer .container { color: var(--text-color); opacity: 0.55; min-height: 100px; }
+
+@media (max-width: 700px) {
+  .home { padding: 4rem 1.25rem 3rem; }
+  .home-head { gap: 1.1rem; }
+  .home .photo { width: 76px; height: 76px; }
+  .theme-switch.corner { right: 1.25rem; }
+}
+
+/* Course lists */
+.home .courses { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+.home .courses li { display: grid; grid-template-columns: 5.5rem 1fr auto; gap: 1rem; margin: 0; padding: 0.15rem 0; }
+.home .courses .grade { opacity: 0.55; text-align: right; }
+.home .term { margin-top: 1.75rem; }
+.home .term:first-of-type { margin-top: 0; }
+
+
+/* Filters */
+.home .filters { display: flex; gap: 1.5rem; margin-bottom: 1.75rem; }
+.home .filter {
+  padding: 0; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: 0.9rem; font-weight: 500;
+  color: var(--text-color); opacity: 0.45; transition: opacity 0.2s ease;
+}
+.home .filter:hover, .home .filter.active { opacity: 1; }
+.home .filter.active { font-weight: 700; }
+
+/* Photo gallery (fun projects) */
+.home .grid { align-items: start; }
+.home .grid figure { margin: 0; }
+.home .grid figure img { width: 100%; height: auto; display: block; }
+.home .grid figcaption { padding-top: 0.75rem; font-size: 0.9rem; line-height: 1.5; }

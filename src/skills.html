@@ -1,246 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills – Vinn Nguyen</title>
+  <meta name="description" content="Skills of Vinn Nguyen: Python, MATLAB, TwinCAT PLC programming, SolidWorks, Arduino and Raspberry Pi, 3D printing and experimental research methods." />
+  <link rel="canonical" href="https://vinn-n.github.io/portfolio/src/skills.html" />
+  <meta name="theme-color" content="#1f1f1f" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vinn Nguyen" />
+  <meta property="og:title" content="Skills – Vinn Nguyen" />
+  <meta property="og:description" content="Skills of Vinn Nguyen: Python, MATLAB, TwinCAT PLC programming, SolidWorks, Arduino and Raspberry Pi, 3D printing and experimental research methods." />
+  <meta property="og:url" content="https://vinn-n.github.io/portfolio/src/skills.html" />
+  <meta property="og:image" content="https://vinn-n.github.io/portfolio/src/assets/VinnPFP-square.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/favicon/favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/utilities.css" />
+  <link rel="stylesheet" href="css/simple.css" />
+  <script src="js/analytics.js" defer></script>
+</head>
 
-    <title>Relevant Skills - Vinn's Portfolio</title>
-    <meta name="title" content="Relevant Skills - Vinn's Portfolio" />
-    <meta name="description" content="Technical skills and expertise of Vinn Nguyen, a Mechanical Engineering student at MIT." />
+<body>
+  <div class="theme-switch corner">
+    <input type="checkbox" id="switch" />
+    <label class="toggle-icons" for="switch" aria-label="Toggle theme">
+      <img class="moon" src="assets/moon.svg" alt="" />
+      <img class="sun" src="assets/sun.svg" alt="" />
+    </label>
+  </div>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
+  <main class="home">
+    <header>
+      <h1>Skills</h1>
+      <p>Mechanical Engineering @ MIT</p>
+      <p class="links"><a href="../index.html">&larr; Home</a><span class="sep">|</span><a href="assets/Vinn_Nguyen_Resume.pdf" target="_blank" rel="noopener">Resume</a><span class="sep">|</span><a href="coursework.html">Coursework</a></p>
+    </header>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/utilities.css" />
-    
-    <style>
-      .skills-hero {
-        padding: calc(80px + 3rem) 1rem 2rem;
-        text-align: center;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      
-      .skills-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem 4rem;
-      }
-      
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-bottom: 3rem;
-      }
-      
-      .skill-category {
-        background: #ffffff;
-        border: 1px solid rgba(0, 0, 0, 0.12); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        border-radius: 16px;
-        padding: 2rem;
-        box-shadow: var(--shadow);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      
-      .skill-category:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-      }
-      
-      [data-theme="dark"] .skill-category {
-        border-color: #fff;
-        background: #1a1a1a;
-      }
-      
-      .skill-category h2 {
-        font-size: 1.5rem;
-        font-weight: var(--weight-bold);
-        margin-bottom: 1.5rem;
-        color: var(--primary-color);
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      
-      .skill-category h2 i {
-        font-size: 1.3rem;
-      }
-      
-      .skill-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      
-      .skill-item {
-        padding: 0.75rem 0;
-        border-bottom: 1px solid #e0e0e0;
-        font-size: 1rem;
-        color: #333;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
-      
-      .skill-item:last-child {
-        border-bottom: none;
-      }
-      
-      .skill-item::before {
-        content: "▸";
-        color: var(--primary-color);
-        font-weight: bold;
-        font-size: 1.2rem;
-      }
-      
-      [data-theme="dark"] .skill-item {
-        border-bottom-color: #444;
-        color: #e0e0e0;
-      }
-      
-      .contact-section {
-        background: var(--primary-color);
-        color: white;
-        border-radius: 16px;
-        padding: 2rem;
-        text-align: center;
-        margin-top: 3rem;
-      }
-      
-      .contact-section h2 {
-        color: white;
-        margin-bottom: 1rem;
-      }
-      
-      .contact-section a {
-        color: white;
-        text-decoration: underline;
-        font-size: 1.2rem;
-        font-weight: var(--weight-semibold);
-      }
-      
-      @media (max-width: 768px) {
-        .skills-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
+    <hr />
 
-  <body>
-    <div class="stars-wrapper"></div>
-    <div class="petals-wrapper light-only"></div>
-
-    <nav class="navbar">
-      <div class="container">
-        <ul class="nav-left">
-          <li><a class="nav-link" href="skills.html">Relevant Skills</a></li>
-          <li><a class="nav-link" href="../#projects">Projects</a></li>
-          <li><a class="nav-link" href="coursework.html">Coursework</a></li>
-          <li><a class="nav-link" href="assets/Vinn_Nguyen_Resume.pdf" target="_blank">Resume</a></li>
-        </ul>
-
-        <div class="nav-right">
-          <div class="social-icons">
-            <a href="https://linkedin.com/in/vinn-nguyen" target="_blank" aria-label="LinkedIn">
-              <img src="assets/linkedin-icon.svg" alt="LinkedIn" />
-            </a>
-          </div>
-          <div class="theme-switch">
-            <input type="checkbox" id="switch" />
-            <label class="toggle-icons" for="switch">
-              <img class="moon" src="assets/moon.svg" alt="Dark mode" />
-              <img class="sun" src="assets/sun.svg" alt="Light mode" />
-            </label>
-          </div>
-        </div>
-
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </div>
-    </nav>
-
-    <section class="skills-hero">
-      <h1>Relevant Skills</h1>
-      <p>Technical expertise and engineering competencies developed through coursework and research at MIT.</p>
+    <section>
+      <p>Skills:</p>
+      <ul><li><b>Software and controls:</b> Python, MATLAB, TwinCAT (PLC programming), machine learning</li><li><b>CAD and analysis:</b> SolidWorks, beginner CFD (OpenFOAM), techno-economic analysis</li><li><b>Electronics and instrumentation:</b> Arduino, Raspberry Pi, thermocouples, pressure transducers, data logging</li><li><b>Fabrication and prototyping:</b> FDM 3D printing, woodshop tools, laser cutting, heat exchanger fabrication</li><li><b>Research:</b> Experimental design, wet lab work, nanofiltration and electrodialysis, data analysis, scientific writing</li></ul>
     </section>
 
-    <div class="skills-container">
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h2><i class="fas fa-code"></i> Technical Skills</h2>
-          <ul class="skill-list">
-            <li class="skill-item">Python (NumPy, Pandas, Matplotlib, SciPy)</li>
-            <li class="skill-item">MATLAB</li>
-            <li class="skill-item">CAD (SolidWorks, Fusion 360)</li>
-            <li class="skill-item">Finite Element Analysis (FEA)</li>
-            <li class="skill-item">Computational Fluid Dynamics (CFD)</li>
-          </ul>
-        </div>
+    <hr />
 
-        <div class="skill-category">
-          <h2><i class="fas fa-cogs"></i> Engineering Competencies</h2>
-          <ul class="skill-list">
-            <li class="skill-item">Mechanical Design & Analysis</li>
-            <li class="skill-item">Thermal-Fluids Systems</li>
-            <li class="skill-item">Sustainable Energy Systems</li>
-            <li class="skill-item">Materials Science</li>
-            <li class="skill-item">Numerical Methods & Simulation</li>
-          </ul>
-        </div>
+    <section>
+      <p>Where I have used them:</p>
+      <ul class="courses-plain">
+        <li><b>Pascal Technology</b>, mechanical engineering intern, May 2026 &ndash; present: compressor test stand, TwinCAT PLC code, thermocouples and pressure transducers, heat exchanger fabrication.</li>
+        <li><b>Green hydrogen production modeling</b>, undergraduate researcher, Sept 2025 &ndash; May 2026: electrolyzer and balance-of-plant models, techno-economic analysis, 1st place undergraduate Best Poster Award.</li>
+        <li><b>Perovskite solar cells</b>, Accelerated Materials Laboratory for Sustainability, June 2024 &ndash; Jan 2025: spin-coating, Arduino and Raspberry Pi monitoring. <a href="projects/project-three.html">Project page</a></li>
+        <li><b>Nanofiltration and electrodialysis</b>, The Lienhard Research Group, Jan &ndash; Sept 2024: wet lab experiments, Python transport model, co-authored paper. <a href="projects/project-one.html">Project 1</a>, <a href="projects/project-two.html">Project 2</a></li>
+        <li><b>Creative Engineering LLC</b>, design engineering intern, Aug 2023: SolidWorks CAD, 3D printer fleet, laser cutting.</li>
+      </ul>
+    </section>
+  </main>
 
-        <div class="skill-category">
-          <h2><i class="fas fa-flask"></i> Laboratory & Fabrication</h2>
-          <ul class="skill-list">
-            <li class="skill-item">Wet Lab Experience</li>
-            <li class="skill-item">Membrane Systems & Nanofiltration</li>
-            <li class="skill-item">Experimental Design & Data Analysis</li>
-            <li class="skill-item">Machining & Prototyping</li>
-          </ul>
-        </div>
-      </div>
+  <footer id="footer">
+    <div class="container"><p>&copy; Vinn Nguyen</p></div>
+  </footer>
 
-      <div class="contact-section">
-        <h2>Let's Connect</h2>
-        <p><a href="mailto:vinn@mit.edu">vinn@mit.edu</a></p>
-      </div>
-    </div>
-
-    <footer id="footer">
-      <div class="container">
-        <div class="social">
-          <a href="https://linkedin.com/in/vinn-nguyen" target="_blank">
-            <img src="assets/linkedin-icon.svg" alt="LinkedIn" />
-          </a>
-        </div>
-        <p>&copy; 2025 Vinn Nguyen</p>
-      </div>
-    </footer>
-
-    <script src="js/script.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const hamburger = document.querySelector('.hamburger');
-        const navLeft = document.querySelector('.nav-left');
-        const navRight = document.querySelector('.nav-right');
-        
-        if (hamburger) {
-          hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            if (navLeft) navLeft.classList.toggle('active');
-            if (navRight) navRight.classList.toggle('active');
-          });
-        }
-      });
-    </script>
-  </body>
+  <script src="js/script.js"></script>
+</body>
 </html>
