@@ -28,3 +28,23 @@ document.addEventListener("click", (e) => {
   document.addEventListener("keydown", onKey);
   document.body.appendChild(box);
 });
+
+
+// Flip-through viewer: one photo plus Prev/Next buttons. Wired via onclick
+// attributes (not addEventListener) so it works the instant a button exists,
+// with no dependency on load-order or event registration timing.
+function flipNav(id, dir) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var slides = JSON.parse(el.dataset.slides);
+  var i = parseInt(el.dataset.index || "0", 10) + dir;
+  if (i < 0) i = 0;
+  if (i > slides.length - 1) i = slides.length - 1;
+  el.dataset.index = i;
+  var img = el.querySelector("img");
+  img.src = slides[i];
+  img.alt = "Slide " + (i + 1) + " of " + slides.length;
+  el.querySelector(".pp-flip-count").textContent = (i + 1) + " / " + slides.length;
+  el.querySelector(".pp-flip-prev").disabled = i === 0;
+  el.querySelector(".pp-flip-next").disabled = i === slides.length - 1;
+}

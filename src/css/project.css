@@ -34,11 +34,13 @@ html, body { height: auto !important; overflow-y: auto !important; }
 
 /* ---- Pictures placed inside the technical details ---- */
 .pp-fig { margin: 1.5rem 0 0; }
-.pp-fig img { width: 100%; height: auto; display: block; }
-.pp-fig.md { max-width: 480px; }
+.pp-fig img { width: 100%; max-width: 420px; height: auto; display: block; margin: 0 auto; }
+.pp-fig.md img { max-width: 480px; }
+.pp-fig.hero img { max-width: 560px; }
+.pp-fig.wide img { max-width: 100%; }
 .pp-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
 .pp-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
-.pp-pair img, .pp-strip img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.pp-pair img, .pp-strip img { width: 100%; max-width: none; aspect-ratio: 4 / 3; object-fit: cover; display: block; margin: 0; }
 .pp-fig .pp-cap { margin-top: 0.5rem; }
 .pp-fig + p, .pp-fig + ul { margin-top: 1.5rem; }
 
@@ -50,9 +52,22 @@ html, body { height: auto !important; overflow-y: auto !important; }
 
 /* ---- Video ---- */
 .pp-video { width: 100%; max-height: 520px; display: block; background: #000; margin-top: 1.5rem; }
-.pp-video.tall { max-width: 300px; }
+.pp-video.finale { max-width: 100%; max-height: none; margin: 1.5rem 0 0; border: 1px solid rgba(128, 128, 128, 0.35); border-radius: 4px; }
 
 /* ---- Click to enlarge ---- */
 .pp img { cursor: zoom-in; }
 .pp-lightbox { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(0, 0, 0, 0.88); cursor: zoom-out; }
 .pp-lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; cursor: zoom-out; }
+
+
+/* ---- Flip-through viewer: one photo, Prev/Next buttons ---- */
+.pp-flip { margin-top: 1.5rem; max-width: 480px; }
+.pp-flip-frame { position: relative; border: 1px solid rgba(128, 128, 128, 0.35); border-radius: 4px; overflow: hidden; background: #fff; }
+.pp-flip-frame img { width: 100%; max-width: none; height: auto; display: block; cursor: default; margin: 0; }
+.pp-flip-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.6rem; }
+.pp-flip-btn {
+  border: 1px solid currentColor; background: none; color: inherit; cursor: pointer;
+  font: inherit; font-size: 0.85rem; padding: 0.4rem 0.9rem; border-radius: 999px;
+}
+.pp-flip-btn:disabled { opacity: 0.3; cursor: default; }
+.pp-flip-count { font-size: 0.8rem; opacity: 0.6; }
