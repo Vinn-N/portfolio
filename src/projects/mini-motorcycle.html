@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Electric Motorcycle (Work in Progress) – Vinn Nguyen</title>
+  <meta name="description" content="An unfinished mini electric motorcycle project with Jesse George-Akpenyi: frame design, battery and motor sizing, and welding, paused when the semester ran out." />
+  <link rel="icon" href="../assets/favicon/favicon.ico" />
+  <link rel="canonical" href="https://vinn-n.github.io/portfolio/src/projects/mini-motorcycle.html" />
+  <meta name="theme-color" content="#1f1f1f" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vinn Nguyen" />
+  <meta property="og:title" content="Mini Electric Motorcycle (Work in Progress) – Vinn Nguyen" />
+  <meta property="og:description" content="An unfinished mini electric motorcycle project with Jesse George-Akpenyi: frame design, battery and motor sizing, and welding, paused when the semester ran out." />
+  <meta property="og:url" content="https://vinn-n.github.io/portfolio/src/projects/mini-motorcycle.html" />
+  <meta property="og:image" content="https://vinn-n.github.io/portfolio/src/assets/project/mini-motorcycle/frame-tube-bearing.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Mini Electric Motorcycle (Work in Progress)","description":"An unfinished mini electric motorcycle project with Jesse George-Akpenyi: frame design, battery and motor sizing, and welding, paused when the semester ran out.","image":"https://vinn-n.github.io/portfolio/src/assets/project/mini-motorcycle/frame-tube-bearing.jpg","url":"https://vinn-n.github.io/portfolio/src/projects/mini-motorcycle.html","author":{"@type":"Person","name":"Vinn Nguyen","url":"https://vinn-n.github.io/portfolio/"}}</script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/utilities.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+  <script src="../js/project.js" defer></script>
+  <script src="../js/analytics.js" defer></script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <ul class="nav-left">
+        <li><a class="nav-link" href="../../">&larr; Back to Portfolio</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="theme-switch">
+          <input type="checkbox" id="switch" />
+          <label class="toggle-icons" for="switch">
+            <img class="moon" src="../assets/moon.svg" alt="Dark" />
+            <img class="sun" src="../assets/sun.svg" alt="Light" />
+          </label>
+        </div>
+      </div>
+      <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    </div>
+  </nav>
+
+  <main class="pp">
+    <h1>Mini Electric Motorcycle (Work in Progress)</h1>
+    <p class="pp-date">Spring 2026 &middot; With Jesse George-Akpenyi &middot; Work in progress</p>
+
+    <figure class="pp-fig" style="margin-top:0"><img src="../assets/project/mini-motorcycle/frame-tube-bearing.jpg" alt="The frame&#x27;s head-tube bearing joint on the welding fixture" /><p class="pp-cap">The frame's head-tube bearing joint, on the welding fixture table.</p></figure>
+
+    <p style="margin-top:1.75rem"><b>Summary:</b> Designing and building a small, rideable electric motorcycle with Jesse George-Akpenyi, targeting one rider, about 25 mph and 15 miles of range. We sized the battery and motor, modeled the steel-tube frame in CAD with an FEA check on a seated-bump load case, worked out the cut list by hand, and started welding the frame. The semester ran out before the drivetrain and bodywork, so this one is a permanent work in progress &mdash; I got through designing the frame and welding it together, and stopped there.</p>
+
+    <p style="margin-bottom:0.3rem"><b>Skills</b></p>
+    <ul><li>Frame design: steel tube geometry, CAD modeling, FEA under a seated-bump load</li><li>Battery and motor sizing for a target speed and range</li><li>MIG welding and fabrication</li><li>Working from hand-calculated cut lists to physical parts</li></ul>
+
+    <hr />
+
+    <section class="pp-sec">
+      <h2>The story so far</h2>
+      <p><b>Goal and specs.</b> The goal was a safe, rideable pocket bike for one rider (about 135 lb), targeting roughly 25 mph and 15 miles per charge, built around a steel tube frame carrying a motor, battery, controller and chain drive.</p><p><b>Battery and motor.</b> We sized a 62.7 V, 13.6 Ah battery pack and a 72 V BLDC motor rated for 1500&ndash;1800 W continuous (about 3000 W peak), bought with a Maker Grant and already including a controller, throttle and the first sprocket and chain.</p><p><b>Frame design.</b> I modeled the frame in CAD from scratch, working out where the battery, motor and controller would sit inside the tube triangle, and ran an FEA check on a seated-bump load case before committing to dimensions. Working from measured parameters (tube diameter, wheelbase, seat height, fork length and more), I translated the CAD geometry into a hand-written cut list of tube lengths and angles.</p><figure class="pp-fig wide"><div class="pp-pair"><img src="../assets/project/mini-motorcycle/cad-and-sketch.jpg" alt="Fusion 360 frame model next to the hand-written cut list" loading="lazy" /><img src="../assets/project/mini-motorcycle/cutlist-sketch.jpg" alt="Hand-written tube cut list with lengths and angles" loading="lazy" /></div><p class="pp-cap">The CAD frame model next to the hand-calculated cut list of tube lengths and angles.</p></figure><p><b>Cutting and welding.</b> With the cut list set, I cut and welded the tubes on a fixture table, including the head-tube bearing joint at the front of the frame.</p><figure class="pp-fig wide"><div class="pp-pair"><img src="../assets/project/mini-motorcycle/frame-tube-bearing.jpg" alt="Frame tube with the head-tube bearing, on the welding fixture" loading="lazy" /><img src="../assets/project/mini-motorcycle/bearing-weld-macro.jpg" alt="Close-up of the weld at the bearing joint" loading="lazy" /></div><p class="pp-cap">The head-tube bearing joint on the fixture table (left), and a close-up of the weld (right).</p></figure><figure class="pp-fig "><img src="../assets/project/mini-motorcycle/bracket-weld.jpg" alt="Welding a bracket joint" loading="lazy" /><p class="pp-cap">Welding one of the frame's bracket joints.</p></figure><p>A short clip of grinding a weld clean:</p><video class="pp-video wide" controls preload="metadata" playsinline poster="../assets/project/mini-motorcycle/grinding-poster.jpg"><source src="../assets/project/mini-motorcycle/grinding.mp4" type="video/mp4" /></video><p>And a longer shop session cutting, fitting and welding tubes:</p><video class="pp-video wide" controls preload="metadata" playsinline poster="../assets/project/mini-motorcycle/shop-session-poster.jpg"><source src="../assets/project/mini-motorcycle/shop-session.mp4" type="video/mp4" /></video><p><b>Where it stands.</b> The semester got busy before I could mount the drivetrain, wire the electronics, or finish the bodywork, so the frame is as far as this one got. I'm leaving it here as a permanent work in progress rather than a finished project &mdash; it's still real design and fabrication work, just not a rideable bike yet.</p>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container"><p>&copy; Vinn Nguyen</p></div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
