@@ -1,0 +1,14 @@
+# Not uploaded to Cloudflare (25 MiB per-file limit; originals not used by the site)
+*.DNG
+*.dng
+src/assets/project/fun/IMG_2826.png
+
+# Repo / tooling files
+.git
+.gitignore
+.assetsignore
+wrangler.jsonc
+node_modules
+.wrangler
+*.md
+LICENSE
