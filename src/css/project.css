@@ -13,8 +13,11 @@ html, body { height: auto !important; overflow-y: auto !important; }
 .pp a { text-decoration: underline; text-underline-offset: 3px; }
 .pp a:hover { opacity: 0.6; }
 
-.pp h2 { font-size: 0.95rem; font-weight: var(--weight-semibold); margin: 0 0 0.9rem; }
+.pp h2 { font-size: 1.2rem; font-weight: var(--weight-semibold); letter-spacing: -0.01em; margin: 0 0 1rem; }
+.pp h3 { font-size: 0.95rem; font-weight: var(--weight-semibold); margin: 2.25rem 0 0.6rem; }
+.pp h2 + h3 { margin-top: 0; }
 .pp-sec { margin-top: 4rem; }
+.pp hr + .pp-sec { margin-top: 2.5rem; }
 .pp hr { border: 0; border-top: 1px solid rgba(128, 128, 128, 0.45); margin: 3rem 0 0; }
 
 .pp-images { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.75rem 0 0.5rem; }
@@ -33,7 +36,8 @@ html, body { height: auto !important; overflow-y: auto !important; }
 }
 
 /* ---- Pictures placed inside the technical details ---- */
-.pp-fig { margin: 1.5rem 0 0; }
+.pp-fig { margin: 1.5rem 0; }
+.pp-fig.narrow img { max-width: 420px; }
 .pp-fig img { width: 100%; max-width: 420px; height: auto; display: block; margin: 0 auto; }
 .pp-fig.md img { max-width: 480px; }
 .pp-fig.hero img { max-width: 560px; }
@@ -42,17 +46,18 @@ html, body { height: auto !important; overflow-y: auto !important; }
 .pp-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
 .pp-pair img, .pp-strip img { width: 100%; max-width: none; aspect-ratio: 4 / 3; object-fit: cover; display: block; margin: 0; }
 .pp-fig .pp-cap { margin-top: 0.5rem; }
-.pp-fig + p, .pp-fig + ul { margin-top: 1.5rem; }
+.pp-sec > :last-child { margin-bottom: 0; }
 
 /* ---- Top 5 gallery: one large picture plus thumbnails ---- */
 .pp-top5 { --cols: 4; display: grid; grid-template-columns: repeat(var(--cols), 1fr); gap: 0.5rem; }
 .pp-top5 img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
 .pp-top5 img:first-child { grid-column: 1 / -1; aspect-ratio: auto; max-height: 480px; }
+.pp-hero { display: block; width: 100%; max-width: 720px; aspect-ratio: 4 / 3; object-fit: cover; margin: 0 auto; border-radius: 4px; }
 .pp img.contain { object-fit: contain; background: rgba(128, 128, 128, 0.14); }
 
 /* ---- Video ---- */
-.pp-video { width: 100%; max-height: 520px; display: block; background: #000; margin-top: 1.5rem; }
-.pp-video.finale { max-width: 100%; max-height: none; margin: 1.5rem 0 0; border: 1px solid rgba(128, 128, 128, 0.35); border-radius: 4px; }
+.pp-video { width: 100%; max-height: 520px; display: block; background: #000; margin: 0; }
+.pp-video.finale { max-width: 100%; max-height: none; margin: 0; border: 1px solid rgba(128, 128, 128, 0.35); border-radius: 4px; }
 
 /* ---- Click to enlarge ---- */
 .pp img { cursor: zoom-in; }
@@ -61,7 +66,7 @@ html, body { height: auto !important; overflow-y: auto !important; }
 
 
 /* ---- Flip-through viewer: one photo, Prev/Next buttons ---- */
-.pp-flip { margin-top: 1.5rem; max-width: 480px; }
+.pp-flip { margin: 1.5rem auto; max-width: 480px; }
 .pp-flip-frame { position: relative; border: 1px solid rgba(128, 128, 128, 0.35); border-radius: 4px; overflow: hidden; background: #fff; }
 .pp-flip-frame img { width: 100%; max-width: none; height: auto; display: block; cursor: default; margin: 0; }
 .pp-flip-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.6rem; }
