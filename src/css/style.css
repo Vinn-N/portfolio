@@ -52,7 +52,7 @@ a { text-decoration: none; color: var(--text-color); }
 body {
   background: var(--bg-primary);
   color: var(--text-color);
-  font-family: "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk Text", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "GT America", "GT America Standard", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk Text", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5;
 }
 
