@@ -27,13 +27,13 @@ const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"
 function switchTheme(e) {
   const theme = e.target.checked ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("vinn-theme", theme);
+  localStorage.setItem("vinn-theme-v2", theme);
 }
 
 toggleSwitch.addEventListener("change", switchTheme, false);
 
 window.addEventListener("DOMContentLoaded", () => {
-  const stored = localStorage.getItem("vinn-theme") || "dark";
+  const stored = localStorage.getItem("vinn-theme-v2") || "light";
   if (stored) {
     document.documentElement.setAttribute("data-theme", stored);
     toggleSwitch.checked = (stored === "dark");
@@ -141,14 +141,14 @@ if (dateElem) {
 
 // ---------- Theme toggle (persistent, respects system preference) ----------
 (function () {
-  const STORAGE_KEY = 'vinn-theme';
+  const STORAGE_KEY = 'vinn-theme-v2';
   const root = document.documentElement;
   const btn  = document.getElementById('theme-toggle');
 
   // Determine initial theme: saved -> system -> default 'light'
   const saved = localStorage.getItem(STORAGE_KEY);
   const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initial = saved || 'dark';
+  const initial = saved || 'light';
 
   setTheme(initial);
 

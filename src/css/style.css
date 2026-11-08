@@ -8,8 +8,8 @@
   /* Colors */
   --primary-color: #5E8157;
   --secondary-color: #5E8157;
-  --bg-primary: #FAF9F6;
-  --text-color: #222222;
+  --bg-primary: #F4F4F2;
+  --text-color: #34373B; /* soft charcoal */
   --text-color-two: #ffffff;
   --bg-secondary: #000000;
   --card-background: #1d1d1d;
@@ -456,4 +456,9 @@ body {
   .hamburger {
     display: none !important;
   }
+}
+
+/* Light theme: soft gradient background */
+:root:not([data-theme="dark"]) body {
+  background: linear-gradient(180deg, #F4F4F2 0%, #EFF1ED 100%) fixed;
 }
