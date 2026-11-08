@@ -39,15 +39,15 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
   cubeWrap.className = 'pv-cubewrap';
   const cube = document.createElement('div');
   cube.className = 'pv-cube';
-  const H = 31; // half the cube edge, px
-  // [label, CSS transform, face normal, local +x, local +y] -- vectors in world space
-  const FACES = [
-    ['Front', `rotateY(180deg) translateZ(${H}px)`, [0, 0, -1], [-1, 0, 0], [0, -1, 0]],
-    ['Back', `translateZ(${H}px)`, [0, 0, 1], [1, 0, 0], [0, -1, 0]],
-    ['Right', `rotateY(90deg) translateZ(${H}px)`, [1, 0, 0], [0, 0, -1], [0, -1, 0]],
-    ['Left', `rotateY(-90deg) translateZ(${H}px)`, [-1, 0, 0], [0, 0, 1], [0, -1, 0]],
-    ['Top', `rotateX(90deg) translateZ(${H}px)`, [0, 1, 0], [1, 0, 0], [0, 0, 1]],
-    ['Bottom', `rotateX(-90deg) translateZ(${H}px)`, [0, -1, 0], [1, 0, 0], [0, 0, -1]],
+  // Chamfered cube: 6 square faces, 12 bevelled edges, 8 triangular corners. Click any piece to snap there.
+  const H = 36, C = 11; // half edge and chamfer size, px
+  const FACES = [ // [label, outward normal, local +x] in world space
+    ['Front', [0, 0, -1], [-1, 0, 0]],
+    ['Back', [0, 0, 1], [1, 0, 0]],
+    ['Right', [1, 0, 0], [0, 0, -1]],
+    ['Left', [-1, 0, 0], [0, 0, 1]],
+    ['Top', [0, 1, 0], [1, 0, 0]],
+    ['Bottom', [0, -1, 0], [1, 0, 0]],
   ];
   let fly = null;
   const flyTo = (dir) => {
@@ -63,25 +63,41 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
       if (k >= 1) fly = null;
     };
   };
-  // each face is a 3x3 grid: centre = that face, edges and corners = angled (iso) views
-  FACES.forEach(([name, tf, n, xd, yd]) => {
-    const f = document.createElement('div');
-    f.className = 'pv-face';
-    f.style.transform = tf;
-    for (let j = -1; j <= 1; j++) {
-      for (let i = -1; i <= 1; i++) {
-        const dir = [0, 1, 2].map((k) => n[k] + i * xd[k] + j * yd[k]);
-        const c = document.createElement('button');
-        c.type = 'button';
-        c.className = 'pv-cell' + (i === 0 && j === 0 ? ' mid' : i && j ? ' corner' : ' edge');
-        if (i === 0 && j === 0) { c.textContent = name; c.setAttribute('aria-label', `${name} view`); }
-        else c.setAttribute('aria-label', 'Isometric view');
-        c.addEventListener('click', () => flyTo(dir));
-        f.appendChild(c);
-      }
-    }
-    cube.appendChild(f);
-  });
+  const css = (v) => new THREE.Vector3(v.x, -v.y, v.z); // world (y up) -> CSS (y down)
+  const piece = (cls, w, h, n, xAxis, dist, dir, label) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'pv-piece ' + cls;
+    b.style.width = w + 'px'; b.style.height = h + 'px'; b.style.margin = `${-h / 2}px 0 0 ${-w / 2}px`;
+    const z = css(new THREE.Vector3(...n)).normalize();
+    const x = css(new THREE.Vector3(...xAxis)).normalize();
+    const y = new THREE.Vector3().crossVectors(z, x);
+    const t = z.clone().multiplyScalar(dist);
+    b.style.transform = `matrix3d(${[x.x, x.y, x.z, 0, y.x, y.y, y.z, 0, z.x, z.y, z.z, 0, t.x, t.y, t.z, 1].join(',')})`;
+    if (label) b.textContent = label;
+    b.setAttribute('aria-label', label ? `${label} view` : 'Isometric view');
+    b.addEventListener('click', () => flyTo(dir));
+    cube.appendChild(b);
+  };
+  const face = 2 * (H - C);
+  FACES.forEach(([name, n, xd]) => piece('face', face, face, n, xd, H, n, name));
+  const AX = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+  const add = (...vs) => [0, 1, 2].map((k) => vs.reduce((a, v) => a + v[k], 0));
+  const mul = (v, k) => v.map((n) => n * k);
+  const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+  for (let i = 0; i < 3; i++) for (let j = i + 1; j < 3; j++) for (const si of [1, -1]) for (const sj of [1, -1]) {
+    const n1 = mul(AX[i], si), n2 = mul(AX[j], sj), nb = add(n1, n2);
+    piece('edge', face, C * Math.SQRT2, nb, cross(n1, n2), (2 * H - C) / Math.SQRT2, nb);
+  }
+  for (const sx of [1, -1]) for (const sy of [1, -1]) for (const sz of [1, -1]) {
+    const n = [sx, sy, sz], side = C * Math.SQRT2;
+    // orient the triangle so its apex points toward the +/-x edge, matching the bevels around it
+    const nW = new THREE.Vector3(...n).normalize();
+    const e = new THREE.Vector3(sx, 0, 0);
+    const a = e.clone().sub(nW.clone().multiplyScalar(e.dot(nW))).normalize();
+    const yC = css(a).negate(), zC = css(nW);
+    const xW = css(new THREE.Vector3().crossVectors(yC, zC)).toArray();
+    piece('corner', side, side * Math.sqrt(3) / 2, n, xW, (3 * H - 2 * C) / Math.sqrt(3), n);
+  }
   // dragging the cube rotates the model with it
   let drag = null, moved = false;
   cubeWrap.addEventListener('pointerdown', (e) => {
@@ -207,18 +223,33 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
 
   // ---- ?pick: click the model to read its coordinates (for placing labels)
   if (location.search.includes('pick')) {
-    const ray = new THREE.Raycaster(), m = new THREE.Vector2();
+    const ray = new THREE.Raycaster(), m = new THREE.Vector2(), picks = [];
+    const panel = document.createElement('div');
+    panel.className = 'pv-pick';
+    panel.innerHTML = '<b>Label helper</b><span>Click a part on the model, then name it.</span><ol></ol><button type="button">Copy list</button>';
+    el.appendChild(panel);
+    const list = panel.querySelector('ol');
+    panel.querySelector('button').addEventListener('click', (e) => {
+      const txt = JSON.stringify(picks);
+      navigator.clipboard && navigator.clipboard.writeText(txt);
+      e.target.textContent = 'Copied!';
+      setTimeout(() => { e.target.textContent = 'Copy list'; }, 1500);
+    });
     renderer.domElement.addEventListener('click', (e) => {
       if (!mesh) return;
       const b = renderer.domElement.getBoundingClientRect();
       m.set(((e.clientX - b.left) / b.width) * 2 - 1, -((e.clientY - b.top) / b.height) * 2 + 1);
       ray.setFromCamera(m, camera);
       const hit = ray.intersectObject(mesh)[0];
-      if (hit) {
-        const p = hit.point.toArray().map((n) => +n.toFixed(3));
-        el.dataset.lastPick = JSON.stringify(p);
-        console.log('pick', JSON.stringify(p));
-      }
+      if (!hit) return;
+      const pt = hit.point.toArray().map((n) => +n.toFixed(3));
+      el.dataset.lastPick = JSON.stringify(pt);
+      const name = (window.prompt('Name this part (leave empty to skip):') || '').trim();
+      if (!name) return;
+      picks.push({ p: pt, t: name });
+      const li = document.createElement('li');
+      li.textContent = `${name}  ${JSON.stringify(pt)}`;
+      list.appendChild(li);
     });
   }
   window.__viewers = window.__viewers || [];

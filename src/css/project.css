@@ -91,13 +91,14 @@ html, body { height: auto !important; overflow-y: auto !important; }
 
 /* ---- 3D viewer controls and part labels ---- */
 .pv-ctl { position: absolute; top: 0.7rem; right: 0.7rem; z-index: 4; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
-.pv-cubewrap { width: 100px; height: 100px; perspective: 380px; display: flex; align-items: center; justify-content: center; cursor: grab; touch-action: none; }
+.pv-cubewrap { width: 124px; height: 124px; perspective: 430px; display: flex; align-items: center; justify-content: center; cursor: grab; touch-action: none; }
 .pv-cubewrap:active { cursor: grabbing; }
-.pv-cube { position: relative; width: 62px; height: 62px; transform-style: preserve-3d; }
-.pv-face { position: absolute; inset: 0; display: grid; grid-template: 13px 1fr 13px / 13px 1fr 13px; background: rgba(255, 255, 255, 0.94); border: 1px solid rgba(52, 55, 59, 0.5); backface-visibility: hidden; }
-.pv-cell { margin: 0; padding: 0; border: 0; background: none; color: #34373B; font: inherit; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.02em; cursor: pointer; transition: background 0.12s ease, color 0.12s ease; }
-.pv-cell.edge, .pv-cell.corner { background: rgba(52, 55, 59, 0.1); }
-.pv-cell.mid:hover, .pv-cell.edge:hover, .pv-cell.corner:hover { background: #5E8157; color: #fff; }
+.pv-cube { position: relative; width: 0; height: 0; transform-style: preserve-3d; }
+.pv-piece { position: absolute; left: 0; top: 0; padding: 0; border: 0; backface-visibility: hidden; cursor: pointer; font: inherit; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.02em; color: #34373B; transition: background 0.12s ease, color 0.12s ease; }
+.pv-piece.face { background: rgba(255, 255, 255, 0.96); outline: 1px solid rgba(52, 55, 59, 0.5); outline-offset: -1px; }
+.pv-piece.edge { background: rgba(196, 199, 196, 0.95); outline: 1px solid rgba(52, 55, 59, 0.45); outline-offset: -1px; }
+.pv-piece.corner { background: rgba(160, 165, 160, 0.97); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.pv-piece:hover { background: #5E8157; color: #fff; }
 .pv-btn { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; padding: 0; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.92); color: #34373B; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); cursor: pointer; transition: background 0.15s ease, color 0.15s ease; }
 .pv-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .pv-btn:hover { background: #5E8157; color: #fff; }
@@ -111,3 +112,7 @@ html, body { height: auto !important; overflow-y: auto !important; }
 .pv-tag.open .pv-desc { display: block; }
 .pp-viewer:fullscreen { max-width: none; aspect-ratio: auto; width: 100vw; height: 100vh; border-radius: 0; }
 .pp-viewer:-webkit-full-screen { max-width: none; aspect-ratio: auto; width: 100vw; height: 100vh; border-radius: 0; }
+.pv-pick { position: absolute; left: 0.7rem; bottom: 0.7rem; z-index: 6; max-width: 260px; padding: 0.6rem 0.75rem; border-radius: 8px; background: rgba(255, 255, 255, 0.96); color: #34373B; font-size: 0.72rem; line-height: 1.4; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25); display: flex; flex-direction: column; gap: 0.3rem; }
+.pv-pick ol { margin: 0 0 0 1rem; padding: 0; list-style: decimal; }
+.pv-pick li { font-size: 0.66rem; margin: 0; }
+.pv-pick button { align-self: flex-start; border: 0; border-radius: 999px; background: #5E8157; color: #fff; font: inherit; font-weight: 600; padding: 0.25rem 0.7rem; cursor: pointer; }
