@@ -88,3 +88,18 @@ html, body { height: auto !important; overflow-y: auto !important; }
 .pp-viewer.ready img { display: none; }
 .pp-viewer img { object-fit: contain; }
 .pp-model { margin-top: 1.25rem; }
+
+/* ---- 3D viewer controls and part labels ---- */
+.pv-bar { position: absolute; left: 50%; bottom: 0.7rem; transform: translateX(-50%); z-index: 4; display: flex; gap: 0.25rem; padding: 0.25rem; border-radius: 999px; background: rgba(255, 255, 255, 0.9); box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18); backdrop-filter: blur(6px); max-width: calc(100% - 1rem); }
+.pv-bar button { border: 0; background: none; color: #34373B; font: inherit; font-size: 0.74rem; font-weight: 600; padding: 0.38rem 0.7rem; border-radius: 999px; cursor: pointer; white-space: nowrap; transition: background 0.15s ease, color 0.15s ease; }
+.pv-bar button:hover { background: #5E8157; color: #fff; }
+.pv-tag { position: absolute; left: 0; top: 0; z-index: 3; pointer-events: none; transition: opacity 0.2s ease; }
+.pv-tag.hidden { opacity: 0; visibility: hidden; }
+.pv-dot { position: absolute; left: -9px; top: -9px; width: 18px; height: 18px; border-radius: 50%; border: 2px solid #fff; background: #5E8157; box-shadow: 0 0 0 0 rgba(94, 129, 87, 0.6), 0 1px 4px rgba(0, 0, 0, 0.35); cursor: pointer; pointer-events: auto; padding: 0; animation: pv-pulse 2.4s infinite; }
+@keyframes pv-pulse { 70% { box-shadow: 0 0 0 9px rgba(94, 129, 87, 0), 0 1px 4px rgba(0, 0, 0, 0.35); } 100% { box-shadow: 0 0 0 0 rgba(94, 129, 87, 0), 0 1px 4px rgba(0, 0, 0, 0.35); } }
+.pv-name { position: absolute; left: 14px; top: -11px; padding: 0.15rem 0.5rem; border-radius: 999px; background: rgba(255, 255, 255, 0.92); color: #34373B; font-size: 0.72rem; font-weight: 700; white-space: nowrap; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18); }
+.pv-desc { display: none; position: absolute; left: 14px; top: 14px; width: 190px; padding: 0.55rem 0.7rem; border-radius: 8px; background: #fff; color: #34373B; font-size: 0.74rem; line-height: 1.45; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22); pointer-events: auto; }
+.pv-tag.open { z-index: 5; }
+.pv-tag.open .pv-desc { display: block; }
+.pp-viewer:fullscreen { max-width: none; aspect-ratio: auto; width: 100vw; height: 100vh; border-radius: 0; }
+.pp-viewer:-webkit-full-screen { max-width: none; aspect-ratio: auto; width: 100vw; height: 100vh; border-radius: 0; }
