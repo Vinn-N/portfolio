@@ -11,7 +11,7 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
-  camera.position.set(2.4, 1.8, 2.8);
+  camera.position.set(2.0, 1.5, 2.4);
   scene.add(new THREE.HemisphereLight(0xffffff, 0x445566, 1.6));
   const key = new THREE.DirectionalLight(0xffffff, 2.2);
   key.position.set(3, 4, 5);
@@ -35,16 +35,24 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
   new ResizeObserver(resize).observe(el);
   resize();
 
-  new STLLoader().load(el.dataset.src, (geo) => {
+  // Big models load only once the viewer scrolls into view.
+  const load = () => new STLLoader().load(el.dataset.src, (geo) => {
     geo.computeVertexNormals();
     geo.center();
     geo.computeBoundingSphere();
     const s = 1 / geo.boundingSphere.radius;
-    const mesh = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: 0x4fd1c5, roughness: 0.45, metalness: 0.1 }));
+    const color = new THREE.Color(el.dataset.color || '#5E8157');
+    const mesh = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color, roughness: 0.5, metalness: 0.15 }));
     mesh.scale.setScalar(s);
+    // data-rotate="x,y,z" in degrees, to stand a CAD export upright
+    const r = (el.dataset.rotate || '0,0,0').split(',').map((d) => (parseFloat(d) * Math.PI) / 180);
+    mesh.rotation.set(r[0], r[1], r[2]);
     scene.add(mesh);
     el.classList.add('ready');
   });
+  new IntersectionObserver((entries, obs) => {
+    if (entries.some((e) => e.isIntersecting)) { obs.disconnect(); load(); }
+  }, { rootMargin: '300px' }).observe(el);
 
   renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
 });
