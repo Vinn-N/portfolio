@@ -129,9 +129,7 @@ body { background: var(--bg-primary); }
 
 /* Skills */
 .home .skills h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 1.25rem; }
-.home .skill-core ul, .home .skill-group ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.45rem; }
-.home .skill-core { margin-bottom: 2rem; }
-.home .skill-core li { margin: 0; padding: 0.4rem 0.9rem; font-size: 0.92rem; font-weight: 600; line-height: 1.3; border-radius: 999px; color: #3f5f39; background: rgba(94, 129, 87, 0.16); }
+.home .skill-group ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.45rem; }
 .home .skill-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem 2.5rem; }
 .home .skill-group h3 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-color); opacity: 0.55; margin: 0 0 0.6rem; }
 .home .skill-group li { margin: 0; padding: 0.28rem 0.7rem; font-size: 0.84rem; font-weight: 500; line-height: 1.3; border-radius: 999px; background: rgba(52, 55, 59, 0.06); }
