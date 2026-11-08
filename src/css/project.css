@@ -2,7 +2,7 @@
 
 html, body { height: auto !important; overflow-y: auto !important; }
 
-.pp { max-width: 920px; margin: 0 auto; padding: calc(80px + 3.5rem) 1.25rem 7rem; }
+.pp { max-width: 780px; margin: 0 auto; padding: calc(80px + 3.5rem) 2rem 7rem; } /* same width and side margins as the homepage */
 
 .pp h1 { font-size: clamp(1.6rem, 3vw, 2rem); font-weight: var(--weight-semibold); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
 .pp-date { font-size: 0.88rem; font-weight: var(--weight-semibold); margin-bottom: 2rem; }
@@ -30,7 +30,6 @@ html, body { height: auto !important; overflow-y: auto !important; }
 .pp-more summary { cursor: pointer; font-size: 0.9rem; font-weight: var(--weight-semibold); }
 
 @media (max-width: 700px) {
-  .pp { padding-inline: 1rem; }
   .pp-images img { height: 140px; }
   .pp-images.small img { height: 100px; }
 }
@@ -48,6 +47,7 @@ html, body { height: auto !important; overflow-y: auto !important; }
 .pp-pair.tall img { aspect-ratio: 3 / 4; }
 .pp-loop { display: block; width: 100%; height: auto; background: #000; }
 .pp-fig > .pp-loop { max-width: 520px; margin: 0 auto; }
+.pp-fig.wide > .pp-loop { max-width: 100%; }
 .pp-fig .pp-cap { margin-top: 0.5rem; }
 .pp-sec > :last-child { margin-bottom: 0; }
 

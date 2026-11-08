@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mechanical Metamaterial Unit Cell – Vinn Nguyen</title>
+  <meta name="description" content="Designed a star-shaped polymer metamaterial unit cell for MIT 2.002, 3D-printed it by two-photon lithography at MIT.nano, and compressed it inside a scanning electron microscope." />
+  <link rel="icon" href="../assets/favicon/favicon.ico" />
+  <link rel="canonical" href="https://nguyenvinn.com/src/projects/project-six.html" />
+  <meta name="theme-color" content="#1f1f1f" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vinn Nguyen" />
+  <meta property="og:title" content="Mechanical Metamaterial Unit Cell – Vinn Nguyen" />
+  <meta property="og:description" content="Designed a star-shaped polymer metamaterial unit cell for MIT 2.002, 3D-printed it by two-photon lithography at MIT.nano, and compressed it inside a scanning electron microscope." />
+  <meta property="og:url" content="https://nguyenvinn.com/src/projects/project-six.html" />
+  <meta property="og:image" content="https://nguyenvinn.com/src/assets/project/project-six/hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Mechanical Metamaterial Unit Cell","description":"Designed a star-shaped polymer metamaterial unit cell for MIT 2.002, 3D-printed it by two-photon lithography at MIT.nano, and compressed it inside a scanning electron microscope.","image":"https://nguyenvinn.com/src/assets/project/project-six/hero.jpg","url":"https://nguyenvinn.com/src/projects/project-six.html","author":{"@type":"Person","name":"Vinn Nguyen","url":"https://nguyenvinn.com/"}}</script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/utilities.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+  <script src="../js/project.js" defer></script>
+  <script src="../js/analytics.js" defer></script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <ul class="nav-left">
+        <li><a class="nav-link" href="../../">&larr; Back to Portfolio</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="theme-switch">
+          <input type="checkbox" id="switch" />
+          <label class="toggle-icons" for="switch">
+            <img class="moon" src="../assets/moon.svg" alt="Dark" />
+            <img class="sun" src="../assets/sun.svg" alt="Light" />
+          </label>
+        </div>
+      </div>
+      <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    </div>
+  </nav>
+
+  <main class="pp">
+    <h1>Mechanical Metamaterial Unit Cell</h1>
+    <p class="pp-date">Spring 2026 &middot; MIT 2.002 Mechanics and Materials II</p>
+
+    <img class="pp-hero" src="../assets/project/project-six/hero.jpg" alt="CAD render of the star-shaped unit cell" />
+
+    <p style="margin-top:1.75rem"><b>Summary:</b> With teammates Zachary DiBiase and Carlos Longoria, I designed a star-shaped mechanical metamaterial unit cell for the final 2.002 project. The design was 3D-printed in a polymer at the micrometer scale by two-photon lithography at MIT.nano, then compressed inside a scanning electron microscope while we recorded load, displacement and video. We compared the measured stiffness against finite element predictions from SolidWorks.</p>
+
+    <p style="margin-bottom:0.3rem"><b>Skills</b></p>
+    <ul><li>CAD design of architected (lattice) materials in SolidWorks</li><li>Finite element analysis: linear compression of a unit cell and its tessellation</li><li>Scanning electron microscopy and image-based measurement in Fiji/ImageJ</li><li>In situ nanoindentation and stress&ndash;strain analysis (modulus, yield, toughness)</li></ul>
+
+    <hr />
+
+    <section class="pp-sec">
+      <h2>Context</h2>
+      <p>Mechanical metamaterials, also called architected materials, get their properties from their geometry as much as from the material they are made of. In the last part of the 2.002 project, each team designs a unit cell, has it printed at micrometer scale, and measures how it behaves, using the tools of nanomechanics: measuring mechanical properties of structures that are far too small for a standard testing machine.</p>
+    </section>
+
+    <section class="pp-sec">
+      <h2>Design</h2>
+      <p>Our unit cell is a star-shaped lattice of intersecting struts that tie together at shared nodes. It is mostly open space, so the question is how much stiffness the strut layout can carry. The cell was tessellated into a block of repeating cells for printing.</p>
+      <figure class="pp-fig"><img src="../assets/project/project-six/unit-cell-render.png" alt="CAD render of the unit cell" loading="lazy" /><p class="pp-cap">The unit cell in SolidWorks.</p></figure>
+    </section>
+
+    <section class="pp-sec">
+      <h2>Predicting stiffness with FEA</h2>
+      <p>Before printing, we ran linear compression simulations in SolidWorks to estimate the effective Young&rsquo;s modulus, E*. Each model was compressed to 3% strain (kept in the linear regime), with the bottom face fixed to match the experiment. The effective modulus is the average stress on the loaded face divided by the applied strain.</p>
+      <ul><li><b>Single unit cell:</b> E* &asymp; 523 MPa</li><li><b>2&times;2&times;2 tessellation:</b> E* &asymp; 510 MPa</li></ul>
+      <p>The tessellation is the better prediction of the printed block, since it includes the load sharing between neighboring cells.</p>
+    </section>
+
+    <section class="pp-sec">
+      <h2>Fabrication and measurement</h2>
+      <p>The samples were printed by two-photon lithography, which uses ultrafast laser pulses to polymerize a photosensitive resin along a voxel only about 200 nm across: effectively the highest-resolution 3D printing available. Before testing, we measured the printed sample in an SEM image using Fiji, calibrating against the scale bar, and corrected the apparent vertical dimensions for the viewing angle. The block measures about 145 &micro;m wide and 143 &micro;m tall, with struts about 5.4 &micro;m thick.</p>
+      <figure class="pp-fig"><img src="../assets/project/project-six/sem-before.jpg" alt="SEM image of the printed metamaterial sample before compression" loading="lazy" /><p class="pp-cap">SEM image of the printed sample before compression (scale bar 100 &micro;m).</p></figure>
+    </section>
+
+    <section class="pp-sec">
+      <h2>Testing in situ</h2>
+      <p>The compression test ran inside the SEM using a nanoindenter, an instrument with nanometer and micronewton precision. A flat punch presses down on the sample while the load&ndash;displacement data and a video are recorded together, so every feature of the load curve can be matched to what the structure is doing. Dividing load by the sample footprint, and displacement by its height, gives engineering stress and strain, from which come the effective modulus (steepest linear slope), yield strength (0.2% offset) and toughness (area under the curve).</p>
+      <figure class="pp-fig wide"><video class="pp-loop" src="../assets/project/project-six/compression.mp4" poster="../assets/project/project-six/compression-poster.jpg" autoplay loop muted playsinline preload="auto"></video><p class="pp-cap">The sample being compressed by the nanoindenter inside the SEM.</p></figure>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container"><p>&copy; Vinn Nguyen</p></div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
