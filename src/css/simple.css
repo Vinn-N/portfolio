@@ -73,15 +73,19 @@ body { background: var(--bg-primary); }
 .home .term:first-of-type { margin-top: 0; }
 
 
-/* Filters */
-.home .filters { display: flex; gap: 1.5rem; margin-bottom: 1.75rem; }
-.home .filter {
-  padding: 0; border: 0; background: none; cursor: pointer;
-  font: inherit; font-size: 0.9rem; font-weight: 500;
-  color: var(--text-color); opacity: 0.45; transition: opacity 0.2s ease;
+/* Section jump buttons */
+.home .jump { display: flex; gap: 0.75rem; margin-bottom: 2.5rem; }
+.home .jump-btn {
+  flex: 1; text-align: center; padding: 0.85rem 1.25rem;
+  font-size: 1.05rem; font-weight: 700; letter-spacing: 0.01em;
+  color: var(--text-color); border: 2px solid var(--sage-green); border-radius: 999px;
+  text-decoration: none; transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
-.home .filter:hover, .home .filter.active { opacity: 1; }
-.home .filter.active { font-weight: 700; }
+.home .jump-btn:hover { background: var(--sage-green); color: var(--bg-primary); opacity: 1; transform: translateY(-1px); }
+.home .jump-btn:active { transform: translateY(0); }
+.home .proj-sec { scroll-margin-top: 2rem; }
+.home .proj-sec + .proj-sec { margin-top: 4rem; }
+.home .proj-sec h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 1.5rem; }
 
 /* Photo gallery (fun projects) */
 .home .grid { align-items: start; }

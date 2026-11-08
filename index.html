@@ -101,59 +101,66 @@
 
       <hr />
 
-      <div class="filters">
-        <button class="filter active" data-filter="all">All</button>
-        <button class="filter" data-filter="engineering">Engineering</button>
-        <button class="filter" data-filter="research">Research</button>
-      </div>
+      <nav class="jump" aria-label="Project sections">
+        <a class="jump-btn" href="#engineering">Engineering</a>
+        <a class="jump-btn" href="#research">Research</a>
+      </nav>
 
-      <section class="grid">
-        <div class="card" data-category="engineering">
+      <section id="engineering" class="proj-sec">
+        <h2>Engineering</h2>
+        <div class="grid">
+        <div class="card">
           <a class="card-link" href="src/projects/project-five.html" aria-label="AmazeAmazeAmaze and Buddy"></a>
           <div class="card-image" style="background-image: url('src/assets/project/project-five/hero-square.jpg');"></div>
           <p class="card-info">AmazeAmazeAmaze and Buddy</p>
         </div>
 
-        <div class="card" data-category="engineering">
+        <div class="card">
           <a class="card-link" href="src/projects/project-six.html" aria-label="Mechanical Metamaterial Unit Cell"></a>
           <div class="card-image" style="background-image: url('src/assets/project/project-six/hero.jpg');"></div>
           <p class="card-info">Mechanical Metamaterial Unit Cell</p>
         </div>
 
-        <div class="card" data-category="research">
-          <a class="card-link" href="src/projects/project-one.html" aria-label="Nutrient Recovery from Brackish Groundwater"></a>
-          <div class="card-image" style="background-image: url('src/assets/project/project-one.png');"></div>
-          <p class="card-info">Nutrient Recovery from Brackish Groundwater</p>
-        </div>
-
-        <div class="card" data-category="research">
-          <a class="card-link" href="src/projects/project-two.html" aria-label="Aluminum Recovery from Waste Cryolite"></a>
-          <div class="card-image" style="background-image: url('src/assets/project/project-two.png');"></div>
-          <p class="card-info">Aluminum Recovery from Waste Cryolite</p>
-        </div>
-
-        <div class="card" data-category="research engineering">
-          <a class="card-link" href="src/projects/project-three.html" aria-label="Perovskite Solar Cell Fabrication"></a>
-          <div class="card-image" style="background-image: url('src/assets/project/project-three.png');"></div>
-          <p class="card-info">Perovskite Solar Cell Fabrication</p>
-        </div>
-
-        <div class="card" data-category="engineering">
+        <div class="card">
           <a class="card-link" href="src/projects/project-four.html" aria-label="Drawing Machine"></a>
           <div class="card-image" style="background-image: url('src/assets/project/project-four/IMG_1226.jpg');"></div>
           <p class="card-info">Drawing Machine</p>
         </div>
 
-        <div class="card" data-category="personal">
+        <div class="card">
           <a class="card-link" href="src/projects/fun-projects.html" aria-label="Fun Projects"></a>
           <div class="card-image" style="background-image: url('src/assets/project/fun/IMG_9648.jpg');"></div>
           <p class="card-info">Fun Projects</p>
         </div>
 
-        <div class="card" data-category="engineering">
+        <div class="card">
           <a class="card-link" href="src/projects/mini-motorcycle.html" aria-label="Mini Electric Motorcycle (Work in Progress)"></a>
           <div class="card-image" style="background-image: url('src/assets/project/mini-motorcycle/frame-tube-bearing.jpg');"></div>
           <p class="card-info">Mini Electric Motorcycle (WIP)</p>
+        </div>
+        </div>
+      </section>
+
+      <section id="research" class="proj-sec">
+        <h2>Research</h2>
+        <div class="grid">
+        <div class="card">
+          <a class="card-link" href="src/projects/project-one.html" aria-label="Nutrient Recovery from Brackish Groundwater"></a>
+          <div class="card-image" style="background-image: url('src/assets/project/project-one.png');"></div>
+          <p class="card-info">Nutrient Recovery from Brackish Groundwater</p>
+        </div>
+
+        <div class="card">
+          <a class="card-link" href="src/projects/project-two.html" aria-label="Aluminum Recovery from Waste Cryolite"></a>
+          <div class="card-image" style="background-image: url('src/assets/project/project-two.png');"></div>
+          <p class="card-info">Aluminum Recovery from Waste Cryolite</p>
+        </div>
+
+        <div class="card">
+          <a class="card-link" href="src/projects/project-three.html" aria-label="Perovskite Solar Cell Fabrication"></a>
+          <div class="card-image" style="background-image: url('src/assets/project/project-three.png');"></div>
+          <p class="card-info">Perovskite Solar Cell Fabrication</p>
+        </div>
         </div>
       </section>
     </main>
@@ -163,17 +170,5 @@
     </footer>
 
     <script src="src/js/script.js"></script>
-    <script>
-      const filters = document.querySelectorAll('.filter');
-      const cards = document.querySelectorAll('.grid .card');
-      filters.forEach((btn) => btn.addEventListener('click', () => {
-        const f = btn.dataset.filter;
-        filters.forEach((b) => b.classList.toggle('active', b === btn));
-        cards.forEach((c) => {
-          const cat = c.dataset.category || '';
-          c.hidden = !(f === 'all' || cat.includes(f));
-        });
-      }));
-    </script>
   </body>
 </html>
