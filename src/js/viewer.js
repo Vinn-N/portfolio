@@ -14,7 +14,7 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   el.appendChild(renderer.domElement);
 
-  const DIST = 3.6;
+  const DIST = parseFloat(el.dataset.dist) || 3.6; // camera distance; smaller = more zoomed in
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
   camera.position.set(...VIEWS.iso.map((v) => v * DIST));
