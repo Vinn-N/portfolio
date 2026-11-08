@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://nguyenvinn.com/</loc><lastmod>2026-09-25</lastmod></url>
-  <url><loc>https://nguyenvinn.com/src/coursework.html</loc><lastmod>2026-09-25</lastmod></url>
-  <url><loc>https://nguyenvinn.com/src/projects/fun-projects.html</loc><lastmod>2026-09-25</lastmod></url>
-  <url><loc>https://nguyenvinn.com/src/projects/project-six.html</loc><lastmod>2026-11-07</lastmod></url>
-  <url><loc>https://nguyenvinn.com/src/projects/project-five.html</loc><lastmod>2026-09-25</lastmod></url>
-  <url><loc>https://nguyenvinn.com/src/projects/project-one.html</loc><lastmod>2026-09-25</lastmod></url>
-  <url><loc>https://nguyenvinn.com/src/projects/project-two.html</loc><lastmod>2026-09-25</lastmod></url>
-  <url><loc>https://nguyenvinn.com/src/projects/project-three.html</loc><lastmod>2026-09-25</lastmod></url>
-  <url><loc>https://nguyenvinn.com/src/projects/project-four.html</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://nguyenvinn.com/</loc><lastmod>2026-11-07</lastmod><priority>1.0</priority></url>
+  <url><loc>https://nguyenvinn.com/src/projects.html</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://nguyenvinn.com/src/projects/project-five.html</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://nguyenvinn.com/src/projects/project-six.html</loc><lastmod>2026-11-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://nguyenvinn.com/src/projects/mini-motorcycle.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nguyenvinn.com/src/projects/project-one.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nguyenvinn.com/src/projects/project-two.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nguyenvinn.com/src/projects/project-three.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nguyenvinn.com/src/projects/project-four.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nguyenvinn.com/src/projects/fun-projects.html</loc><lastmod>2026-11-07</lastmod><priority>0.5</priority></url>
+  <url><loc>https://nguyenvinn.com/src/coursework.html</loc><lastmod>2026-11-07</lastmod><priority>0.5</priority></url>
 </urlset>
