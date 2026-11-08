@@ -172,12 +172,7 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
   const tags = labels.map((l) => {
     const t = document.createElement('div');
     t.className = 'pv-tag';
-    t.innerHTML = `<button type="button" class="pv-dot" aria-label="${l.t}"></button><span class="pv-name">${l.t}</span>${l.d ? `<span class="pv-desc">${l.d}</span>` : ''}`;
-    t.querySelector('.pv-dot').addEventListener('click', () => {
-      const open = t.classList.toggle('open');
-      tags.forEach((o) => { if (o !== t) o.classList.remove('open'); });
-      if (open) { controls.autoRotate = false; syncPlay(); }
-    });
+    t.innerHTML = `<span class="pv-dot"></span><span class="pv-name">${l.t}</span>`;
     el.appendChild(t);
     return t;
   });
