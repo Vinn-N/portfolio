@@ -2,7 +2,7 @@
 
 html, body { height: auto !important; overflow-y: auto !important; }
 
-.pp { max-width: 780px; margin: 0 auto; padding: calc(80px + 3.5rem) 2rem 7rem; } /* same width and side margins as the homepage */
+.pp { max-width: 860px; margin: 0 auto; padding: calc(80px + 3.5rem) 1.5rem 7rem; } /* same width and side margins as the homepage */
 
 .pp h1 { font-size: clamp(1.6rem, 3vw, 2rem); font-weight: var(--weight-semibold); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
 .pp-date { font-size: 0.88rem; font-weight: var(--weight-semibold); margin-bottom: 2rem; }
