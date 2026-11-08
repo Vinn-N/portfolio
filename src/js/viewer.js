@@ -39,19 +39,22 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
   cubeWrap.className = 'pv-cubewrap';
   const cube = document.createElement('div');
   cube.className = 'pv-cube';
-  const H = 27; // half the cube edge, px
+  const H = 31; // half the cube edge, px
+  // [label, CSS transform, face normal, local +x, local +y] -- vectors in world space
   const FACES = [
-    ['Front', `rotateY(180deg) translateZ(${H}px)`, [0, 0, -1]],
-    ['Back', `translateZ(${H}px)`, [0, 0, 1]],
-    ['Right', `rotateY(90deg) translateZ(${H}px)`, [1, 0, 0]],
-    ['Left', `rotateY(-90deg) translateZ(${H}px)`, [-1, 0, 0]],
-    ['Top', `rotateX(90deg) translateZ(${H}px)`, [0, 1, 0.001]],
-    ['Bottom', `rotateX(-90deg) translateZ(${H}px)`, [0, -1, 0.001]],
+    ['Front', `rotateY(180deg) translateZ(${H}px)`, [0, 0, -1], [-1, 0, 0], [0, -1, 0]],
+    ['Back', `translateZ(${H}px)`, [0, 0, 1], [1, 0, 0], [0, -1, 0]],
+    ['Right', `rotateY(90deg) translateZ(${H}px)`, [1, 0, 0], [0, 0, -1], [0, -1, 0]],
+    ['Left', `rotateY(-90deg) translateZ(${H}px)`, [-1, 0, 0], [0, 0, 1], [0, -1, 0]],
+    ['Top', `rotateX(90deg) translateZ(${H}px)`, [0, 1, 0], [1, 0, 0], [0, 0, 1]],
+    ['Bottom', `rotateX(-90deg) translateZ(${H}px)`, [0, -1, 0], [1, 0, 0], [0, 0, -1]],
   ];
   let fly = null;
   const flyTo = (dir) => {
     controls.autoRotate = false; syncPlay();
-    const to = new THREE.Vector3(...dir).normalize().multiplyScalar(DIST);
+    const d = dir.slice();
+    if (!d[0] && !d[2]) d[2] = 0.001; // avoid the pole singularity looking straight down or up
+    const to = new THREE.Vector3(...d).normalize().multiplyScalar(DIST);
     const from = camera.position.clone();
     const t0 = performance.now();
     fly = (now) => {
@@ -60,14 +63,47 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
       if (k >= 1) fly = null;
     };
   };
-  FACES.forEach(([name, tf, dir]) => {
-    const f = document.createElement('button');
-    f.type = 'button'; f.className = 'pv-face'; f.textContent = name;
-    f.setAttribute('aria-label', `${name} view`);
+  // each face is a 3x3 grid: centre = that face, edges and corners = angled (iso) views
+  FACES.forEach(([name, tf, n, xd, yd]) => {
+    const f = document.createElement('div');
+    f.className = 'pv-face';
     f.style.transform = tf;
-    f.addEventListener('click', () => flyTo(dir));
+    for (let j = -1; j <= 1; j++) {
+      for (let i = -1; i <= 1; i++) {
+        const dir = [0, 1, 2].map((k) => n[k] + i * xd[k] + j * yd[k]);
+        const c = document.createElement('button');
+        c.type = 'button';
+        c.className = 'pv-cell' + (i === 0 && j === 0 ? ' mid' : i && j ? ' corner' : ' edge');
+        if (i === 0 && j === 0) { c.textContent = name; c.setAttribute('aria-label', `${name} view`); }
+        else c.setAttribute('aria-label', 'Isometric view');
+        c.addEventListener('click', () => flyTo(dir));
+        f.appendChild(c);
+      }
+    }
     cube.appendChild(f);
   });
+  // dragging the cube rotates the model with it
+  let drag = null, moved = false;
+  cubeWrap.addEventListener('pointerdown', (e) => {
+    drag = { x: e.clientX, y: e.clientY }; moved = false;
+    controls.autoRotate = false; fly = null; syncPlay();
+    cubeWrap.setPointerCapture(e.pointerId);
+  });
+  cubeWrap.addEventListener('pointermove', (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (!moved && Math.hypot(dx, dy) < 4) return;
+    moved = true;
+    drag.x = e.clientX; drag.y = e.clientY;
+    const sp = new THREE.Spherical().setFromVector3(camera.position);
+    sp.theta -= dx * 0.012;
+    sp.phi = Math.min(Math.PI - 0.05, Math.max(0.05, sp.phi - dy * 0.012));
+    camera.position.setFromSpherical(sp);
+  });
+  const endDrag = (e) => { if (drag) { try { cubeWrap.releasePointerCapture(e.pointerId); } catch (_) {} } drag = null; };
+  cubeWrap.addEventListener('pointerup', endDrag);
+  cubeWrap.addEventListener('pointercancel', endDrag);
+  cubeWrap.addEventListener('click', (e) => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
   cubeWrap.appendChild(cube);
   ctl.appendChild(cubeWrap);
 
