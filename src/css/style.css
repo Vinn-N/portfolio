@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap);
 /* /assets/styles.css */
 /* Required project styling: Flex, Grid, Cards, Sections */
 
@@ -52,7 +53,7 @@ a { text-decoration: none; color: var(--text-color); }
 body {
   background: var(--bg-primary);
   color: var(--text-color);
-  font-family: "GT America", "GT America Standard", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk Text", "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "GT America", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.5;
 }
 
