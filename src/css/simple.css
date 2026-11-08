@@ -90,14 +90,14 @@ body { background: var(--bg-primary); }
 .home .grid figcaption { padding-top: 0.75rem; font-size: 0.9rem; line-height: 1.5; }
 
 /* Card titles respond to hover, press and keyboard focus */
-.home .card-info { transition: color 0.2s ease, text-shadow 0.2s ease; }
+.home .card-info { transition: color 0.2s ease, transform 0.35s ease; transform-origin: center top; }
 .home .card:hover .card-info,
 .home .card:focus-within .card-info {
   color: var(--sage-green);
-  text-shadow: 0 0 0.5px currentColor; /* a touch heavier without shifting the layout */
   text-decoration: underline !important;
   text-underline-offset: 4px;
+  transform: scale(1.06); /* zooms together with the picture */
 }
-.home .card:active .card-info { opacity: 0.7; }
+.home .card:active .card-info { opacity: 0.7; transform: scale(1.02); }
 .home .card:active .card-image { transform: scale(1.02); }
 .home .card-link:focus-visible { outline: 2px solid var(--sage-green); outline-offset: 4px; }
