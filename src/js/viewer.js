@@ -101,22 +101,23 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
   // dragging the cube rotates the model with it
   let drag = null, moved = false;
   cubeWrap.addEventListener('pointerdown', (e) => {
-    drag = { x: e.clientX, y: e.clientY }; moved = false;
-    controls.autoRotate = false; fly = null; syncPlay();
-    cubeWrap.setPointerCapture(e.pointerId);
+    drag = { x: e.clientX, y: e.clientY, id: e.pointerId, captured: false }; moved = false;
   });
   cubeWrap.addEventListener('pointermove', (e) => {
     if (!drag) return;
     const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
     if (!moved && Math.hypot(dx, dy) < 4) return;
-    moved = true;
+    if (!moved) { // a real drag: only now take over the pointer, so plain clicks still reach the pieces
+      moved = true; fly = null; controls.autoRotate = false; syncPlay();
+      cubeWrap.setPointerCapture(drag.id); drag.captured = true;
+    }
     drag.x = e.clientX; drag.y = e.clientY;
     const sp = new THREE.Spherical().setFromVector3(camera.position);
     sp.theta -= dx * 0.012;
     sp.phi = Math.min(Math.PI - 0.05, Math.max(0.05, sp.phi - dy * 0.012));
     camera.position.setFromSpherical(sp);
   });
-  const endDrag = (e) => { if (drag) { try { cubeWrap.releasePointerCapture(e.pointerId); } catch (_) {} } drag = null; };
+  const endDrag = (e) => { if (drag && drag.captured) { try { cubeWrap.releasePointerCapture(e.pointerId); } catch (_) {} } drag = null; };
   cubeWrap.addEventListener('pointerup', endDrag);
   cubeWrap.addEventListener('pointercancel', endDrag);
   cubeWrap.addEventListener('click', (e) => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
