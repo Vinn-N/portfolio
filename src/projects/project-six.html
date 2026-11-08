@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/utilities.css" />
   <link rel="stylesheet" href="../css/project.css" />
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+  <script type="module" src="../js/viewer.js"></script>
   <script src="../js/project.js" defer></script>
   <script src="../js/analytics.js" defer></script>
 </head>
@@ -48,7 +50,7 @@
 
     <img class="pp-hero" src="../assets/project/project-six/hero.jpg" alt="CAD render of the star-shaped unit cell" />
 
-    <p style="margin-top:1.75rem"><b>Summary:</b> With teammates Zachary DiBiase and Carlos Longoria, I designed a star-shaped mechanical metamaterial unit cell for the final 2.002 project. The design was 3D-printed in a polymer at the micrometer scale by two-photon lithography at MIT.nano, then compressed inside a scanning electron microscope while we recorded load, displacement and video. We compared the measured stiffness against finite element predictions from SolidWorks.</p>
+    <p style="margin-top:1.75rem"><b>Summary:</b> With teammates Zachary DiBiase and Carlos Longoria, I designed a star-shaped mechanical metamaterial unit cell for the final 2.002 project, combining elements from each of our individual designs. The design was 3D-printed in a polymer at the micrometer scale by two-photon lithography at MIT.nano, then compressed inside a scanning electron microscope while we recorded load, displacement and video. We measured an effective modulus of 637 MPa and compared it with finite element predictions from SolidWorks.</p>
 
     <p style="margin-bottom:0.3rem"><b>Skills</b></p>
     <ul><li>CAD design of architected (lattice) materials in SolidWorks</li><li>Finite element analysis: linear compression of a unit cell and its tessellation</li><li>Scanning electron microscopy and image-based measurement in Fiji/ImageJ</li><li>In situ nanoindentation and stress&ndash;strain analysis (modulus, yield, toughness)</li></ul>
@@ -62,8 +64,10 @@
 
     <section class="pp-sec">
       <h2>Design</h2>
-      <p>Our unit cell is a star-shaped lattice of intersecting struts that tie together at shared nodes. It is mostly open space, so the question is how much stiffness the strut layout can carry. The cell was tessellated into a block of repeating cells for printing.</p>
-      <figure class="pp-fig"><img src="../assets/project/project-six/unit-cell-render.png" alt="CAD render of the unit cell" loading="lazy" /><p class="pp-cap">The unit cell in SolidWorks.</p></figure>
+      <p><b>Starting from my own cell.</b> Each of us designed a unit cell on our own first. Mine is a cube frame with crossing diagonal struts through its faces and center. In SolidWorks, a 5% compression predicted an effective modulus of about 174&ndash;202 MPa for the single cell, depending on loading direction, and about 346&ndash;398 MPa for a tessellation.</p>
+      <figure class="pp-fig"><img src="../assets/project/project-six/cube-cell.jpg" alt="CAD of my individual cube-frame unit cell" loading="lazy" /><p class="pp-cap">My individual design: a cube frame with crossing diagonal struts.</p></figure>
+      <p><b>Combining designs.</b> As a group, we took elements from each member&rsquo;s design to arrive at one final unit cell. It is a star-shaped lattice of intersecting struts that tie together at shared nodes. It is mostly open space, so the question is how much stiffness the strut layout can carry. The cell was tessellated into a block of repeating cells for printing. Drag the model to rotate it.</p>
+      <figure class="pp-fig wide"><div class="pp-viewer" data-src="../assets/project/project-six/unit-cell.stl"><img src="../assets/project/project-six/unit-cell-render.png" alt="CAD render of the final unit cell" /></div><p class="pp-cap">The final unit cell, as a 3D model. Drag to rotate.</p></figure>
     </section>
 
     <section class="pp-sec">
@@ -83,6 +87,15 @@
       <h2>Testing in situ</h2>
       <p>The compression test ran inside the SEM using a nanoindenter, an instrument with nanometer and micronewton precision. A flat punch presses down on the sample while the load&ndash;displacement data and a video are recorded together, so every feature of the load curve can be matched to what the structure is doing. Dividing load by the sample footprint, and displacement by its height, gives engineering stress and strain, from which come the effective modulus (steepest linear slope), yield strength (0.2% offset) and toughness (area under the curve).</p>
       <figure class="pp-fig wide"><video class="pp-loop" src="../assets/project/project-six/compression.mp4" poster="../assets/project/project-six/compression-poster.jpg" autoplay loop muted playsinline preload="auto"></video><p class="pp-cap">The sample being compressed by the nanoindenter inside the SEM.</p></figure>
+    </section>
+
+    <section class="pp-sec">
+      <h2>Outcome</h2>
+      <p>The sample showed the behavior the handout describes: a toe region as the punch settles, a linear small-strain regime, yielding, and permanent deformation after unloading. From the stress&ndash;strain data we measured:</p>
+      <ul><li><b>E*</b> &mdash; effective modulus, <b>637 MPa</b> (the steepest linear slope over a 1% strain window)</li><li><b>&sigma;<sub>y</sub></b> &mdash; yield strength, <b>14.3 MPa</b> (0.2% offset)</li><li><b>W</b> &mdash; toughness, <b>1.92 MJ/m&sup3;</b> (area under the loading curve to 10% strain)</li><li><b>E*/E<sub>s</sub></b> &mdash; normalized stiffness, <b>0.372</b>, against a monolithic pillar of the same polymer with E<sub>s</sub> = 1,713 MPa</li></ul>
+      <figure class="pp-fig"><img src="../assets/project/project-six/stress-strain.png" alt="Engineering stress-strain curves of the metamaterial and the tetrakaidecahedron reference, with the FEM and experimental stiffness" loading="lazy" /><p class="pp-cap">Engineering stress&ndash;strain curves for our metamaterial and the tetrakaidecahedron reference, with the FEM stiffness (dashed) and the experimental stiffness.</p></figure>
+      <p>Our FEM estimate of 509.5 MPa came in about 20% below the measured 637 MPa. The likely reasons are the idealized CAD geometry, printing defects, uncertainty in the measured dimensions, and the fact that the simulation was linear elastic while the experiment included yielding.</p>
+      <figure class="pp-fig wide"><div class="pp-pair"><img src="../assets/project/project-six/fea-von-mises.jpg" alt="von Mises stress contour on the unit cell from SolidWorks" loading="lazy" /><img src="../assets/project/project-six/sem-after.jpg" alt="SEM image of the sample during compression" loading="lazy" /></div><p class="pp-cap">von Mises stress on the unit cell from the FEA (left), and the sample under the indenter (right).</p></figure>
     </section>
   </main>
 

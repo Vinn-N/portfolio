@@ -79,3 +79,10 @@ html, body { height: auto !important; overflow-y: auto !important; }
 }
 .pp-flip-btn:disabled { opacity: 0.3; cursor: default; }
 .pp-flip-count { font-size: 0.8rem; opacity: 0.6; }
+
+/* ---- Rotatable 3D model ---- */
+.pp-viewer { position: relative; width: 100%; max-width: 520px; aspect-ratio: 1; margin: 0 auto; border-radius: 4px; overflow: hidden; background: #fff; cursor: grab; }
+.pp-viewer:active { cursor: grabbing; }
+.pp-viewer canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.pp-viewer img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; cursor: inherit; }
+.pp-viewer.ready img { display: none; }
