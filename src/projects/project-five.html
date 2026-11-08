@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2.007 Robot Design – Vinn Nguyen</title>
+  <title>AmazeAmazeAmaze and Buddy – Vinn Nguyen</title>
   <meta name="description" content="Design and build of a competition robot for MIT 2.007 Design and Manufacturing I, Spring 2026, from first concept through a 704–675 match win." />
   <link rel="icon" href="../assets/favicon/favicon.ico" />
   <link rel="canonical" href="https://nguyenvinn.com/src/projects/project-five.html" />
   <meta name="theme-color" content="#1f1f1f" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Vinn Nguyen" />
-  <meta property="og:title" content="2.007 Robot Design – Vinn Nguyen" />
+  <meta property="og:title" content="AmazeAmazeAmaze and Buddy – Vinn Nguyen" />
   <meta property="og:description" content="Design and build of a competition robot for MIT 2.007 Design and Manufacturing I, Spring 2026, from first concept through a 704–675 match win." />
   <meta property="og:url" content="https://nguyenvinn.com/src/projects/project-five.html" />
   <meta property="og:image" content="https://nguyenvinn.com/src/assets/project/project-five/hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"2.007 Robot Design","description":"Design and build of a competition robot for MIT 2.007 Design and Manufacturing I, Spring 2026, from first concept through a 704–675 match win.","image":"https://nguyenvinn.com/src/assets/project/project-five/hero.jpg","url":"https://nguyenvinn.com/src/projects/project-five.html","author":{"@type":"Person","name":"Vinn Nguyen","url":"https://nguyenvinn.com/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"AmazeAmazeAmaze and Buddy","description":"Design and build of a competition robot for MIT 2.007 Design and Manufacturing I, Spring 2026, from first concept through a 704–675 match win.","image":"https://nguyenvinn.com/src/assets/project/project-five/hero.jpg","url":"https://nguyenvinn.com/src/projects/project-five.html","author":{"@type":"Person","name":"Vinn Nguyen","url":"https://nguyenvinn.com/"}}</script>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/utilities.css" />
   <link rel="stylesheet" href="../css/project.css" />
@@ -44,7 +44,7 @@
   </nav>
 
   <main class="pp">
-    <h1>2.007 Robot Design</h1>
+    <h1>AmazeAmazeAmaze and Buddy</h1>
     <p class="pp-date">Spring 2026 &middot; MIT 2.007 Design and Manufacturing I</p>
 
     <img class="pp-hero" src="../assets/project/project-five/hero.jpg" alt="The finished 2.007 robot: aluminum chassis with chain-driven spinner, winch motors and a white Delrin trophy lift" />
@@ -58,9 +58,9 @@
 
     <section class="pp-sec">
       <h2>Strategy and early prototypes</h2>
-      <p><b>Mini bot prototypes.</b> I started with a small companion robot as its own side project. It began as a simple test chassis to work out the drive layout, then moved to a labeled prototype on a folded sheet-metal body, and was eventually redesigned around a compact 3D-printed chassis that paired with the main robot at competition.</p>
-      <figure class="pp-fig wide"><div class="pp-strip"><img src="../assets/project/project-five/IMG_9612.jpg" alt="First test chassis for the mini bot" loading="lazy" /><img src="../assets/project/project-five/IMG_9680.jpg" alt="An early labeled prototype" loading="lazy" /><img src="../assets/project/project-five/IMG_0345.jpg" alt="The compact 3D-printed mini bot" loading="lazy" /></div><p class="pp-cap">The mini bot's journey: first test chassis, labeled prototype, and the final compact, 3D-printed version.</p></figure>
-      <p><b>Concept on paper.</b> Before any metal was cut for the main robot, I mapped the game's scoring actions against how hard each would be to build, to find a strategy that scored well without betting everything on the hardest mechanisms. Then I sketched the spin-wheel module by hand &mdash; bearings, spacers, sprockets and motor mounts &mdash; to work out how the pieces would stack on a shaft.</p>
+      <p><b>Mini bot, then Buddy.</b> Before starting the main robot, I built a small mini bot as a warm-up for designing it. It began as a simple test chassis to work out the drive layout, then moved to a labeled prototype on a folded sheet-metal body. That warm-up turned into Buddy, my small 3D-printed robot that does laps and paired with the main robot, AmazeAmazeAmaze, at competition.</p>
+      <figure class="pp-fig wide"><div class="pp-strip"><img src="../assets/project/project-five/IMG_9612.jpg" alt="First test chassis for the mini bot" loading="lazy" /><img src="../assets/project/project-five/IMG_9680.jpg" alt="An early labeled prototype" loading="lazy" /><img src="../assets/project/project-five/IMG_0345.jpg" alt="The compact 3D-printed mini bot" loading="lazy" /></div><p class="pp-cap">The mini bot's journey: first test chassis, labeled prototype, and Buddy, the final compact 3D-printed version.</p></figure>
+      <p><b>Concept on paper.</b> Before any metal was cut for AmazeAmazeAmaze, I mapped the game's scoring actions against how hard each would be to build, to find a strategy that scored well without betting everything on the hardest mechanisms. Then I sketched the spin-wheel module by hand &mdash; bearings, spacers, sprockets and motor mounts &mdash; to work out how the pieces would stack on a shaft.</p>
       <figure class="pp-fig wide"><div class="pp-pair"><img src="../assets/project/project-five/notebook-strategy.jpg" alt="Preliminary strategy outline, weighing points against difficulty" loading="lazy" /><img src="../assets/project/project-five/notebook-sketch.jpg" alt="Hand sketch of the spin-wheel module" loading="lazy" /></div><p class="pp-cap">Preliminary strategy outline (left) and the first hand sketch of the spin-wheel module (right).</p></figure>
     </section>
 
@@ -75,15 +75,16 @@
       <h2>Mechanisms</h2>
       <h3>The spinner</h3>
       <p>One scoring action spins a wheel on the table: two motors drive a 1:2 gear ratio transmission through a sprocket and chain, turning a Delrin wheel insert. I modeled it in CAD, then built it.</p>
-      <figure class="pp-fig wide"><div class="pp-pair"><img src="../assets/project/project-five/cad-spinwheel.jpg" alt="CAD model of the spin-wheel mechanism" loading="lazy" /><img src="../assets/project/project-five/IMG_0278.jpg" alt="The spinner mechanism, built" loading="lazy" /></div><p class="pp-cap">The CAD model (left) and the built spinner mechanism (right).</p></figure>
-      <figure class="pp-fig wide"><video class="pp-video" controls preload="metadata" playsinline poster="../assets/project/project-five/run-poster.jpg"><source src="../assets/project/project-five/run.mp4" type="video/mp4" /></video><p class="pp-cap">Spinning the wheel on the table.</p></figure>
+      <figure class="pp-fig"><img src="../assets/project/project-five/cad-spinwheel.jpg" alt="CAD model of the spin-wheel mechanism" loading="lazy" /><p class="pp-cap">The CAD model of the spin-wheel mechanism.</p></figure>
+      <figure class="pp-fig wide"><div class="pp-pair gifs"><img src="../assets/project/project-five/spinner-1.gif" alt="The spinner in action" /><img src="../assets/project/project-five/spinner-2.gif" alt="The spinner running on the table" /></div><p class="pp-cap">The spinner mechanism in action.</p></figure>
       <h3>The winch</h3>
       <p>A second scoring action pulls a tire in with a carabiner, winched back by a separate geared motor pair, sized to output at least 3 N&middot;m of torque.</p>
-      <figure class="pp-fig wide"><div class="pp-pair"><img src="../assets/project/project-five/IMG_0287.jpg" alt="The winch mechanism" loading="lazy" /><img src="../assets/project/project-five/IMG_0445.jpg" alt="Close-up of the winch while testing" loading="lazy" /></div><p class="pp-cap">The winch mechanism (left), and a closer look while testing (right).</p></figure>
+      <figure class="pp-fig wide"><div class="pp-pair tall"><img src="../assets/project/project-five/IMG_0278-new.jpg" alt="The winch module on its own" loading="lazy" /><img src="../assets/project/project-five/IMG_0285.jpg" alt="The finalized winch mounted on the robot" loading="lazy" /></div><p class="pp-cap">The winch module (left) and the finalized winch on the robot (right).</p></figure>
       <figure class="pp-fig wide"><video class="pp-video" controls preload="metadata" playsinline poster="../assets/project/project-five/winch-poster.jpg"><source src="../assets/project/project-five/winch.mp4" type="video/mp4" /></video><p class="pp-cap">Being tested and adjusted on the table before a run.</p></figure>
       <h3>Attachment iteration</h3>
       <p>I built several small carabiner-style bracket plates with fasteners and a latch element, and tested them against the rails and the wheel on the competition table, iterating between versions.</p>
       <figure class="pp-fig wide"><div class="pp-strip"><img src="../assets/project/project-five/IMG_0141.jpg" alt="Bracket prototype on the table" loading="lazy" /><img src="../assets/project/project-five/IMG_0149.jpg" alt="Bracket prototype" loading="lazy" /><img src="../assets/project/project-five/IMG_0166.jpg" alt="Two bracket versions side by side" loading="lazy" /></div><p class="pp-cap">Bracket prototypes, from the first version to later iterations.</p></figure>
+      <figure class="pp-fig"><img src="../assets/project/project-five/attachment.gif" alt="Testing the attachment on the table" loading="lazy" /><p class="pp-cap">Testing the attachment.</p></figure>
     </section>
 
     <section class="pp-sec">
@@ -102,7 +103,8 @@
 
     <section class="pp-sec">
       <h2>Competition day</h2>
-      <p>The robot ran on the F.007 table against another team's robot.</p>
+      <p>AmazeAmazeAmaze and Buddy ran on the F.007 table against another team's robot.</p>
+      <figure class="pp-fig wide"><img src="../assets/project/project-five/IMG_0449-2.jpg" alt="AmazeAmazeAmaze and Buddy on the competition floor with the controller" loading="lazy" /><p class="pp-cap">AmazeAmazeAmaze and Buddy on the competition floor.</p></figure>
       <figure class="pp-fig wide"><div class="pp-pair"><img src="../assets/project/project-five/IMG_9663.jpg" alt="The Formula 1 themed competition table" loading="lazy" /><img src="../assets/project/project-five/IMG_0469.jpg" alt="Me and my competition partner at the track" loading="lazy" /></div><p class="pp-cap">The competition table (left), and me with my partner at the track (right).</p></figure>
       <p>The robot won its match, 704&ndash;675. This is the moment I'm proudest of on this project:</p>
       <figure class="pp-fig wide"><video class="pp-video finale" controls preload="metadata" playsinline poster="../assets/project/project-five/result-poster.jpg"><source src="../assets/project/project-five/result.mp4" type="video/mp4" /></video></figure>
