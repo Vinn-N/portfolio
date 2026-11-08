@@ -5,10 +5,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { STLLoader } from 'three/addons/loaders/STLLoader.js';
 
 const VIEWS = {
-  front: [0, 0, 1],
-  side: [1, 0, 0],
-  top: [0, 1, 0.001],
-  iso: [0.64, 0.48, 0.77],
+  iso: [0.64, 0.48, -0.77], // front-right-top
 };
 
 document.querySelectorAll('.pp-viewer').forEach((el) => {
@@ -35,14 +32,22 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
   renderer.domElement.style.touchAction = 'pan-y'; // let the page scroll on touch screens
   renderer.domElement.addEventListener('pointerdown', () => { controls.autoRotate = false; syncPlay(); });
 
-  // ---- toolbar: view buttons, play/pause, fullscreen
-  const bar = document.createElement('div');
-  bar.className = 'pv-bar';
-  const mk = (txt, label, fn) => {
-    const b = document.createElement('button');
-    b.type = 'button'; b.textContent = txt; b.setAttribute('aria-label', label); b.addEventListener('click', fn);
-    bar.appendChild(b); return b;
-  };
+  // ---- view cube (click a face to snap to that view) + home / spin / fullscreen
+  const ctl = document.createElement('div');
+  ctl.className = 'pv-ctl';
+  const cubeWrap = document.createElement('div');
+  cubeWrap.className = 'pv-cubewrap';
+  const cube = document.createElement('div');
+  cube.className = 'pv-cube';
+  const H = 27; // half the cube edge, px
+  const FACES = [
+    ['Front', `rotateY(180deg) translateZ(${H}px)`, [0, 0, -1]],
+    ['Back', `translateZ(${H}px)`, [0, 0, 1]],
+    ['Right', `rotateY(90deg) translateZ(${H}px)`, [1, 0, 0]],
+    ['Left', `rotateY(-90deg) translateZ(${H}px)`, [-1, 0, 0]],
+    ['Top', `rotateX(90deg) translateZ(${H}px)`, [0, 1, 0.001]],
+    ['Bottom', `rotateX(-90deg) translateZ(${H}px)`, [0, -1, 0.001]],
+  ];
   let fly = null;
   const flyTo = (dir) => {
     controls.autoRotate = false; syncPlay();
@@ -55,20 +60,58 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
       if (k >= 1) fly = null;
     };
   };
-  Object.keys(VIEWS).forEach((name) => mk(name[0].toUpperCase() + name.slice(1), `${name} view`, () => flyTo(VIEWS[name])));
-  const play = mk('Pause', 'Pause or resume spin', () => { controls.autoRotate = !controls.autoRotate; syncPlay(); });
-  function syncPlay() { play.textContent = controls.autoRotate ? 'Pause' : 'Spin'; }
+  FACES.forEach(([name, tf, dir]) => {
+    const f = document.createElement('button');
+    f.type = 'button'; f.className = 'pv-face'; f.textContent = name;
+    f.setAttribute('aria-label', `${name} view`);
+    f.style.transform = tf;
+    f.addEventListener('click', () => flyTo(dir));
+    cube.appendChild(f);
+  });
+  cubeWrap.appendChild(cube);
+  ctl.appendChild(cubeWrap);
+
+  const ICON = {
+    home: '<svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 10v9.5h13V10"/></svg>',
+    pause: '<svg viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg>',
+    spin: '<svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.6-5.9M20 4v5h-5"/></svg>',
+    full: '<svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>',
+    exit: '<svg viewBox="0 0 24 24"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>',
+  };
+  const mk = (icon, label, fn) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'pv-btn'; b.innerHTML = ICON[icon]; b.title = label; b.setAttribute('aria-label', label);
+    b.addEventListener('click', fn);
+    ctl.appendChild(b); return b;
+  };
+  mk('home', 'Isometric view', () => flyTo(VIEWS.iso));
+  const play = mk('pause', 'Pause or resume spin', () => { controls.autoRotate = !controls.autoRotate; syncPlay(); });
+  function syncPlay() { play.innerHTML = controls.autoRotate ? ICON.pause : ICON.spin; }
   const canFs = el.requestFullscreen || el.webkitRequestFullscreen;
   if (canFs) {
-    const fs = mk('Fullscreen', 'Toggle fullscreen', () => {
+    const fs = mk('full', 'Fullscreen', () => {
       if (document.fullscreenElement || document.webkitFullscreenElement) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
       else (el.requestFullscreen || el.webkitRequestFullscreen).call(el);
     });
-    const upd = () => { fs.textContent = (document.fullscreenElement || document.webkitFullscreenElement) === el ? 'Exit' : 'Fullscreen'; };
+    const upd = () => { fs.innerHTML = (document.fullscreenElement || document.webkitFullscreenElement) === el ? ICON.exit : ICON.full; };
     document.addEventListener('fullscreenchange', upd);
     document.addEventListener('webkitfullscreenchange', upd);
   }
-  el.appendChild(bar);
+  el.appendChild(ctl);
+
+  // keep the cube's orientation in sync with the camera (world -> CSS, y flipped)
+  const syncCube = () => {
+    camera.updateMatrixWorld();
+    const e = camera.matrixWorldInverse.elements; // column-major 4x4, rotation part in [0..2],[4..6],[8..10]
+    const S = [1, -1, 1];
+    const m = [];
+    for (let col = 0; col < 3; col++) {
+      for (let row = 0; row < 3; row++) m.push(S[row] * S[col] * e[col * 4 + row]);
+      m.push(0);
+    }
+    m.push(0, 0, 0, 1);
+    cube.style.transform = `matrix3d(${m.join(',')})`;
+  };
 
   // ---- part labels
   let labels = [];
@@ -150,5 +193,6 @@ document.querySelectorAll('.pp-viewer').forEach((el) => {
     controls.update();
     renderer.render(scene, camera);
     placeTags();
+    syncCube();
   });
 });
