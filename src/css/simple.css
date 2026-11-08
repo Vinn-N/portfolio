@@ -73,14 +73,29 @@ body { background: var(--bg-primary); }
 .home .term:first-of-type { margin-top: 0; }
 
 
-/* Section jump links */
-.home .jump { display: flex; gap: 2rem; margin-bottom: 2.5rem; }
-.home .jump-btn {
-  font-size: 1rem; font-weight: 600; color: var(--sage-green);
-  padding-bottom: 0.3rem; border-bottom: 2px solid rgba(94, 129, 87, 0.35);
-  text-decoration: none; transition: border-color 0.2s ease;
+/* Section jump tiles */
+.home .jump {
+  display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 2.5rem;
+  border: 1px solid rgba(52, 55, 59, 0.28); border-radius: 10px; overflow: hidden;
 }
-.home .jump-btn:hover { border-bottom-color: var(--sage-green); opacity: 1; }
+.home .jump-btn {
+  position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 1.6rem;
+  padding: 0.9rem 1.1rem 1rem; color: var(--text-color); text-decoration: none; overflow: hidden;
+  border-left: 1px solid rgba(52, 55, 59, 0.28); transition: color 0.3s ease;
+}
+.home .jump-btn:first-child { border-left: 0; }
+.home .jump-btn::before { /* green fill that rises from the bottom on hover */
+  content: ""; position: absolute; inset: 0; z-index: 0; background: var(--sage-green);
+  transform: translateY(101%); transition: transform 0.35s cubic-bezier(.2,.7,.2,1);
+}
+.home .jump-btn > span { position: relative; z-index: 1; }
+.home .jump-btn .jn { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; opacity: 0.55; font-variant-numeric: tabular-nums; }
+.home .jump-btn .jt { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; }
+.home .jump-btn .ja { position: absolute; right: 1rem; bottom: 0.9rem; font-size: 1.1rem; transition: transform 0.3s ease; }
+.home .jump-btn:hover { color: var(--bg-primary); opacity: 1; }
+.home .jump-btn:hover::before { transform: translateY(0); }
+.home .jump-btn:hover .ja { transform: translateY(4px); }
+@media (max-width: 520px) { .home .jump-btn .jt { font-size: 0.95rem; } .home .jump-btn { padding: 0.75rem 0.8rem; } }
 .home .proj-sec { scroll-margin-top: 2rem; }
 .home .proj-sec + .proj-sec { margin-top: 4rem; }
 .home .proj-sec h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 1.5rem; }
@@ -95,9 +110,6 @@ body { background: var(--bg-primary); }
 .home .card-info { transition: color 0.2s ease, transform 0.35s ease; transform-origin: center top; }
 .home .card:hover .card-info,
 .home .card:focus-within .card-info {
-  color: var(--sage-green);
-  text-decoration: underline !important;
-  text-underline-offset: 4px;
   transform: scale(1.06); /* zooms together with the picture */
 }
 .home .card:active .card-info { opacity: 0.7; transform: scale(1.02); }
