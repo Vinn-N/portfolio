@@ -9,7 +9,7 @@
   /* Colors */
   --primary-color: #5E8157;
   --secondary-color: #5E8157;
-  --bg-primary: #E6E8E1;
+  --bg-primary: #E3ECF3;
   --text-color: #3A3D40; /* soft charcoal */
   --text-color-two: #ffffff;
   --bg-secondary: #000000;
@@ -459,7 +459,15 @@ body {
   }
 }
 
-/* Light theme: soft gradient background */
+/* Light theme: drafting-paper blue with a faint engineering grid */
 :root:not([data-theme="dark"]) body {
-  background: linear-gradient(180deg, #E6E8E1 0%, #E0E4DB 100%) fixed;
+  background-color: #E3ECF3;
+  background-image:
+    linear-gradient(rgba(60, 110, 160, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(60, 110, 160, 0.12) 1px, transparent 1px),
+    linear-gradient(rgba(60, 110, 160, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(60, 110, 160, 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, #E9F0F6 0%, #DDE8F0 100%);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px, 100% 100%;
+  background-attachment: fixed;
 }
