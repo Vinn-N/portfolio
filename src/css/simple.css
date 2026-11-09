@@ -134,3 +134,16 @@ body { background: var(--bg-primary); }
 .home .skill-group h3 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-color); opacity: 0.55; margin: 0 0 0.6rem; }
 .home .skill-group li { margin: 0; padding: 0.28rem 0.7rem; font-size: 0.84rem; font-weight: 500; line-height: 1.3; border-radius: 999px; background: rgba(52, 55, 59, 0.06); }
 @media (max-width: 620px) { .home .skill-grid { grid-template-columns: 1fr; } .home .photo { width: 112px; height: 112px; } }
+
+/* Mobile: keep the header inside the screen */
+.home { overflow-x: hidden; }
+.home-head > div { min-width: 0; }
+.home .links { display: flex; flex-wrap: wrap; align-items: center; row-gap: 0.15rem; }
+@media (max-width: 520px) {
+  .home { padding: 4.5rem 1.1rem 3rem; }
+  .home-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .home .photo { width: 120px; height: 120px; }
+  .home .proj-sec h2, .home .skills h2 { font-size: 1.35rem; }
+  .home .grid { grid-template-columns: 1fr; gap: 2rem; }
+  .theme-switch.corner { right: 1rem; top: 1rem; }
+}

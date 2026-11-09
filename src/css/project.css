@@ -113,3 +113,11 @@ html, body { height: auto !important; overflow-y: auto !important; }
 .pv-pick ol { margin: 0 0 0 1rem; padding: 0; list-style: decimal; }
 .pv-pick li { font-size: 0.66rem; margin: 0; }
 .pv-pick button { align-self: flex-start; border: 0; border-radius: 999px; background: #5E8157; color: #fff; font: inherit; font-weight: 600; padding: 0.25rem 0.7rem; cursor: pointer; }
+
+/* ---- Phones: taller 3D viewer, smaller controls and labels ---- */
+@media (max-width: 600px) {
+  .pp-viewer { aspect-ratio: 1 / 1; }
+  .pv-ctl { top: 0.4rem; right: 0.3rem; transform: scale(0.72); transform-origin: top right; }
+  .pv-name { font-size: 0.6rem; padding: 0.1rem 0.4rem; left: 11px; top: -9px; }
+  .pv-dot { width: 14px; height: 14px; left: -7px; top: -7px; }
+}
