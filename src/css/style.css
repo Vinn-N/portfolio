@@ -9,8 +9,8 @@
   /* Colors */
   --primary-color: #5E8157;
   --secondary-color: #5E8157;
-  --bg-primary: #F4F4F2;
-  --text-color: #34373B; /* soft charcoal */
+  --bg-primary: #E6E8E1;
+  --text-color: #3A3D40; /* soft charcoal */
   --text-color-two: #ffffff;
   --bg-secondary: #000000;
   --card-background: #1d1d1d;
@@ -461,5 +461,5 @@ body {
 
 /* Light theme: soft gradient background */
 :root:not([data-theme="dark"]) body {
-  background: linear-gradient(180deg, #F4F4F2 0%, #EFF1ED 100%) fixed;
+  background: linear-gradient(180deg, #E6E8E1 0%, #E0E4DB 100%) fixed;
 }
