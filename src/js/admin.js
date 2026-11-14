@@ -22,7 +22,7 @@
       body: opts.body ? JSON.stringify(opts.body) : undefined,
     }).then(function (r) {
       return r.json().catch(function () { return {}; }).then(function (data) { return { ok: r.ok, status: r.status, data: data }; });
-    });
+    }).catch(function () { return { ok: false, status: 0, data: {} }; });
   }
 
   // Keep only simple inline formatting; everything else becomes plain text.
