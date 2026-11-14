@@ -5,7 +5,7 @@
 .ad-lock {
   position: fixed; right: 14px; bottom: 14px; z-index: 900; width: 34px; height: 34px;
   border: 1px solid var(--ad-line); border-radius: 50%; background: var(--ad-paper); color: var(--ad-ink);
-  font-size: 14px; line-height: 1; cursor: pointer; opacity: 0.35; transition: opacity 0.15s;
+  display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer; opacity: 0.75; transition: opacity 0.15s; box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 .ad-lock:hover, .ad-lock:focus-visible { opacity: 1; }
 
