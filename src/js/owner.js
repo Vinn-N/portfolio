@@ -8,7 +8,7 @@
   var INLINE = { A: 1, B: 1, STRONG: 1, EM: 1, I: 1, BR: 1, CODE: 1, SUB: 1, SUP: 1 };
   var page = location.pathname.replace(/index\.html$/, "") || "/";
   var base = (document.currentScript && document.currentScript.src) || "";
-  var cssHref = base.replace(/js\/admin\.js.*$/, "css/admin.css");
+  var cssHref = base.replace(/js\/owner\.js.*$/, "css/owner.css");
 
   // ---------- helpers ----------
   function norm(s) { return (s || "").replace(/\s+/g, " ").trim(); }
@@ -104,19 +104,19 @@
   }
 
   function addCss() {
-    if (document.getElementById("admin-css")) return;
+    if (document.getElementById("owner-css")) return;
     var l = document.createElement("link");
-    l.id = "admin-css"; l.rel = "stylesheet"; l.href = cssHref;
+    l.id = "owner-css"; l.rel = "stylesheet"; l.href = cssHref;
     document.head.appendChild(l);
   }
 
-  function notesHref() { return cssHref.replace(/css\/admin\.css.*$/, "notes.html"); }
+  function notesHref() { return cssHref.replace(/css\/owner\.css.*$/, "notes.html"); }
 
   function mountLock() {
     addCss();
     var b = document.createElement("button");
-    if (document.querySelector(".navbar")) document.documentElement.classList.add("ad-has-nav");
-    b.className = "ad-lock"; b.type = "button"; b.setAttribute("aria-label", "Owner login");
+    if (document.querySelector(".navbar")) document.documentElement.classList.add("ow-has-nav");
+    b.className = "ow-lock"; b.type = "button"; b.setAttribute("aria-label", "Owner login");
     b.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
     b.addEventListener("click", showLogin);
     document.body.appendChild(b);
@@ -124,15 +124,15 @@
 
   function showLogin() {
     var wrap = document.createElement("div");
-    wrap.className = "ad-modal";
+    wrap.className = "ow-modal";
     wrap.innerHTML =
-      '<form class="ad-box"><h2>Owner login</h2><input type="password" placeholder="Password" autocomplete="current-password" required />' +
-      '<p class="ad-err" role="alert"></p><div class="ad-row"><button type="button" class="ad-btn ad-ghost">Cancel</button><button class="ad-btn">Log in</button></div></form>';
+      '<form class="ow-box"><h2>Owner login</h2><input type="password" placeholder="Password" autocomplete="current-password" required />' +
+      '<p class="ow-err" role="alert"></p><div class="ow-row"><button type="button" class="ow-btn ow-ghost">Cancel</button><button class="ow-btn">Log in</button></div></form>';
     document.body.appendChild(wrap);
-    var form = wrap.querySelector("form"), input = form.querySelector("input"), err = form.querySelector(".ad-err");
+    var form = wrap.querySelector("form"), input = form.querySelector("input"), err = form.querySelector(".ow-err");
     input.focus();
     wrap.addEventListener("click", function (e) { if (e.target === wrap) wrap.remove(); });
-    form.querySelector(".ad-ghost").addEventListener("click", function () { wrap.remove(); });
+    form.querySelector(".ow-ghost").addEventListener("click", function () { wrap.remove(); });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       err.textContent = "";
@@ -144,17 +144,17 @@
 
   function mountBar() {
     addCss();
-    document.querySelectorAll(".ad-lock").forEach(function (n) { n.remove(); });
+    document.querySelectorAll(".ow-lock").forEach(function (n) { n.remove(); });
     bar = document.createElement("div");
-    bar.className = "ad-bar";
+    bar.className = "ow-bar";
     bar.innerHTML =
-      '<span class="ad-status"></span>' +
-      '<button type="button" class="ad-btn" data-a="edit">Edit text</button>' +
-      '<button type="button" class="ad-btn ad-go" data-a="save" hidden>Save</button>' +
-      '<button type="button" class="ad-btn ad-ghost" data-a="cancel" hidden>Cancel</button>' +
-      '<button type="button" class="ad-btn ad-ghost" data-a="reset" hidden>Reset page</button>' +
-      '<a class="ad-btn ad-ghost" href="' + notesHref() + '" data-a="notes">Notes</a>' +
-      '<button type="button" class="ad-btn ad-ghost" data-a="out">Log out</button>';
+      '<span class="ow-status"></span>' +
+      '<button type="button" class="ow-btn" data-a="edit">Edit text</button>' +
+      '<button type="button" class="ow-btn ow-go" data-a="save" hidden>Save</button>' +
+      '<button type="button" class="ow-btn ow-ghost" data-a="cancel" hidden>Cancel</button>' +
+      '<button type="button" class="ow-btn ow-ghost" data-a="reset" hidden>Reset page</button>' +
+      '<a class="ow-btn ow-ghost" href="' + notesHref() + '" data-a="notes">Notes</a>' +
+      '<button type="button" class="ow-btn ow-ghost" data-a="out">Log out</button>';
     document.body.appendChild(bar);
     bar.addEventListener("click", function (e) {
       var a = e.target.getAttribute && e.target.getAttribute("data-a");
@@ -166,7 +166,7 @@
     });
   }
 
-  function setStatus(msg) { if (bar) bar.querySelector(".ad-status").textContent = msg || ""; }
+  function setStatus(msg) { if (bar) bar.querySelector(".ow-status").textContent = msg || ""; }
 
   function toggleButtons() {
     bar.querySelector('[data-a="edit"]').hidden = editing;
@@ -194,7 +194,7 @@
 
   function startEdit() {
     editing = true;
-    document.documentElement.classList.add("ad-editing");
+    document.documentElement.classList.add("ow-editing");
     els.forEach(function (el) { el.contentEditable = "true"; el.spellcheck = true; });
     document.addEventListener("click", blockLinks, true);
     document.addEventListener("keydown", onKey, true);
@@ -205,7 +205,7 @@
 
   function stopEdit(revert) {
     editing = false;
-    document.documentElement.classList.remove("ad-editing");
+    document.documentElement.classList.remove("ow-editing");
     els.forEach(function (el, i) {
       el.removeAttribute("contenteditable");
       el.removeAttribute("spellcheck");

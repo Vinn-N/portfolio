@@ -39,8 +39,8 @@
   function loginView(msg) {
     logoutLink.hidden = true;
     var pw = el("input", { type: "password", placeholder: "Password", autocomplete: "current-password", required: "" });
-    var err = el("p", { class: "ad-err", text: msg || "" });
-    var form = el("form", { class: "nt-login" }, [pw, err, el("button", { class: "ad-btn", text: "Unlock" })]);
+    var err = el("p", { class: "ow-err", text: msg || "" });
+    var form = el("form", { class: "nt-login" }, [pw, err, el("button", { class: "ow-btn", text: "Unlock" })]);
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       api("/login", "POST", { password: pw.value }).then(function (r) {
@@ -57,7 +57,7 @@
     var classes = data.classes.slice().sort(byCode);
 
     if (!classes.length) {
-      var seed = el("button", { class: "ad-btn", type: "button", text: "Start with my 2.xxx classes" });
+      var seed = el("button", { class: "ow-btn", type: "button", text: "Start with my 2.xxx classes" });
       seed.addEventListener("click", function () {
         data.classes = SEED.map(function (s) { return { id: uid(), code: s[0], name: s[1], items: [] }; });
         save().then(render);
@@ -99,7 +99,7 @@
     var title = el("input", { placeholder: "Title, e.g. Lecture 5: Beam bending", required: "", class: "full" });
     var url = el("input", { type: "url", placeholder: "Link (Google Drive, Dropbox, ...)", required: "", class: "full" });
     var kind = el("select", {}, KINDS.map(function (k) { return el("option", { value: k[0], text: k[1] }); }));
-    var form = el("form", { class: "ad-form" }, [title, url, kind, el("button", { class: "ad-btn", text: "Add" })]);
+    var form = el("form", { class: "ow-form" }, [title, url, kind, el("button", { class: "ow-btn", text: "Add" })]);
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       c.items.push({ id: uid(), title: title.value.trim(), url: url.value.trim(), kind: kind.value });
@@ -108,7 +108,7 @@
     });
     body.appendChild(form);
 
-    var del = el("button", { class: "ad-btn ad-ghost", type: "button", text: "Delete class", style: "margin-top:12px" });
+    var del = el("button", { class: "ow-btn ow-ghost", type: "button", text: "Delete class", style: "margin-top:12px" });
     del.addEventListener("click", function () {
       if (!confirm("Delete " + c.code + " and its list of links?")) return;
       data.classes = data.classes.filter(function (x) { return x.id !== c.id; });
@@ -122,7 +122,7 @@
   function addClassView() {
     var code = el("input", { placeholder: "Course number, e.g. 2.004", required: "" });
     var name = el("input", { placeholder: "Class name", required: "" });
-    var form = el("form", { class: "ad-form" }, [code, name, el("button", { class: "ad-btn", text: "Add class" })]);
+    var form = el("form", { class: "ow-form" }, [code, name, el("button", { class: "ow-btn", text: "Add class" })]);
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var id = uid();
@@ -136,7 +136,7 @@
   function load() {
     api("/notes").then(function (r) {
       if (r.status === 401) return loginView();
-      if (!r.ok) return app.replaceChildren(el("p", { class: "ad-err", text: "Could not load. Is the site's backend deployed?" }));
+      if (!r.ok) return app.replaceChildren(el("p", { class: "ow-err", text: "Could not load. Is the site's backend deployed?" }));
       data = r.data && Array.isArray(r.data.classes) ? r.data : { classes: [] };
       render();
     });
