@@ -8,6 +8,7 @@ src/assets/project/fun/IMG_2826.png
 .gitignore
 .assetsignore
 wrangler.jsonc
+worker
 node_modules
 .wrangler
 *.md
